@@ -90,10 +90,13 @@ nav button {
 }
 
 .position-card {
-    padding: 42px 17px 28px 17px;
-    width: 260px;
+    padding: 20px;
     min-width: 260px;
     text-align: left;
+}
+.position-card:hover {
+    cursor: pointer;
+    background: #f7f7f7;
 }
 .position-card div {
     font-size: 11px;
@@ -103,11 +106,10 @@ nav button {
 }
 .position-card h6 {
     margin: 10px 0;
-    font-size: 15px;
+    font-size: 20px;
 }
 .position-card p {
     margin: 40px 0;
-    font-size: 12px;
     color: rgb(165, 165, 165);
 }
 .position-card button,
@@ -144,6 +146,10 @@ nav button {
     width: 36px;
     border-radius: 50%;
     background-image: url('../images/footer-green.png');
+}
+
+.animated-employee, .animated-employer{
+    max-height: 400px;
 }
 
 @media screen and (max-width: 1000px) {

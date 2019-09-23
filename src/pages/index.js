@@ -13,8 +13,8 @@ import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
 import Money from '../images/money.png'
 import Envelope from '../images/envelope.png'
-import Screenshot from '../images/cell-screenshot.png'
-import Screenshot2 from '../images/cell-screenshot2.png'
+import animationEmployer from '../images/animation-employer.gif'
+import animationEmployee from '../images/animation-employee.gif'
 import Review1 from '../images/review1.png'
 import Review2 from '../images/review2.png'
 import Review3 from '../images/review3.png'
@@ -67,7 +67,7 @@ export default () => (
 
                     <div className="col-6">
                         <Player
-                            video="0gwvFV9OXuI"
+                            video="izRld2t-Xw8"
                             height={'300px'}
                             style={{ backgroundColor: '#dcdbdb' }}
                         />
@@ -169,7 +169,7 @@ export default () => (
         </div>
 
         <div className="pt-10 text-left d-flex justify-content-center align-items-center">
-            <img src={Screenshot2} />
+            <img className="animated-employee" src={animationEmployee} />
 
             <div className="ml-5">
                 <h3 className="ml-4">
@@ -205,7 +205,7 @@ export default () => (
                 </ul>
             </div>
 
-            <img src={Screenshot} />
+            <img  className="animated-employer" src={animationEmployer} />
         </div>
 
         <div className="bg-lightgray px-5 py-10 m-0 text-center">

@@ -6,7 +6,7 @@ import PositionCard from '../components/position-card'
 const data = [
     {
         location: 'Miami Beach',
-        amount: '$11.53 - $12.03',
+        amount: '$11',
         position: 'Bartenders',
         description: `Lorem ipsum dolor sit amet consect adipisicing elit. Volupta
 enim delec saepe cumque totam dolor aut reprehenderit optio
@@ -16,7 +16,7 @@ itaque magni.`,
     },
     {
         location: 'Coral Gables',
-        amount: '$11.53 - $12.03',
+        amount: '$11.5',
         position: 'Servers',
         description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tempore laborum aperiam officiis eos in esse saepe iusto nam.`,
         type: 'Part Time',
@@ -24,7 +24,7 @@ itaque magni.`,
     },
     {
         location: 'Key Biscayne',
-        amount: '$11.53 - $12.03',
+        amount: '$12',
         position: 'Maids',
         description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, nostrum eum consequuntur fuga sit nihil enim tempora ex.`,
         type: 'Full Time',
@@ -72,11 +72,10 @@ const Positions = () => (
             </div>
         </div>
 
-        <div className="container-fluid text-center my-5 py-5">
+        <div className="container text-center my-5 py-5">
             {rows.map((e, i) => {
                 return (
                     <div className="row my-2" key={i}>
-                        <div className="col s1000-hide" />
                         {data.map((e, i) => {
                             let hide = i === 2 ? "s900-hide" : "";
                             return (
@@ -86,7 +85,6 @@ const Positions = () => (
                                 </div>
                             )
                         })}
-                        <div className="col s1000-hide" />
                     </div>
                 )
             }
