@@ -2,3 +2,4 @@
 
 - $ npm i -g firebase-tools
 - $ firebase login --no-localhost
+- $ firebase deploy
