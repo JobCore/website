@@ -13,19 +13,17 @@ export default () => (
         <div>
             <div className="text-right nav-top">
                 <small>
-                    <span className="pr-4">(305)555-8473</span>
+                    <span className="pr-4">(305) 555-8473</span>
                     <Link to="/login" activeClassName="active">
                         <a className="link px-2 pr-4">
                             <i class="fas fa-caret-right text-brightblue mr-2"></i>
-                            My Account
+                            About the company
                     </a>
                     </Link>
-                    <Link to="/sign-in" activeClassName="active">
-                        <a className="link px-2">
-                            <i class="fas fa-caret-right text-brightblue mr-2"></i>
-                            Sign In
+                    <a href="https://employer.jobcore.co" className="link px-2">
+                        <i class="fas fa-caret-right text-brightblue mr-2"></i>
+                        Sign In
                     </a>
-                    </Link>
                 </small>
             </div>
             <div>

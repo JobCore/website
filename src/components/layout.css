@@ -31,16 +31,6 @@ nav button {
     margin-top: 3vw;
 }
 
-.background-image-platform2 {
-    background-image: url('../images/platform-glance2.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 70%;
-    height: 40vw;
-    margin: auto;
-    margin-top: 3vw;
-}
-
 .gray-top-image {
     height: 450px;
     background-image: url('https://staticcrate.com/assets/img/categories/backgrounds_LOW_POLY_NO_TEXT.jpg');

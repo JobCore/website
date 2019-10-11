@@ -32,16 +32,14 @@ export default () => (
                 <div className="row">
                     <div className="col-6 text-left">
                         <h1 className="">
-                            Get work fast &
-                            <span className="text-brightblue"> get paid </span>
-                            the same day
+                            Connecting talented <span className="text-brightblue">job seekers</span> with hospitality <span className="text-brightblue">companies</span>
+                            {/* <span className="text-brightblue"> get paid </span> */}
                         </h1>
 
-                        <p>
-                            JobCore is where events are organized: A talent pool
-                            of curated workers and hundreds of companies
-                            organizing events and hiring everyday.
-                        </p>
+                        <ul>
+                            <li>Company: Instantly schedule and broadcast to hundreds of pre-qualified job seekers.</li>
+                            <li>Job Seeker: Get work constantly, get paid the same day.</li>
+                        </ul>
 
                         <div className="pt-3 d-flex align-items-center justify-content-center">
                             <input
@@ -56,10 +54,10 @@ export default () => (
                         </div>
 
                         <div className="text-center pt-5">
-                            <a className="mr-2" href="#">
+                            <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
                                 <img src={GooglePlay} />
                             </a>
-                            <a href="#">
+                            <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
                                 <img src={AppStore} />
                             </a>
                         </div>
