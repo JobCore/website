@@ -21,6 +21,42 @@ nav button {
     margin-left: 4em;
 }
 
+.icon_form {
+    position: relative;
+    color: #aaa;
+    font-size: 16px;
+  }
+  
+  .icon_form input {
+    width: 100%;
+    height: 50px;
+    padding-right: 65px;
+    background: white;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    
+  }
+  
+  .icon_form input { text-indent: 20px;}
+  .icon_form .fa { 
+    float: right;
+    top: 15px;
+    position: absolute;
+    z-index: 2;
+    color: grey;
+  }
+  .icon_form .fa {left: 90%;}
+  .icon_form .fas { 
+    float: right;
+    top: 15px;
+    position: absolute;
+    z-index: 2;
+    color: grey;
+  }
+  .icon_form .fas {left: 90%;}
+  
+
+
 .background-image-platform {
     background-image: url('../images/platform-glance.png');
     background-size: contain;
@@ -39,14 +75,35 @@ nav button {
     color: white;
 }
 
-.pink-top-image {
-    height: 450px;
-    background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+
+
+@media (max-width: 576px) { .pink-top-image {
+    height: 300px;
+    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
     background-size: 100% 100%;
     text-shadow: 1px 1px 6px black;
     color: white;
-}
+    /* border: 5px solid blue;  */
+} }
 
+
+@media (max-width: 768px) { .pink-top-image {
+    height: 250px;
+    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+    background-size: 100% 100%;
+    text-shadow: 1px 1px 6px black;
+    color: white;
+    /* border: 5px solid blue;  */
+}}
+
+
+@media (min-width: 1000px) { .pink-top-image {
+    height: 300px;
+    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+    background-size: 100% 100%;
+    text-shadow: 1px 1px 6px black;
+    color: white;
+}}
 .darkgreen-top-image {
     height: 450px;
     background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BKpZoQ4viqlda90c/videoblocks-dark-green-abstract-motion-loopable-background_rzxkiiwqf_thumbnail-full01.png');

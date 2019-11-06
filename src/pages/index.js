@@ -1,9 +1,8 @@
 import React from 'react'
-
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
-
+import { Link } from "gatsby"
 //assets
 import AppStore from '../images/app-store.png'
 import GooglePlay from '../images/google-play.png'
@@ -42,15 +41,22 @@ export default () => (
                         </ul>
 
                         <div className="pt-3 d-flex align-items-center justify-content-center">
+
+                        <form action="http://localhost:8000/job-seekers-signup/" _lpchecked="1">
+ 
                             <input
-                                type="text"
+                                type="email"
+                                name="email"
                                 className="form-control d-inline w-300px"
                                 placeholder="Enter Your Email"
                             />
+                 
 
-                            <button className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline">
+                            <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline">
                                 Get Started
                             </button>
+                            </form>
+
                         </div>
 
                         <div className="text-center pt-5">
