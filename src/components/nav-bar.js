@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'gatsby'
 import Logo from '../images/jobcore-logo.png'
-
+import { navigate } from "@reach/router"
 /* eslint-disable */
-
-export default () => (
+export default () => {
+    const [accountType, setAccountType] = useState('');
+    return(
     <div>
+
     <div className="d-none d-md-block">
 
     <nav className="navbar justify-content-between px-10 s1000-display-column s700-collapse-padding">
@@ -49,6 +51,7 @@ export default () => (
                 <button
                     className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin"
                     type="submit"
+                    onClick={()=>setAccountType("signup")}
                 >
                     Get Started
                 </button>
@@ -56,7 +59,29 @@ export default () => (
         </div>
     </nav>
     </div>
+    <div class={accountType !== "" ? "modal d-block" : "modal"} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style={{borderStyle: "none"}}>
+        <h5 class="modal-title" id="exampleModalLabel">Are you a jobseeker or an employer?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={()=>setAccountType("")}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="row justfy-content-center text-center p-4">
+          <div className="col">
+          <button type="button" class="btn btn-primary" onClick={() => navigate("/job-seekers-signup/")} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
 
+          </div>
+          <div className="col">
+          <button type="button" class="btn btn-primary" onClick={() => navigate("/employers-signup/")} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
+
+          </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
     <nav class="navbar navbar-expand-lg navbar-light d-md-none">
     <Link to="/">
             <img className="navbar-brand" src={Logo} />
@@ -97,6 +122,7 @@ export default () => (
       <button
                     className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin"
                     type="submit"
+                    onClick={()=>setAccountType("signup")}
               
                 >
                     Get Started
@@ -105,4 +131,7 @@ export default () => (
   </div>
 </nav>
     </div>
-)
+
+    )
+}
+

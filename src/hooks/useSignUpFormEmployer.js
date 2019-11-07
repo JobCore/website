@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {signup} from '../actions'
+import {signupEmployer} from '../actions'
 /* eslint-disable */
 
 
-const useSignUpForm = (queryEmail, accountType) => {
+const useSignUpFormEmployer = (queryEmail, accountType) => {
   const [inputs, setInputs] = useState({});
   const [errors, setErrors] = useState('');
 
@@ -11,8 +11,9 @@ const useSignUpForm = (queryEmail, accountType) => {
     if (event) {
       let formData = Object.assign(inputs, {account_type : accountType})
       event.preventDefault();
-      signup(formData)
-      setErrors(signup(formData))
+      console.log(formData)
+      signupEmployer(formData)
+      setErrors(signupEmployer(formData))
     }
   }
   const handleInputChange = (event) => {
@@ -28,4 +29,4 @@ const useSignUpForm = (queryEmail, accountType) => {
     };
   }
 
-  export default useSignUpForm;
+  export default useSignUpFormEmployer;

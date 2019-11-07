@@ -1,9 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useState} from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import axios from 'axios'
 import useSignUpForm from '../hooks/useSignUpForm.js'
+import { navigate } from "@reach/router"
+
 /* eslint-disable */
 
 const handleInput = (value) => {
@@ -33,11 +35,10 @@ const handleInput = (value) => {
 }
 
 const JobSeekersSignUp = (props) => {
- 
+    const [accountType, setAccountType] = useState('');
       const emailQueryString = decodeURIComponent(props.location.search.replace("?email=", ''))
-        console.log(emailQueryString)
-      const {inputs, handleInputChange, handleSubmit} = useSignUpForm(emailQueryString);
-    
+      const {inputs, handleInputChange, handleSubmit, errors} = useSignUpForm(emailQueryString, accountType);
+    console.log(handleSubmit)
       return(
     <Layout>
         <SEO title="Sign Up" />
@@ -58,6 +59,9 @@ const JobSeekersSignUp = (props) => {
         <div className="container my-5">    
             <div className="row justify-content-center mx-auto">
                 <div className="col-12 col-md-6">
+
+
+
 
 
 
@@ -113,6 +117,12 @@ const JobSeekersSignUp = (props) => {
   <span class="fas fa-phone"></span>
   <input type="text" name="phone" placeholder="(555) 555 - 5555" onChange={handleInputChange} value={handleInput(inputs.phone)} required/>
 </div>
+                    </div>
+                    <div className="row text-center">
+                        <div className="col">
+                    {errors ? <span style={{color:"red"}}>{errors}</span> :null }
+
+                        </div>
                     </div>
                     <button
                         className="btn radius btn-purple  mt-2 px-5 py-2"

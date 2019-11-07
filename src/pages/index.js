@@ -1,4 +1,6 @@
-import React from 'react'
+
+import React, {useState} from 'react'
+
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
@@ -20,12 +22,16 @@ import Review3 from '../images/review3.png'
 import Customer1 from '../images/customer1.png'
 import Customer2 from '../images/customer2.png'
 import Customer3 from '../images/customer3.png'
-
+import { navigate } from "@reach/router"
 /* eslint-disable */
 
-export default () => (
+export default () => {
+    const [getStarted, setGetStarted] = useState('');
+    return(
+
     <Layout>
         <SEO title="Home" />
+       
         <div className="bg-lightgray py-10 m-0">
             <div className="container">
                 <div className="row">
@@ -42,7 +48,7 @@ export default () => (
 
                         <div className="pt-3 d-flex align-items-center justify-content-center">
 
-                        <form action="http://localhost:8000/job-seekers-signup/" _lpchecked="1">
+                        <form action="/job-seekers-signup/" _lpchecked="1">
  
                             <input
                                 type="email"
@@ -52,7 +58,7 @@ export default () => (
                             />
                  
 
-                            <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline">
+                            <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline"  onClick={()=>setGetStarted("signup")}>
                                 Get Started
                             </button>
                             </form>
@@ -166,7 +172,7 @@ export default () => (
                     placeholder="Enter Your Email"
                 />
 
-                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2">
+                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
                     Get Started
                 </button>
             </div>
@@ -223,11 +229,33 @@ export default () => (
                 Sign up today and experience the difference. It's fast and easy!
             </p>
 
-            <button className="btn radius btn-purple mt-3 my-2 ml-2 px-5 py-3">
+            <button className="btn radius btn-purple mt-3 my-2 ml-2 px-5 py-3" onClick={()=>setGetStarted("signup")}>
                 Get Started
             </button>
         </div>
+        <div class={getStarted !== "" ? "modal d-block" : "modal"} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style={{borderStyle: "none"}}>
+        <h5 class="modal-title" id="exampleModalLabel">Are you a jobseeker or an employer?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={()=>setGetStarted("")}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="row justfy-content-center text-center p-4">
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="jobseeker" onClick={(email) => navigate("/job-seekers-signup/")} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
 
+          </div>
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="employer" onClick={(email) => navigate("/employers-signup/")} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
+
+          </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
         <div className="py-10 text-left text-center">
             <h3 className="mb-2">
                 The <span className="text-brightblue">platform</span> at a
@@ -367,4 +395,5 @@ export default () => (
             </div>
         </div>
     </Layout>
-)
+    )
+}

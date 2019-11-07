@@ -28,10 +28,10 @@ export default () => (
             <img className="s1000-hide" height="450" src={PhoneApp} />
 
             <div className="w-500px px-2 py-5">
-                <h1>About <span className="text-brightblue">Jobcore</span></h1>
-                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ad mollitia sit repellat cum labore perspiciatis sed saepe adipisci architecto rem similique maxime numquam accusamus provident et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
-                <p className="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur quae facilis ex facere ratione quibusdam soluta molestias est sapiente eius illo excepturi velit commodi reiciendis, illum et doloribus corporis. Nemo?</p>
-                <p className="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus veritatis temporibus illo alias harum officia necessitatibus? Quisquam!</p>
+                <h1>About <span className="text-brightblue">JobCore</span></h1>
+                <p className="text-secondary">We started our catering and event management company in 2004, and have become industry leaders in the South Florida market over the past 15 years. We have learned the hard way that recruiting qualified workers in the hospitality industry is really hard. The seasonal and temporary nature of our operations hurts our ability to provide good part time workers a steady paycheck, and the best ones end up leaving our industry in search of more hours or higher wages. We thought it did not have to be this way, so we decided to raise the bar for ourselves and the industry as a whole.</p>
+                <p className="text-secondary">We started JobCore in 2018 to bring to market our solution to the staffing problems we experienced ourselves over the past 15 years. It is a platform for event organizers to recruit, schedule, pay and rate part-time workers quickly, efficiently and transparently in the hospitality industry.</p>
+
             </div>
         </div>
 
