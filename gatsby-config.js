@@ -13,6 +13,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        whitelist: ["MY_VAR", "MY_OTHER_VAR"]
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
