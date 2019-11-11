@@ -20,7 +20,15 @@ footer a {
 nav button {
     margin-left: 4em;
 }
-
+.jobcore-logo-img {
+    max-height: 100px;
+    width: 50px;
+    margin: 0 auto;
+   
+    width: auto;
+    height: auto;
+    display: block;
+}
 .icon_form {
     position: relative;
     color: #aaa;
@@ -175,7 +183,12 @@ nav button {
     padding: 24px;
     text-align: left;
 }
-
+@media only screen and (max-width : 425px) {
+   
+    .ratingtalent_star {
+        padding-bottom: "36px"
+    }
+    }
 .round-links {
     display: inline-block;
     padding: 1px;
@@ -194,7 +207,9 @@ nav button {
     border-radius: 50%;
     background-image: url('../images/footer-green.png');
 }
-
+#error-form{
+    border: solid 2px red; background-color: #ffe5e5
+}
 .animated-employee, .animated-employer{
     max-height: 400px;
 }
@@ -255,6 +270,15 @@ nav button {
         flex-direction: column !important;
     }
 }
+.alert-thankyou-shown {
+    opacity: 1;
+    transition: all 325ms linear;
+  }
+  
+  .alert-thankyou-hidden {
+    opacity: 0;
+    transition: all 325ms linear;
+  }
 
 @media screen and (max-width: 700px) {
     .s700-hide {

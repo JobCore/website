@@ -10,6 +10,8 @@ import AppStore from '../images/app-store.png'
 import GooglePlay from '../images/google-play.png'
 import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
+import Clock from '../images/clock.png'
+
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
 import Money from '../images/money.png'
@@ -23,10 +25,21 @@ import Customer1 from '../images/customer1.png'
 import Customer2 from '../images/customer2.png'
 import Customer3 from '../images/customer3.png'
 import { navigate } from "@reach/router"
+import GooglePlayStore from '../images/googleplay.svg'
+import AppleStore from '../images/applestore.svg'
+import { get } from 'https'
 /* eslint-disable */
 
 export default () => {
-    const [getStarted, setGetStarted] = useState('');
+    const [getStarted, setGetStarted] = useState("");
+    const [emailGetStarted, setemailGetStarted] = useState("");
+
+    const handleInputChange = (event) => {
+        event.persist();
+          
+        setemailGetStarted(emailGetStarted => ({...emailGetStarted, [event.target.name]: event.target.value}));
+        }
+
     return(
 
     <Layout>
@@ -35,47 +48,50 @@ export default () => {
         <div className="bg-lightgray py-10 m-0">
             <div className="container">
                 <div className="row">
-                    <div className="col-6 text-left">
+                    <div className="col-md-6 text-left">
                         <h1 className="">
-                            Connecting talented <span className="text-brightblue">job seekers</span> with hospitality <span className="text-brightblue">companies</span>
+                            Create your shift-schedule & hire your<span className="text-brightblue">part-time</span> staff
                             {/* <span className="text-brightblue"> get paid </span> */}
                         </h1>
 
-                        <ul>
-                            <li>Company: Instantly schedule and broadcast to hundreds of pre-qualified job seekers.</li>
-                            <li>Job Seeker: Get work constantly, get paid the same day.</li>
-                        </ul>
+                        <p>
+                            JobCore is where events are organized: A curated and validated talent pool of workers
+                           and hundreds of companies
+                            organizing events and hiring everyday.
+                        </p>
 
                         <div className="pt-3 d-flex align-items-center justify-content-center">
 
-                        <form action="/job-seekers-signup/" _lpchecked="1">
+                    
  
                             <input
                                 type="email"
                                 name="email"
                                 className="form-control d-inline w-300px"
                                 placeholder="Enter Your Email"
+                                value={emailGetStarted.email}
+                                onChange={handleInputChange}
                             />
                  
 
                             <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline"  onClick={()=>setGetStarted("signup")}>
                                 Get Started
                             </button>
-                            </form>
+                          
 
                         </div>
 
-                        <div className="text-center pt-5">
+                        <div className="text-center pt-5 mb-2">
                             <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
-                                <img src={GooglePlay} />
+                                <img src={GooglePlayStore} width="125px" height="40px"/>
                             </a>
                             <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
-                                <img src={AppStore} />
+                                <img src={AppleStore} width="125px" height="40px" />
                             </a>
                         </div>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-md-6">
                         <Player
                             video="izRld2t-Xw8"
                             height={'300px'}
@@ -88,21 +104,30 @@ export default () => {
 
         <div className="py-10 px-10 text-center">
             <div className="container">
+              
+<div className="py-10 px-10 text-center">
+            <div className="container">
                 <h3>
-                    Finally a centralized
-                    <span className="text-brightblue"> source of talents </span>
+                    Finally a centralized{' '}
+                    <span className="text-brightblue">source of talents </span>
                     and companies!
                 </h3>
 
                 <p className="pt-3">
-                    Sign up, setup your job preferences and start receiving
-                    invitations to work as Chef, Cook, <br />
-                    Bartender, Cleaning Staff or any other role surrounding
-                    hospitality.
+                   JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants 
+                   nightclubs, bars and janitorial services companies to qualified part-time workes.
                 </p>
+                <p>Employers create their calendar shifts, recruit workers from out curated pool, communicate with them and schedule, pay, and rat ethem quickly and efficiently</p>
 
                 <div className="mt-5 d-flex justify-content-between align-items-end">
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
+                        <img src={Suitcase} />
+                        <h6 className="mt-3">Publish Shifts</h6>
+                        <p className="text-secondary font-size-13px">
+                            Setup your job and preferences in a custom calendar.
+                        </p>
+                    </div>
+                    <div className="w-250px mb-auto">
                         <img src={Magnify} />
                         <h6 className="mt-2">Find Talent</h6>
                         <p className="text-secondary font-size-13px">
@@ -110,45 +135,43 @@ export default () => {
                             experience.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Calendar} />
-                        <h6 className="mt-3">Schedule Jobs</h6>
+                        <h6 className="mt-3">Manage Schedule</h6>
                         <p className="text-secondary font-size-13px">
-                            Receive live notifications on the best jobs for your preferences.
-                        </p>
-                    </div>
-                    <div className="w-250px">
-                        <img src={Suitcase} />
-                        <h6 className="mt-3">Get Hired</h6>
-                        <p className="text-secondary font-size-13px">
-                            Apply to jobs and get hired from your phone, schedule your work.
+                            Automatically send employees job location and shift
+                            times.
                         </p>
                     </div>
                 </div>
 
                 <div className="mt-5 d-flex justify-content-between align-items-end">
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
+                        <img src={Clock} />
+                        <h6 className="mt-1">Clock In-Out</h6>
+                        <p className="text-secondary font-size-13px">
+                            Track employee performance with GPS located clock
+                            in-out features.
+                        </p>
+                    </div>
+                    <div className="w-250px mb-auto">
                         <img src={Money} />
-                        <h6 className="mt-1">Manage Billing</h6>
+                        <h6 className="mt-2">Payroll Reports</h6>
                         <p className="text-secondary font-size-13px">
-                            Weekly payroll reports with clock in/out payment information.
+                            Instant payroll reports based on employee activity.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Envelope} />
-                        <h6 className="mt-2">Paid Some Day</h6>
+                        <h6 className="mt-2">Direct Payments</h6>
                         <p className="text-secondary font-size-13px">
-                            Clock in/out & receive the money into your account in less than 24hrs.
-                        </p>
-                    </div>
-                    <div className="w-250px">
-                        <img src={Star} />
-                        <h6 className="mt-2">Rate Talent</h6>
-                        <p className="text-secondary font-size-13px">
-                            Find the best talent and employers with positive ratings.
+                            Direct ACH payments to employee bank accounts.
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+                
             </div>
         </div>
 
@@ -166,24 +189,59 @@ export default () => {
             </p>
 
             <div className="mt-4 d-flex align-items-center justify-content-center">
-                <input
-                    type="text"
-                    className="form-control w-300px"
-                    placeholder="Enter Your Email"
-                />
+            <input
+                                type="email"
+                                name="email"
+                                className="form-control d-inline w-300px"
+                                placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
+                            />
 
                 <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
                     Get Started
                 </button>
             </div>
         </div>
-
-        <div className="pt-10 text-left d-flex justify-content-center align-items-center">
-            <img className="animated-employee" src={animationEmployee} />
-
-            <div className="ml-5">
+        <div className="py-10 text-left d-flex justify-content-center align-items-center">
+            <div className="row">
+                <div className="col-12 col-md-6 my-auto">
+            <div>
                 <h3 className="ml-4">
-                    Find jobs in minutes and
+                    Employers can manage
+                    <br />
+                    <span className="text-brightblue"> talent</span> & payroll
+                </h3>
+                <ul className="purple-checkmark text-left mt-3">
+                    <li>Setup your event and preferences</li>
+                    <li>Publish shifts to hundreds of curated talents</li>
+                    <li>Hire the talents you want</li>
+                    <li>Talent clocks-in / out using our app</li>
+                    <li>Manage payroll and pay faster</li>
+                    <li>Everything employers need in one platform!</li>
+                </ul>
+            </div>
+                    
+                </div>
+                <div className="col-12 col-md-6">
+            <img  className="animated-employer mx-auto d-block pb-3" style={{width: "100%"}} src={animationEmployer} />
+
+                </div>
+            </div>
+
+        </div>
+        <div className="text-left d-flex justify-content-center align-items-center">
+            <div className="row">
+                <div className="col-12 col-md-4">
+
+            <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
+                </div>
+                <div className="col-md-8 my-auto">
+
+            <div>
+                <h3 className="ml-4">
+                    Job seekers can find 
+                    <br/>
+                    jobs in minutes and
                     <br />
                     <span className="text-brightblue"> get paid</span> faster
                 </h3>
@@ -196,27 +254,12 @@ export default () => {
                     <li>It is that simple!</li>
                 </ul>
             </div>
-        </div>
-
-        <div className="py-10 text-left d-flex justify-content-center align-items-center">
-            <div className="mr-5">
-                <h3 className="ml-4">
-                    Employers can manage
-                    <br />
-                    <span className="text-brightblue"> talent</span> & payroll
-                </h3>
-                <ul className="purple-checkmark text-left mt-3">
-                    <li>Setup your event and preferences</li>
-                    <li>Publish shifts to hundreds of curated talents</li>
-                    <li>Hire the talents you want</li>
-                    <li>Talent clocks-in/out using our app</li>
-                    <li>Manage payroll and pay faster</li>
-                    <li>Everything employees need in one platform!</li>
-                </ul>
+                </div>
             </div>
 
-            <img  className="animated-employer" src={animationEmployer} />
         </div>
+
+        
 
         <div className="bg-lightgray px-5 py-10 m-0 text-center">
             <h3 className="mb-1">
@@ -244,11 +287,11 @@ export default () => {
       </div>
       <div className="row justfy-content-center text-center p-4">
           <div className="col">
-          <button type="button" class="btn btn-primary" value="jobseeker" onClick={(email) => navigate("/job-seekers-signup/")} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
+          <button type="button" class="btn btn-primary" value="jobseeker" onClick={(email) => navigate(`/job-seekers-signup/${emailGetStarted["email"] ? "?email=" + emailGetStarted["email"] : '' }`)} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
 
           </div>
           <div className="col">
-          <button type="button" class="btn btn-primary" value="employer" onClick={(email) => navigate("/employers-signup/")} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
+          <button type="button" class="btn btn-primary" value="employer" onClick={(email) => navigate(`/employers-signup/${emailGetStarted["email"] ? "?email=" +emailGetStarted["email"] : '' }`)} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
 
           </div>
       </div>
@@ -278,101 +321,118 @@ export default () => {
                 saying about us
             </h3>
 
-            <div className="d-flex justify-content-center py-4">
+            <div className="row justify-content-center py-4">
 
-                <div className="w-280px s900-hide">
-                    <img src={Customer1} />
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
+            <div className="col-md-3 pt-2 pr-0">
+                <Player
+                            video="izRld2t-Xw8"
+                         
+                            style={{ width: '100%', height:"200px" }}
+                        />
+                        <div className="row justify-content-end">
+                            <div className="col-6 col-md-2 text-right my-auto">
+                        <span>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
+                             
                                 >
                                     Tanya,
                                     </small>
                             </div>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
+                                
                                     className="text-gray"
                                 >
                                     Victoria
                                     </small>
                             </div>
                         </span>
-                        <img className="mr-3 ml-2" src={Review1} />
-                    </div>
+
+                            </div>
+                            <div className="col-6 col-md-3 my-auto">
+
+                        <img src={Review1} />
+                            </div>
+
+                        </div>
+                  
                 </div>
 
-                <div className="w-280px">
-                    <img src={Customer2} />
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
+                <div className="col-md-3 pt-2 pr-0">
+                <Player
+                            video="izRld2t-Xw8"
+                         
+                            style={{ width: '100%',height:"200px" }}
+                        />
+                        <div className="row justify-content-end">
+                            <div className="col-6 col-md-2 text-right my-auto">
+                        <span>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
+                             
                                 >
-                                    Lopez,
+                                    Tanya,
                                     </small>
                             </div>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
+                                
                                     className="text-gray"
                                 >
-                                    Sofia
+                                    Victoria
                                     </small>
                             </div>
                         </span>
-                        <img className="mr-3 ml-2" src={Review2} />
-                    </div>
-                </div>
 
-                <div className="w-280px">
-                    <img src={Customer3} />
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
+                            </div>
+                            <div className="col-6 col-md-3 my-auto">
+
+                        <img src={Review1} />
+                            </div>
+
+                        </div>
+                  
+                </div>
+                <div className="col-md-3 pt-2 pr-0">
+                <Player
+                            video="izRld2t-Xw8"
+                         
+                            style={{ width: '100%', height: "200px" }}
+                        />
+                        <div className="row justify-content-end">
+                            <div className="col-6 col-md-2 text-right my-auto">
+                        <span>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
+                             
                                 >
-                                    Alfonso,
+                                    Tanya,
                                     </small>
                             </div>
                             <div>
                                 <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
+                                
                                     className="text-gray"
                                 >
-                                    John
+                                    Victoria
                                     </small>
                             </div>
                         </span>
-                        <img className="mr-3 ml-2" src={Review3} />
-                    </div>
+
+                            </div>
+                            <div className="col-6 col-md-3 my-auto">
+
+                        <img src={Review1} />
+                            </div>
+
+                        </div>
+                  
                 </div>
 
             </div>
 
-            <h3 className="pt-5 mt-3">
+            <h3 className="pt-5 mt-5">
                 It's never been easier
                 <span className="text-brightblue"> find jobs and hire</span> in
                 the hospitality industry.
@@ -383,13 +443,15 @@ export default () => {
             </p>
 
             <div className="d-flex align-items-center justify-content-center">
-                <input
-                    type="text"
-                    className="form-control w-300px"
-                    placeholder="Enter Your Email"
-                />
+            <input
+                                type="email"
+                                name="email"
+                                className="form-control d-inline w-300px"
+                                placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
+                            />
 
-                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2">
+                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
                     Get Started
                 </button>
             </div>

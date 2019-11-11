@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'gatsby'
-import Logo from '../images/jobcore-logo.png'
+import Logo from '../images/jobcorelogo.png'
 import { navigate } from "@reach/router"
 /* eslint-disable */
 export default () => {
@@ -12,23 +12,23 @@ export default () => {
 
     <nav className="navbar justify-content-between px-10 s1000-display-column s700-collapse-padding">
         <Link to="/">
-            <img className="navbar-brand" src={Logo} />
+            <img className="navbar-brand jobcore-logo-img" src={Logo} />
         </Link>
 
         <div>
             <div className="text-right nav-top">
                 <small>
                     <span className="pr-4">(305) 555-8473</span>
-                    <Link to="/login" activeClassName="active">
+                    <Link to="/about" activeClassName="active">
                         <a className="link px-2 pr-4">
                             <i class="fas fa-caret-right text-brightblue mr-2"></i>
                             About the company
                     </a>
                     </Link>
-                    <a href="https://employer.jobcore.co" className="link px-2">
+                    <Link to="/login" className="link px-2">
                         <i class="fas fa-caret-right text-brightblue mr-2"></i>
                         Sign In
-                    </a>
+                    </Link>
                 </small>
             </div>
             <div>
@@ -42,9 +42,14 @@ export default () => {
                         Employers
                     </a>
                 </Link>
-                <Link to="/positions" activeClassName="active">
+                {/* <Link to="/positions" activeClassName="active">
                     <a className="link px-3 s700-collapse-padding">
                         Positions
+                    </a>
+                </Link> */}
+                <Link to="/pricing" activeClassName="active">
+                    <a className="link px-3 s700-collapse-padding">
+                        Pricing
                     </a>
                 </Link>
 
@@ -84,7 +89,7 @@ export default () => {
 </div>
     <nav class="navbar navbar-expand-lg navbar-light d-md-none">
     <Link to="/">
-            <img className="navbar-brand" src={Logo} />
+            <img className="navbar-brand jobcore-logo-img"  src={Logo} />
         </Link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

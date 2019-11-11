@@ -5,7 +5,8 @@ import { Link } from 'gatsby'
 import Logo from '../images/jobcore-logo-green.png'
 import Google from '../images/google-play-green.png'
 import App from '../images/app-store-green.png'
-
+import GooglePlayStore from '../images/googleplay.svg'
+import AppleStore from '../images/applestore.svg'
 /* eslint-disable */
 
 const Footer = () => (
@@ -61,7 +62,10 @@ const Footer = () => (
                     <strong>Resources</strong>
                     <ul>
                         <li>
-                            <a href="#">Blog</a>
+
+                    <Link to="/blog">
+                                <a>Blog</a>
+                            </Link>
                         </li>
                         <li>
                             <a href="#">How to Apply (FAQ)</a>
@@ -70,14 +74,17 @@ const Footer = () => (
                             <a href="#">Case Studies</a>
                         </li>
                         <li>
-                            <a href="#">Prices</a>
+                        <Link to="/prices">
+                                <a>Prices</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div className="text-center pt-3">
-            <div className="pb-4">
+            <div className="row pb-4 justify-content-center text-center">
+                <div className="col">
                 <span className="round-links bg-white mr-3">
                     <a href="#">
                         <span className="d-flex align-items-center justify-content-center">
@@ -85,6 +92,9 @@ const Footer = () => (
                         </span>
                     </a>
                 </span>
+                    
+                </div>
+                <div className="col">
                 <span className="round-links bg-white mr-3">
                     <a href="#">
                         <span className="d-flex align-items-center justify-content-center">
@@ -92,6 +102,9 @@ const Footer = () => (
                         </span>
                     </a>
                 </span>
+
+                </div>
+                <div className="col">
                 <span className="round-links bg-white mr-3">
                     <a href="#">
                         <span className="d-flex align-items-center justify-content-center">
@@ -99,20 +112,25 @@ const Footer = () => (
                         </span>
                     </a>
                 </span>
-                <span className="round-links bg-white">
+
+                </div>
+                <div className="col">
+                <span className="round-links bg-white mr-3">
                     <a href="#">
                         <span className="d-flex align-items-center justify-content-center">
                             <i class="fas fa-envelope"></i>
                         </span>
                     </a>
                 </span>
+
+                </div>
             </div>
-            <a href="#">
-                <img className="pr-2" height="45px" src={App} />
-            </a>
-            <a href="#">
-                <img height="45px" src={Google} />
-            </a>
+            <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
+                                <img src={GooglePlayStore} width="125px" height="40px"/>
+                            </a>
+                            <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
+                                <img src={AppleStore} width="125px" height="40px" />
+                            </a>
         </div>
     </footer>
 )

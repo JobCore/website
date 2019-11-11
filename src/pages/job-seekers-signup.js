@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -36,9 +36,10 @@ const handleInput = (value) => {
 
 const JobSeekersSignUp = (props) => {
     const [accountType, setAccountType] = useState('');
+    
       const emailQueryString = decodeURIComponent(props.location.search.replace("?email=", ''))
-      const {inputs, handleInputChange, handleSubmit, errors} = useSignUpForm(emailQueryString, accountType);
-    console.log(handleSubmit)
+      const {inputs, handleInputChange, handleSubmit, submitData, errors} = useSignUpForm(emailQueryString, accountType);
+  
       return(
     <Layout>
         <SEO title="Sign Up" />
@@ -80,56 +81,67 @@ const JobSeekersSignUp = (props) => {
                         {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                         <div class="icon_form">
   <span class="fa fa-user"></span>
-  <input placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} required />
+  <input id={errors.includes("First name is required") ? "error-form" : null} placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName}  />
+
+{errors.includes("First name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("First name is required")]}</strong></div>: null} 
 </div>
                     </div>
                     <div className="form-group py-1">
                         <label className=""><h6>Last Name</h6></label>
                         <div class="icon_form">
   <span class="fa fa-user"></span>
-  <input placeholder="Doe" maxlength="59" type="text" name="lastName" onChange={handleInputChange} value={inputs.lastName} required/>
+  <input id={errors.includes("Last name is required") ? "error-form" : null} placeholder="Doe" maxlength="254" type="text" name="lastName" onChange={handleInputChange} value={inputs.lastName}  />
+
+{errors.includes("Last name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Last name is required")]}</strong></div>: null} 
 </div>
                     </div>
                     <div className="form-group py-1">
                         <label className=""><h6>Your Email</h6></label>
                         <div class="icon_form">
   <span class="fas fa-envelope"></span>
-  <input placeholder="john.doe@gmail.com" maxlength="254" type="email" name="email" onChange={handleInputChange}  defaultValue={emailQueryString} value={inputs.email} required/>
+  <input id={errors.includes("Email is required") || errors.includes("Invalid email address") || errors.includes("This email already exist.") ? "error-form" : null} placeholder="john.doe@gmail.com" maxlength="254" type="text" name="email" onChange={handleInputChange}  defaultValue={emailQueryString} value={inputs.email} />
+{errors.includes("Email is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Email is required")]}</strong></div>: null} 
+{errors.includes("Invalid email address") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Invalid email address")]}</strong></div>: null} 
+
 </div>
                     </div>
                     <div className="form-group py-1">
                         <label className=""><h6>Password</h6></label>
                         <div class="icon_form">
   <span class="fas fa-lock"></span>
-  <input type="password" name="password" onChange={handleInputChange} value={inputs.password} required/>
+  <input id={errors.includes("Password is required") ||errors.includes("Password must be 8 character long") || errors.includes("Password do not match")  ? "error-form" : null} type="password" name="password" onChange={handleInputChange} value={inputs.password} />
+  {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div>: null} 
+  {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div>: null} 
+  {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div>: null} 
 </div>
                     </div>
                     <div className="form-group py-1">
                         <label className=""><h6>Re-enter Password</h6></label>
                         <div class="icon_form">
   <span class="fas fa-lock"></span>
-  <input type="password" name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} required/>
+  <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match")  ? "error-form" : null} type="password" name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} />
+  {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div>: null} 
+  {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div>: null} 
+  {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div>: null} 
 </div>
                     </div>
                     <div className="form-group py-1">
                         <label className=""><h6>Phone Number</h6></label>
                         <div class="icon_form">
   <span class="fas fa-phone"></span>
-  <input type="text" name="phone" placeholder="(555) 555 - 5555" onChange={handleInputChange} value={handleInput(inputs.phone)} required/>
+  <input id={errors.includes("Phone number is required") ? "error-form" : null} maxlength="254" type="text" name="phone" placeholder="(555) 555 - 5555" onChange={handleInputChange} value={handleInput(inputs.phone)} />
+
+  {errors.includes("Phone number is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Phone number is required")]}</strong></div>: null} 
 </div>
                     </div>
-                    <div className="row text-center">
-                        <div className="col">
-                    {errors ? <span style={{color:"red"}}>{errors}</span> :null }
-
-                        </div>
-                    </div>
+   
                     <button
+                        disabled={ JSON.stringify(submitData) === JSON.stringify(inputs) ? true: false}
                         className="btn radius btn-purple  mt-2 px-5 py-2"
                         type="submit"
                         onSubmit={handleSubmit}
                     >
-                        SIGN UP
+                       SIGN UP
                     </button>
                     <div className="pt-4 text-gray">
                         <small style={{fontSize: "11px"}}>

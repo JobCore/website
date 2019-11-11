@@ -2,7 +2,7 @@ import React, { useState }  from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
+import { navigate } from "@reach/router"
 /* eslint-disable */
 
 const Pricing = () => {
@@ -12,6 +12,16 @@ const Pricing = () => {
     const [showFAQ4, setShowFAQ4] = useState(false);
     const [showFAQ5, setShowFAQ5] = useState(false);
     const [showFAQ6, setShowFAQ6] = useState(false);
+
+    const [getStarted, setGetStarted] = useState('');
+    const [emailGetStarted, setemailGetStarted] = useState('');
+
+    const handleInputChange = (event) => {
+        event.persist();
+          
+        setemailGetStarted(emailGetStarted => ({...emailGetStarted, [event.target.name]: event.target.value}));
+        }
+
     return(
 
     <Layout>
@@ -335,22 +345,45 @@ const Pricing = () => {
   <p class="lead">Try it now for free / No credit card needed</p>
   <div className="pt-3 d-flex align-items-center justify-content-center">
 
-                        <form action="http://localhost:8000/job-seekers-signup/" _lpchecked="1">
- 
+                     
                             <input
                                 type="email"
                                 name="email"
                                 className="form-control d-inline w-300px"
                                 placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
                             />
                  
 
-                            <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline">
+                            <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline" onClick={()=>setGetStarted("signup")}>
                                 Get Started
                             </button>
-                            </form>
+                            
 
                         </div>
+</div>
+<div class={getStarted !== "" ? "modal d-block" : "modal"} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style={{borderStyle: "none"}}>
+        <h5 class="modal-title" id="exampleModalLabel">Are you a jobseeker or an employer?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={()=>setGetStarted("")}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="row justfy-content-center text-center p-4">
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="jobseeker" onClick={(email) => navigate(`/job-seekers-signup/${emailGetStarted["email"] ? "?email=" + emailGetStarted["email"] : null }`)} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
+
+          </div>
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="employer" onClick={(email) => navigate(`/employers-signup/${emailGetStarted["email"] ? "?email=" +emailGetStarted["email"] : null }`)} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
+
+          </div>
+      </div>
+    
+    </div>
+  </div>
 </div>
     </Layout>
     ) 

@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import { navigate } from "@reach/router"
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
@@ -17,17 +17,30 @@ import animationEmployer from '../images/animation-employer.gif'
 import Review1 from '../images/review1.png'
 import Review2 from '../images/review2.png'
 import Review3 from '../images/review3.png'
-
+import PlatformGlance1 from '../images/platform-glance-1.png'
+import PlatformGlance2 from '../images/platform-glance-2.png'
+import PlatformGlance3 from '../images/platform-glance-3.png'
+import PlatformGlance4 from '../images/platform-glance-4.png'
+import GooglePlayStore from '../images/googleplay.svg'
+import AppleStore from '../images/applestore.svg'
 /* eslint-disable */
 
-const Employers = () => (
-    <Layout>
+const Employers = () => {
+    const [getStarted, setGetStarted] = useState('');
+    const [emailGetStarted, setemailGetStarted] = useState('');
+
+    const handleInputChange = (event) => {
+        event.persist();
+          
+        setemailGetStarted(emailGetStarted => ({...emailGetStarted, [event.target.name]: event.target.value}));
+        }
+    return (<Layout>
         <SEO title="Employers" />
 
         <div className="bg-lightgray py-10 m-0">
             <div className="container">
                 <div className="row">
-                    <div className="col-6 text-left">
+                    <div className="col-md-6 text-left">
                         <h1 className="">
                             Get work fast &{' '}
                             <span className="text-brightblue">get paid </span>
@@ -41,30 +54,30 @@ const Employers = () => (
                         </p>
 
                         <div className="pt-3 d-flex align-items-center justify-content-center">
-                            <input
-                                type="text"
+                        <input
+                                type="email"
+                                name="email"
                                 className="form-control d-inline w-300px"
                                 placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
                             />
 
-                            <button
-                                className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline"
-                            >
-                                Get Started
-                            </button>
+                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
+                    Get Started
+                </button>
                         </div>
 
                         <div className="text-center pt-5">
-                            <a className="mr-2" href="#">
-                                <img src={GooglePlay} />
+                        <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
+                                <img src={GooglePlayStore} width="125px" height="40px"/>
                             </a>
-                            <a href="#">
-                                <img src={AppStore} />
+                            <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
+                                <img src={AppleStore} width="125px" height="40px" />
                             </a>
                         </div>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-md-6 pt-3">
                         <Player
                             video="izRld2t-Xw8"
                             height={'300px'}
@@ -91,14 +104,14 @@ const Employers = () => (
                 </p>
 
                 <div className="mt-5 d-flex justify-content-between align-items-end">
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Suitcase} />
                         <h6 className="mt-3">Publish Shifts</h6>
                         <p className="text-secondary font-size-13px">
                             Setup your job and preferences in a custom calendar.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Magnify} />
                         <h6 className="mt-2">Find Talent</h6>
                         <p className="text-secondary font-size-13px">
@@ -106,7 +119,7 @@ const Employers = () => (
                             experience.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Calendar} />
                         <h6 className="mt-3">Manage Schedule</h6>
                         <p className="text-secondary font-size-13px">
@@ -117,7 +130,7 @@ const Employers = () => (
                 </div>
 
                 <div className="mt-5 d-flex justify-content-between align-items-end">
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Clock} />
                         <h6 className="mt-1">Clock In-Out</h6>
                         <p className="text-secondary font-size-13px">
@@ -125,14 +138,14 @@ const Employers = () => (
                             in-out features.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Money} />
                         <h6 className="mt-2">Payroll Reports</h6>
                         <p className="text-secondary font-size-13px">
                             Instant payroll reports based on employee activity.
                         </p>
                     </div>
-                    <div className="w-250px">
+                    <div className="w-250px mb-auto">
                         <img src={Envelope} />
                         <h6 className="mt-2">Direct Payments</h6>
                         <p className="text-secondary font-size-13px">
@@ -157,22 +170,24 @@ const Employers = () => (
             </p>
 
             <div className="mt-4 d-flex align-items-center justify-content-center">
-                <input
-                    type="text"
-                    className="form-control w-300px"
-                    placeholder="Enter Your Email"
-                />
+            <input
+                                type="email"
+                                name="email"
+                                className="form-control d-inline w-300px"
+                                placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
+                            />
 
-                <button
-                    className="btn radius btn-purple my-2 ml-2 px-4 py-2"
-                >
+                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
                     Get Started
                 </button>
             </div>
         </div>
 
-        <div className="py-10 text-left d-flex justify-content-center align-items-center">
-            <div className="mr-5">
+       <div className="py-10 text-left d-flex justify-content-center align-items-center">
+            <div className="row">
+                <div className="col-12 col-md-6 my-auto">
+            <div>
                 <h3 className="ml-4">
                     Employers can manage
                     <br />
@@ -182,13 +197,19 @@ const Employers = () => (
                     <li>Setup your event and preferences</li>
                     <li>Publish shifts to hundreds of curated talents</li>
                     <li>Hire the talents you want</li>
-                    <li>Talent clocks-in/out using our app</li>
+                    <li>Talent clocks-in / out using our app</li>
                     <li>Manage payroll and pay faster</li>
-                    <li>Everything employees need in one platform!</li>
+                    <li>Everything employers need in one platform!</li>
                 </ul>
             </div>
+                    
+                </div>
+                <div className="col-12 col-md-6">
+            <img  className="animated-employer mx-auto d-block pb-3" style={{width: "100%"}} src={animationEmployer} />
 
-            <img className="animated-employer" src={animationEmployer} />
+                </div>
+            </div>
+
         </div>
 
         <div className="bg-lightgray px-5 py-10 m-0 text-center">
@@ -221,20 +242,52 @@ const Employers = () => (
                 <br />
                 in the hospitality industry on mobile and desktop.
             </p>
+            <div class="card-deck mx-auto" style={{width:"75%"}}>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+ 
 
+    <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{height: "120px"}}/>
+      
+    <div class="card-body">
+      <p class="card-title">Find Talent</p>
+    </div>
+ 
+  </div>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{height: "120px"}}/>
+    <div class="card-body">
+      <p class="card-title">Job Preferences</p>
+    </div>
 
-            <div className="background-image-platform" />
+  </div>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{height: "120px"}}/>
+    <div class="card-body">
+      <p class="card-title">Clock In and Out</p>
+    </div>
+
+  </div>
+
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{height: "120px"}}/>
+    <div class="card-body">
+      <p class="card-title">Get Paid Same Day</p>
+    </div>
+
+  </div>
+</div>
+
+            
 
 
             <h3 className="my-4">
                 What our <span className="text-brightblue">customers</span> are
                 saying about us
             </h3>
+            <div className="row justify-content-center py-4">
 
-            <div className="d-flex justify-content-center py-4">
-
-                <div className="w-280px mx-2 s900-hide">
-                    <div className="reviews">
+<div className="col-md-3 pt-2 pr-0">
+<div className="reviews">
                         Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Ipsa obcaecati adipisci cum nulla, ipsum odio
                         fugit obcaecati sequi eius dicta officia vel quo
@@ -243,112 +296,117 @@ const Employers = () => (
                         inventore. Aspernatur ipsum distinctio, sunt
                         possimus ipsa iste placeat.
                             </div>
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
-                                >
-                                    Tanya,
-                                    </small>
-                            </div>
-
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
-                                    className="text-gray"
-                                >
-                                    Victoria
-                                    </small>
-                            </div>
-                        </span>
-                        <img className="mr-3 ml-2" src={Review1} />
-                    </div>
+            <div className="row justify-content-end pt-2">
+                <div className="col-6 col-md-2 text-right my-auto">
+            <span>
+                <div>
+                    <small
+                 
+                    >
+                        Tanya,
+                        </small>
                 </div>
-
-                <div className="w-280px mx-2">
-                    <div className="reviews">
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Accusantium aperiam sequi perspiciatis atque
-                        eligendi, culpa omnis sint cupiditate obcaecati
-                        voluptatum delectus ab illo inventore in. Excepturi
-                        voluptatibus accusantium facilis! Sit atque aliquam
-                        officia fugiat ullam nesciunt sed laborum dolorum a!
-                            </div>
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
-                                >
-                                    Lopez,
-                                    </small>
-                            </div>
-
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
-                                    className="text-gray"
-                                >
-                                    Sofia
-                                    </small>
-                            </div>
-                        </span>
-                        <img className="mr-3 ml-2" src={Review2} />
-                    </div>
+                <div>
+                    <small
+                    
+                        className="text-gray"
+                    >
+                        Victoria
+                        </small>
                 </div>
+            </span>
 
-                <div className="w-280px mx-2">
-                    <div className="reviews">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Autem commodi quos obcaecati at placeat ut
-                        natus iure aut eius dolore culpa ullam, perferendis,
-                        aperiam nemo quibusdam magnam. Sequi cumque harum ex
-                        dolore incidunt culpa ullam laboriosam odit sit,
-                        necessitatibus, praesentium provident in?
-                            </div>
-                    <div className="d-flex justify-content-end align-items-center mt-3">
-                        <span className="text-left">
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '4px',
-                                    }}
-                                >
-                                    Alfonso,
-                                    </small>
-                            </div>
+                </div>
+                <div className="col-6 col-md-3 my-auto">
 
-                            <div>
-                                <small
-                                    style={{
-                                        position: 'relative',
-                                        top: '-4px',
-                                    }}
-                                    className="text-gray"
-                                >
-                                    John
-                                    </small>
-                            </div>
-                        </span>
-                        <img className="mr-3 ml-2" src={Review3} />
-                    </div>
+            <img src={Review1} />
                 </div>
 
             </div>
+      
+    </div>
+
+    <div className="col-md-3 pt-2 pr-0">
+    <div className="reviews">
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Ipsa obcaecati adipisci cum nulla, ipsum odio
+                        fugit obcaecati sequi eius dicta officia vel quo
+                        numquam est, dolores magnam culpa ullam quas
+                        obcaecati perspiciatis, repellat nesciunt eum
+                        inventore. Aspernatur ipsum distinctio, sunt
+                        possimus ipsa iste placeat.
+                            </div>
+            <div className="row justify-content-end pt-2">
+                <div className="col-6 col-md-2 text-right my-auto">
+            <span>
+                <div>
+                    <small
+                 
+                    >
+                        Tanya,
+                        </small>
+                </div>
+                <div>
+                    <small
+                    
+                        className="text-gray"
+                    >
+                        Victoria
+                        </small>
+                </div>
+            </span>
+
+                </div>
+                <div className="col-6 col-md-3 my-auto">
+
+            <img src={Review1} />
+                </div>
+
+            </div>
+      
+    </div>
+    <div className="col-md-3 pt-2 pr-0">
+    <div className="reviews">
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Ipsa obcaecati adipisci cum nulla, ipsum odio
+                        fugit obcaecati sequi eius dicta officia vel quo
+                        numquam est, dolores magnam culpa ullam quas
+                        obcaecati perspiciatis, repellat nesciunt eum
+                        inventore. Aspernatur ipsum distinctio, sunt
+                        possimus ipsa iste placeat.
+                            </div>
+            <div className="row justify-content-end pt-2">
+                <div className="col-6 col-md-2 text-right my-auto">
+            <span>
+                <div>
+                    <small
+                 
+                    >
+                        Tanya,
+                        </small>
+                </div>
+                <div>
+                    <small
+                    
+                        className="text-gray"
+                    >
+                        Victoria
+                        </small>
+                </div>
+            </span>
+
+                </div>
+                <div className="col-6 col-md-3 my-auto">
+
+            <img src={Review1} />
+                </div>
+
+            </div>
+      
+    </div>
+
+</div>
+        
 
             <h3 className="pt-5 mt-3">
                 It's never been easier{' '}
@@ -361,20 +419,43 @@ const Employers = () => (
             </p>
 
             <div className="d-flex align-items-center justify-content-center">
-                <input
-                    type="text"
-                    className="form-control w-300px"
-                    placeholder="Enter Your Email"
-                />
+            <input
+                                type="email"
+                                name="email"
+                                className="form-control d-inline w-300px"
+                                placeholder="Enter Your Email"
+                                onChange={handleInputChange} value={emailGetStarted.email} 
+                            />
 
-                <button
-                    className="btn radius btn-purple my-2 ml-2 px-4 py-2"
-                >
+                <button className="btn radius btn-purple my-2 ml-2 px-4 py-2" onClick={()=>setGetStarted("signup")}>
                     Get Started
                 </button>
             </div>
         </div>
-    </Layout>
-)
+        <div class={getStarted !== "" ? "modal d-block" : "modal"} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style={{borderStyle: "none"}}>
+        <h5 class="modal-title" id="exampleModalLabel">Are you a jobseeker or an employer?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={()=>setGetStarted("")}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="row justfy-content-center text-center p-4">
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="jobseeker" onClick={(email) => navigate(`/job-seekers-signup/${emailGetStarted["email"] ? "?email=" + emailGetStarted["email"] : '' }`)} style={{color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px"}}>Jobseeker</button>
+
+          </div>
+          <div className="col">
+          <button type="button" class="btn btn-primary" value="employer" onClick={(email) => navigate(`/employers-signup/${emailGetStarted["email"] ? "?email=" +emailGetStarted["email"] : '' }`)} style={{color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px"}}>Employer</button>
+
+          </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+    </Layout>)
+}
 
 export default Employers

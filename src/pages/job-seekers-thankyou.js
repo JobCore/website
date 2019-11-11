@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -11,8 +11,17 @@ import AppleStore from '../images/applestore.svg'
 
 
 const JobSeekersSignUp = (props) => {
-
-      return(
+    const [showAlert, setShowAlert] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+       
+          setShowAlert(false)
+        }, 3000);
+        return () => clearTimeout(timer);
+      }, []);
+    const emailQueryString = decodeURIComponent(props.location.search.replace("?success=", ''))
+      console.log(showAlert)
+    return(
     <Layout>
         <SEO title="Sign Up" />
 
@@ -28,7 +37,14 @@ const JobSeekersSignUp = (props) => {
                 </h1>
             </div>
         </div>
+        <div className="row text-center justify-content-center">
+            <div className="col col-md-4">
+        <div class={`alert alert-success text-center mx-auto ${showAlert ? 'alert-thankyou-shown' : 'alert-thankyou-hidden'}`}role="alert">
+       Your account has been successfully created.
+</div>
 
+            </div>
+        </div>
         <div className="container my-5">    
             <div className="row justify-content-center mx-auto">
                 <div className="col-12 col-md-6">

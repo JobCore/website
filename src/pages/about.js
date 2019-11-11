@@ -38,12 +38,13 @@ export default () => (
         <div className="container my-5 d-flex justify-content-around align-items-center s800-display-column">
             <div className="w-450px px-2 py-5">
                 <h1>Our <span className="text-brightblue">Vision</span></h1>
-                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ad mollitia sit repellat cum labore perspiciatis sed saepe adipisci architecto rem similique maxime numquam accusamus provident et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
+                <p className="text-secondary">We envision businesses in the hospitality industry hiring, scheduling and paying for the most qualified and talented part-time employees they can afford based on industry peer recommendations in a transparent and efficient way. We envision employees that want to pursue opportunities in the hospitality industry being able to fulfill their employment needs through multiple meaningful part-time opportunities that fit their schedules, where they can recommend good employers and be rewarded for their good performance while doing the jobs they like</p>
+                <p className="text-secondary">We envision a hospitality industry where employers and job-seekers collaborate transparently through JobCore, raising the bar for everyone and resulting in less stressed out employers, better working environments, decreased industry-wide employee turnover and the most satisfied end customers.</p>
             </div>
 
             <div className="w-450px px-5 py-4 text-white bg-brightblue-opacity text-center">
                 <h1>Our <span className="text-purple">Mission</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
+                <p>JobCore's mission is to provide the best tool available to business owners and part-time shift workers in the hospitality industry to collaborate efficiently and transparently, creating mutual opportunity and prosperity.</p>
             </div>
         </div>
 
