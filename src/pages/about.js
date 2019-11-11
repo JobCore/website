@@ -28,22 +28,23 @@ export default () => (
             <img className="s1000-hide" height="450" src={PhoneApp} />
 
             <div className="w-500px px-2 py-5">
-                <h1>About <span className="text-brightblue">Jobcore</span></h1>
-                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ad mollitia sit repellat cum labore perspiciatis sed saepe adipisci architecto rem similique maxime numquam accusamus provident et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
-                <p className="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur quae facilis ex facere ratione quibusdam soluta molestias est sapiente eius illo excepturi velit commodi reiciendis, illum et doloribus corporis. Nemo?</p>
-                <p className="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus veritatis temporibus illo alias harum officia necessitatibus? Quisquam!</p>
+                <h1>About <span className="text-brightblue">JobCore</span></h1>
+                <p className="text-secondary">We started our catering and event management company in 2004, and have become industry leaders in the South Florida market over the past 15 years. We have learned the hard way that recruiting qualified workers in the hospitality industry is really hard. The seasonal and temporary nature of our operations hurts our ability to provide good part time workers a steady paycheck, and the best ones end up leaving our industry in search of more hours or higher wages. We thought it did not have to be this way, so we decided to raise the bar for ourselves and the industry as a whole.</p>
+                <p className="text-secondary">We started JobCore in 2018 to bring to market our solution to the staffing problems we experienced ourselves over the past 15 years. It is a platform for event organizers to recruit, schedule, pay and rate part-time workers quickly, efficiently and transparently in the hospitality industry.</p>
+
             </div>
         </div>
 
         <div className="container my-5 d-flex justify-content-around align-items-center s800-display-column">
             <div className="w-450px px-2 py-5">
                 <h1>Our <span className="text-brightblue">Vision</span></h1>
-                <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ad mollitia sit repellat cum labore perspiciatis sed saepe adipisci architecto rem similique maxime numquam accusamus provident et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
+                <p className="text-secondary">We envision businesses in the hospitality industry hiring, scheduling and paying for the most qualified and talented part-time employees they can afford based on industry peer recommendations in a transparent and efficient way. We envision employees that want to pursue opportunities in the hospitality industry being able to fulfill their employment needs through multiple meaningful part-time opportunities that fit their schedules, where they can recommend good employers and be rewarded for their good performance while doing the jobs they like</p>
+                <p className="text-secondary">We envision a hospitality industry where employers and job-seekers collaborate transparently through JobCore, raising the bar for everyone and resulting in less stressed out employers, better working environments, decreased industry-wide employee turnover and the most satisfied end customers.</p>
             </div>
 
             <div className="w-450px px-5 py-4 text-white bg-brightblue-opacity text-center">
                 <h1>Our <span className="text-purple">Mission</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, et facere a culpa optio id eius reprehenderit quas dignissimos. Aperiam porro repudiandae consequuntur temporibus qui illum! Tempora voluptatem et assumenda, at doloribus id.</p>
+                <p>JobCore's mission is to provide the best tool available to business owners and part-time shift workers in the hospitality industry to collaborate efficiently and transparently, creating mutual opportunity and prosperity.</p>
             </div>
         </div>
 
