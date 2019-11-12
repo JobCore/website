@@ -50,7 +50,7 @@ export default () => {
                 <div className="row">
                     <div className="col-md-6 text-left">
                         <h1 className="">
-                            Create your shift-schedule & hire your<span className="text-brightblue">part-time</span> staff
+                            Create your shift-schedule & hire your<span className="text-brightblue"> part-time</span> staff
                             {/* <span className="text-brightblue"> get paid </span> */}
                         </h1>
 
