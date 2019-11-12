@@ -242,7 +242,7 @@ const Employers = () => {
                 <br />
                 in the hospitality industry on mobile and desktop.
             </p>
-            <div class="card-deck mx-auto" style={{ width: "75%" }}>
+            <div class="card-deck mx-auto" style={{ width: "55%" }}>
                 <div class="card shadow p-3 mb-5 bg-white rounded">
 
 

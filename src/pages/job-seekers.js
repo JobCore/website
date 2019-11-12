@@ -221,7 +221,7 @@ const JobSeekers = () => {
                 <h3 className="mb-1">
                     It's never been easier to
                 <span className="text-brightblue"> find jobs and hire</span> in
-                            the hospitality industry.
+                                the hospitality industry.
             </h3>
 
                 <p>
@@ -250,7 +250,7 @@ const JobSeekers = () => {
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
 
-                <div class="card-deck mx-auto" style={{ width: "75%" }}>
+                <div class="card-deck mx-auto" style={{ width: "55%" }}>
                     <div class="card shadow p-3 mb-5 bg-white rounded">
 
 
