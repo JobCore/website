@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
+import withLocation from '../withLocation'
 import axios from 'axios'
 import useSignUpFormEmployer from '../hooks/useSignUpFormEmployer.js'
 import { navigate } from "@reach/router"
@@ -74,15 +74,8 @@ const handleSubmit = async (event, employer) => {
 }
 
 
-const EmployersSignUp = (props) => {
-    let queryString = {};
-    let params = window.location.search;
-    params = params.substr(1);
-    let queryParamArray = params.split('&amp;');
-    queryParamArray.forEach(function (queryParam) {
-        let item = queryParam.split('=');
-        queryString[item[0]] = decodeURIComponent(item[1]);
-    });
+const EmployersSignUp = ({ search }) => {
+    const queryString = search["email"]
 
     const [inputs, setInputs] = useState({
         firstName: '',
@@ -92,7 +85,7 @@ const EmployersSignUp = (props) => {
         phone: '',
         account_type: 'employer',
         business_name: '',
-        business_email: queryString.email || '',
+        business_email: queryString || '',
         business_website: '',
         about_business: ''
     })
@@ -290,4 +283,4 @@ const EmployersSignUp = (props) => {
     )
 }
 
-export default EmployersSignUp
+export default withLocation(EmployersSignUp)

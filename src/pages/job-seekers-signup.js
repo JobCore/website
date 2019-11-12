@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import axios from 'axios'
+import PropTypes from "prop-types"
 import useSignUpForm from '../hooks/useSignUpForm.js'
 import { navigate } from '@reach/router'
 import { registerJobSeeker } from '../actions'
+import withLocation from '../withLocation'
 import validator from 'validator'
 
 /* eslint-disable */
@@ -59,19 +60,14 @@ const handleSubmit = async (event, jobseeker) => {
     throw errors
 }
 
-const JobSeekersSignUp = props => {
-    let queryString = {};
-    let params = window.location.search;
-    params = params.substr(1);
-    let queryParamArray = params.split('&amp;');
-    queryParamArray.forEach(function (queryParam) {
-        let item = queryParam.split('=');
-        queryString[item[0]] = decodeURIComponent(item[1]);
-    });
+const JobSeekersSignUp = ({ search }) => {
 
 
+    const queryString = search["email"]
+
+    console.log(queryString)
     const [inputs, setInputs] = useState({
-        email: queryString.email || '',
+        email: queryString || '',
         firstName: '',
         lastName: '',
         password: '',
@@ -88,8 +84,7 @@ const JobSeekersSignUp = props => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-    console.log(inputs.email)
-    console.log(queryString.email)
+
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -312,4 +307,8 @@ const JobSeekersSignUp = props => {
     )
 }
 
-export default JobSeekersSignUp
+JobSeekersSignUp.propTypes = {
+    search: PropTypes.object,
+}
+
+export default withLocation(JobSeekersSignUp)

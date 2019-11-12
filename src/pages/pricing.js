@@ -40,7 +40,7 @@ const Pricing = () => {
                 <div className="text-center ml-auto mr-auto mt-auto mb-5">
                     <span>It's free for Job Seekers. <Link to="/job-seekers-signup" style={{ color: "#75c7d2" }}>Sign Up Here</Link> </span>
                 </div>
-                <div className="row">
+                <div className="row d-none d-lg-block">
                     <div className="col shadow">
 
 
@@ -272,78 +272,82 @@ const Pricing = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card-deck mb-3 text-center">
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-header" style={{ backgroundColor: "#b3519e", fontWeight: "bold", color: "white" }}>
-                            <h4 class="my-0 font-weight-normal">Free</h4>
+                <div className="d-lg-none">
+
+
+                    <div class="card-deck mb-3 text-center">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header" style={{ backgroundColor: "#b3519e", fontWeight: "bold", color: "white" }}>
+                                <h2 class="my-0 font-weight-normal">Free</h2>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title pricing-card-title">$0/month</h4>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>15 - Schedule shifts</li>
+                                    <li>Talent Search</li>
+                                    <li>Rate Talent</li>
+                                    <li>Invite Talent</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$0/month</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>15 - Schedule shifts</li>
-                                <li>Talent Search</li>
-                                <li>Rate Talent</li>
-                                <li>Invite Talent</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header" style={{ backgroundColor: "#2dbe83", fontWeight: "bold", color: "white" }}>
+                                <h2 class="my-0 font-weight-normal">Basic</h2>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title pricing-card-title">$49.95/month</h4>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Unlimited - Schedule shifts</li>
+                                    <li>Talent Search</li>
+                                    <li>Rate Talent</li>
+                                    <li>Unlimited - Invite Talent</li>
+                                    <li>2 - Create favorite lists</li>
+                                    <li>50 - Geo click and out</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-header" style={{ backgroundColor: "#2dbe83", fontWeight: "bold", color: "white" }}>
-                            <h4 class="my-0 font-weight-normal">Pro</h4>
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header" style={{ backgroundColor: "#f5ac39", fontWeight: "bold", color: "white" }}>
+                                <h2 class="my-0 font-weight-normal">Pro</h2>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title pricing-card-title">$99.95/month</h3>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Schedule shifts</li>
+                                    <li>Talent Search</li>
+                                    <li>Rate Talent</li>
+                                    <li>Invite Talent</li>
+                                    <li>Unlimited - Create favorite lists</li>
+                                    <li>100 - Geo click and out</li>
+                                    <li>Smart Calendar</li>
+                                    <li>Auto approve trusted talent</li>
+                                    <li>Payroll reports</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$49.95/month</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Unlimited - Schedule shifts</li>
-                                <li>Talent Search</li>
-                                <li>Rate Talent</li>
-                                <li>Unlimited - Invite Talent</li>
-                                <li>2 - Create favorite lists</li>
-                                <li>50 - Geo click and out</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
-                        </div>
-                    </div>
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-header" style={{ backgroundColor: "#f5ac39", fontWeight: "bold", color: "white" }}>
-                            <h4 class="my-0 font-weight-normal">Pro</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$99.95/month</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Schedule shifts</li>
-                                <li>Talent Search</li>
-                                <li>Rate Talent</li>
-                                <li>Invite Talent</li>
-                                <li>Unlimited - Create favorite lists</li>
-                                <li>100 - Geo click and out</li>
-                                <li>Smart Calendar</li>
-                                <li>Auto approve trusted talent</li>
-                                <li>Payroll reports</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
-                        </div>
-                    </div>
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-header" style={{ backgroundColor: "#b927cf", fontWeight: "bold", color: "white" }}>
-                            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$149.95/month</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Schedule shifts</li>
-                                <li>Talent Search</li>
-                                <li>Rate Talent</li>
-                                <li>Invite Talent</li>
-                                <li>Create favorite lists</li>
-                                <li>Unlimited - Geo click and out</li>
-                                <li>Smart Calendar</li>
-                                <li>Auto approve trusted talent</li>
-                                <li>Payroll reports</li>
-                                <li>One click payments</li>
-                            </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header" style={{ backgroundColor: "#b927cf", fontWeight: "bold", color: "white" }}>
+                                <h2 class="my-0 font-weight-normal">Enterprise</h2>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title pricing-card-title">$149.95/month</h3>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Schedule shifts</li>
+                                    <li>Talent Search</li>
+                                    <li>Rate Talent</li>
+                                    <li>Invite Talent</li>
+                                    <li>Create favorite lists</li>
+                                    <li>Unlimited - Geo click and out</li>
+                                    <li>Smart Calendar</li>
+                                    <li>Auto approve trusted talent</li>
+                                    <li>Payroll reports</li>
+                                    <li>One click payments</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-dark">GET STARTED</button>
+                            </div>
                         </div>
                     </div>
                 </div>
