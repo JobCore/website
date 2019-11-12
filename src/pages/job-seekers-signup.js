@@ -13,7 +13,7 @@ import validator from 'validator'
 const handleInputPhone = value => {
     if (value) {
         let output = '('
-        value.replace(/^\D*(\d{0,3})\D*(\d{0,3})\D*(\d{0,4})/, function(match, g1, g2, g3) {
+        value.replace(/^\D*(\d{0,3})\D*(\d{0,3})\D*(\d{0,4})/, function (match, g1, g2, g3) {
             if (g1.length) {
                 output += g1
                 if (g1.length == 3) {
@@ -60,7 +60,16 @@ const handleSubmit = async (event, jobseeker) => {
 }
 
 const JobSeekersSignUp = props => {
-    const queryString = decodeURIComponent(props.location.search)
+    let queryString = {};
+    let params = window.location.search;
+    params = params.substr(1);
+    let queryParamArray = params.split('&amp;');
+    queryParamArray.forEach(function (queryParam) {
+        let item = queryParam.split('=');
+        queryString[item[0]] = decodeURIComponent(item[1]);
+    });
+
+
     const [inputs, setInputs] = useState({
         email: queryString.email || '',
         firstName: '',
@@ -79,7 +88,8 @@ const JobSeekersSignUp = props => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-    console.log(errors)
+    console.log(inputs.email)
+    console.log(queryString.email)
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -107,6 +117,8 @@ const JobSeekersSignUp = props => {
                         </div>
                         <form
                             onSubmit={e => {
+                                setErrors([''])
+                                setSubmitData(inputs)
                                 const dataToSubmit = inputs
                                 handleSubmit(e, dataToSubmit)
                                     .then(validatedData => {
@@ -262,6 +274,8 @@ const JobSeekersSignUp = props => {
                                 className="btn radius btn-purple  mt-2 px-5 py-2"
                                 type="submit"
                                 onSubmit={e => {
+                                    setErrors([''])
+                                    setSubmitData(inputs)
                                     const dataToSubmit = inputs
                                     handleSubmit(e, dataToSubmit)
                                         .then(validatedData => {
@@ -270,7 +284,7 @@ const JobSeekersSignUp = props => {
                                         .catch(errors => setErrors(errors))
                                 }}
                             >
-                                SIGN UP
+                                {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
                             </button>
                             <div className="pt-4 text-gray">
                                 <small style={{ fontSize: '11px' }}>
