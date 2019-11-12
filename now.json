@@ -1,7 +1,7 @@
 {
     "version": 2,
     "alias": ["jobcore.co"],
-    "group": "jobcore",
+    "scope": "jobcore",
     "name": "jobcore-website",
     "builds": [
         { "src": "package.json", "use": "@now/static-build", "config": {"distDir": "public"} }
