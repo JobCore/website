@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PropTypes from "prop-types"
-import useSignUpForm from '../hooks/useSignUpForm.js'
 import { navigate } from '@reach/router'
 import { registerJobSeeker } from '../actions'
 import withLocation from '../withLocation'

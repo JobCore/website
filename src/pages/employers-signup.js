@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import withLocation from '../withLocation'
-import axios from 'axios'
-import useSignUpFormEmployer from '../hooks/useSignUpFormEmployer.js'
 import { navigate } from "@reach/router"
 import validator from 'validator'
 import { registerEmployer } from '../actions';

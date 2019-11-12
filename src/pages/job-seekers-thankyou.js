@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import axios from 'axios'
-import useSignUpForm from '../hooks/useSignUpForm.js'
 import { navigate } from "@reach/router"
 import GooglePlayStore from '../images/googleplay.svg'
 import AppleStore from '../images/applestore.svg'
@@ -52,12 +50,12 @@ const JobSeekersSignUp = (props) => {
                         <div className="text-gray pb-4 mb-4" >
                             <small style={{ fontSize: "18px" }}>
                                 Please check your email for the mobile app download link.
-            
+
                         </small>
                             <br />
                             <small style={{ fontSize: "18px" }}>
                                 Please download the mobile app to complete the sign-up process.
-            
+
                         </small>
 
                         </div>
