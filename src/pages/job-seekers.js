@@ -50,7 +50,8 @@ const JobSeekers = () => {
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted />
+                                <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                             </div>
 
                             <div className="text-center pt-5">
@@ -133,7 +134,8 @@ const JobSeekers = () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
             </div>
 
@@ -178,32 +180,36 @@ const JobSeekers = () => {
                 </p>
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
+                <div className="row justify-content-center">
+                    <div className="col-11 col-md-7">
 
-                <div class="card-deck mx-auto" style={{ width: '55%' }}>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{ height: '120px' }} />
+                        <div class="card-deck mx-auto">
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{ height: '120px' }} />
 
-                        <div class="card-body">
-                            <p class="card-title">Find Talent</p>
-                        </div>
-                    </div>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Job Preferences</p>
-                        </div>
-                    </div>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Clock In and Out</p>
-                        </div>
-                    </div>
+                                <div class="card-body">
+                                    <p class="card-title">Find Talent</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Job Preferences</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Clock In and Out</p>
+                                </div>
+                            </div>
 
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Get Paid Same Day</p>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Get Paid Same Day</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -277,7 +283,8 @@ const JobSeekers = () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
             </div>
             <div class={getStarted !== '' ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

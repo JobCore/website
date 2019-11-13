@@ -51,7 +51,8 @@ const Employers = () => {
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted />
+                                <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                             </div>
 
                             <div className="text-center pt-5">
@@ -134,7 +135,8 @@ const Employers = () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
             </div>
 
@@ -280,7 +282,8 @@ const Employers = () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
                 <div class={showModal ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

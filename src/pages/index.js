@@ -60,7 +60,7 @@ export default () => {
                             <p>JobCore is where events are organized: A curated and validated talent pool of workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted />
+                                <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                             </div>
 
                             <div className="text-center pt-5 mb-2">
@@ -82,8 +82,8 @@ export default () => {
 
             <div className="py-10 px-10 text-center">
                 <div className="container">
-                    <div className="py-10 px-10 text-center">
-                        <div className="container">
+                    <div className="py-10 text-center">
+                        <div>
                             <h3>
                                 Finally a centralized <span className="text-brightblue">source of talents </span>
                                 and companies!
@@ -147,7 +147,8 @@ export default () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
             </div>
             <div className="py-10 text-left d-flex justify-content-center align-items-center">
@@ -289,7 +290,8 @@ export default () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+
                 </div>
             </div>
         </Layout>

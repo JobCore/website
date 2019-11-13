@@ -36,7 +36,7 @@ const Login = () => {
         <Layout>
             <SEO title="Login" />
             <div className="d-none d-lg-block">
-                <div className="pink-top-image text-light d-flex align-items-center">
+                <div className="pink-top-image text-light d-flex align-items-center mb-2">
                     <div className="text-center w-100 px-10">
                         <h1 style={{ fontSize: '3.5vw' }}>
                             <span className="p-2 px-4 bg-black-opacity">
@@ -58,7 +58,7 @@ const Login = () => {
                     ) : null}
                 </div>
                 <div className="container mx-auto">
-                    <div className="mx-auto w-400px pt-0">
+                    <div className="mx-auto w-400px pt-4">
                         <h2 style={{ fontWeight: 'bold' }}>Login</h2>
                         <form
                             onSubmit={e => {
@@ -75,7 +75,7 @@ const Login = () => {
                                                 navigate('https://employer.jobcore.co/?token=' + res['token'])
                                                 setLoading(false)
                                             } else if (res['user']['profile']['employee'] !== null) {
-                                                navigate('https://jobcore-employer.firebaseapp.com/login?type=employee')
+                                                setErrors(['Only employers are allowed to login into this application. Please download the JobCore application on the App Store or Google Play Store.'])
                                                 setLoading(false)
                                             }
                                         })

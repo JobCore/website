@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import { navigate } from '@reach/router'
 import GetStarted from '../components/input-getstarted'
 import GetStartedPricing from '../components/button-pricing-getstarted'
+import FAQ from '../components/faq-question'
 /* eslint-disable */
 
 const Pricing = () => {
@@ -36,7 +37,7 @@ const Pricing = () => {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container mt-4">
                 <div className="text-center ml-auto mr-auto mt-auto mb-5">
                     <span>
                         It's free for Job Seekers.{' '}
@@ -319,66 +320,15 @@ const Pricing = () => {
                 <h3 className="text-center mt-5" style={{ fontWeight: 'bolder', color: '#75c7d2' }}>
                     Frequently Asked Questions
                 </h3>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ(!showFAQ)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">How much does Jobcore cost?</div>
-                    <div className="col-md-1 ml-auto  my-auto">{showFAQ ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            So, we offer a free trial period so you can fall in love with JobCore as much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'
-                        </div>
-                    )}
-                </div>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ2(!showFAQ2)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">Which plan is right for me?</div>
-                    <div className="col-md-1 ml-auto my-auto">{showFAQ2 ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ2 && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            So, we offer offg work?'
-                        </div>
-                    )}
-                </div>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ3(!showFAQ3)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">How to manage my billing?</div>
-                    <div className="col-md-1 ml-auto my-auto">{showFAQ3 ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ3 && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            text 3'
-                        </div>
-                    )}
-                </div>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ4(!showFAQ4)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">Can I use this for my whole organization, or just my team?</div>
-                    <div className="col-md-1 ml-auto my-auto">{showFAQ4 ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ4 && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            text 4 '
-                        </div>
-                    )}
-                </div>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ5(!showFAQ5)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">Can I change my plan?</div>
-                    <div className="col-md-1 ml-auto my-auto">{showFAQ5 ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ5 && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            text 5'
-                        </div>
-                    )}
-                </div>
-                <div className="row justify-content-between border-bottom" onClick={() => setShowFAQ6(!showFAQ6)} style={{ cursor: 'pointer' }}>
-                    <div className="col-md-10 mt-3 mb-3">Does Jobcore offer plans to non-profits, NGO's and educational institutions?</div>
-                    <div className="col-md-1 ml-auto my-auto">{showFAQ6 ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
-                    <div class="w-100"></div>
-                    {showFAQ6 && (
-                        <div className="p-4" style={{ fontSize: '14px' }}>
-                            text 6'
-                        </div>
-                    )}
-                </div>
+                <FAQ question="How much does JobCore cost?" text="So, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="Which plan is right for me?" text="So2, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="How to manage my billing?" text="So3, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="Can I use this for my whole organization, or just my team?" text="So4, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="Can I change my plan?" text="So5, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="Does Jobcore offer plans to non-profits, NGO's and educational institutions?" text="So6, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+
+
+
             </div>
             <div class="jumbotron jumbotron-fluid text-center mb-0 mt-3">
                 <h2 style={{ fontWeight: '900' }}>
@@ -386,7 +336,7 @@ const Pricing = () => {
                 </h2>
                 <p class="lead">Try it now for free / No credit card needed</p>
                 <div className="pt-3 d-flex align-items-center justify-content-center">
-                    <GetStarted />
+                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                 </div>
             </div>
             <div class={getStarted !== '' ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
