@@ -117,7 +117,7 @@ nav button {
 @media (min-width: 1000px) {
     .pink-top-image {
         height: 300px;
-        background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+        background-color: #f0f0f0;
         background-size: cover;
         text-shadow: 1px 1px 6px black;
         color: white;

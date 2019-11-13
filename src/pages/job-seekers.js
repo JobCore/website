@@ -65,7 +65,7 @@ const JobSeekers = () => {
                         </div>
 
                         <div className="col-md-6 pt-3   ">
-                            <Player video="izRld2t-Xw8" height={'300px'} style={{ backgroundColor: '#dcdbdb' }} />
+                            <Player video="s/4almu/qjkrrt" height={'300px'} />
                         </div>
                     </div>
                 </div>
@@ -85,17 +85,17 @@ const JobSeekers = () => {
 
                     <div className="mt-5 d-flex justify-content-between align-items-end">
                         <div className="w-250px mb-auto">
-                            <img src={FindJobs} />
-                            <h6 className="mt-2">Find Jobs</h6>
+                            <img src={FindJobs} height="50" />
+                            <h6 className="mt-3">Find Jobs</h6>
                             <p className="text-secondary font-size-13px">Access to many jobs in South Florida and get hired some day.</p>
                         </div>
                         <div className="w-250px mb-auto">
-                            <img src={OpenEnvelope} />
+                            <img src={OpenEnvelope} height="50" />
                             <h6 className="mt-3">Receive Invitations</h6>
                             <p className="text-secondary font-size-13px">Setup your job preferences to receive job invitations you want.</p>
                         </div>
                         <div className="w-250px mb-auto">
-                            <img src={Suitcase} />
+                            <img src={Suitcase} height="50" />
                             <h6 className="mt-3">Get Hired</h6>
                             <p className="text-secondary font-size-13px">Apply to jobs and get hired from your phone, schedule your work.</p>
                         </div>
@@ -103,18 +103,18 @@ const JobSeekers = () => {
 
                     <div className="mt-5 d-flex justify-content-between align-items-end">
                         <div className="w-250px mb-auto">
-                            <img src={Calendar} />
-                            <h6 className="mt-1">Manage Schedule</h6>
+                            <img src={Calendar} height="50" />
+                            <h6 className="mt-3">Manage Schedule</h6>
                             <p className="text-secondary font-size-13px">Use our mobile app to know where and when to start work.</p>
                         </div>
                         <div className="w-250px mb-auto">
-                            <img src={Money} />
-                            <h6 className="mt-2">Paid Same Day</h6>
+                            <img src={Money} height="50" />
+                            <h6 className="mt-3">Paid Same Day</h6>
                             <p className="text-secondary font-size-13px">Clock in/out & receive the money into your account in less than 24hrs.</p>
                         </div>
                         <div className="w-250px mb-auto">
-                            <img src={Star} />
-                            <h6 className="mt-2">Rate Employers</h6>
+                            <img src={Star} height="50" />
+                            <h6 className="mt-3">Rate Employers</h6>
                             <p className="text-secondary font-size-13px">Find the best employers that have positive ratings.</p>
                         </div>
                     </div>
@@ -219,8 +219,8 @@ const JobSeekers = () => {
                 </h3>
 
                 <div className="row justify-content-center py-4">
-                    <div className="col-md-3 pt-2 pr-0">
-                        <Player video="izRld2t-Xw8" style={{ width: '100%', height: '200px' }} />
+                    <div className="col-md-2 pt-2 pr-0">
+                        <Player video="s/4almu/qjkrrt" height={'200px'} />
                         <div className="row justify-content-end">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
@@ -238,8 +238,8 @@ const JobSeekers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 pt-2 pr-0">
-                        <Player video="izRld2t-Xw8" style={{ width: '100%', height: '200px' }} />
+                    <div className="col-md-2 pt-2 pr-0">
+                        <Player video="s/4almu/qjkrrt" height={'200px'} />
                         <div className="row justify-content-end">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
@@ -256,8 +256,8 @@ const JobSeekers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 pt-2 pr-0">
-                        <Player video="izRld2t-Xw8" style={{ width: '100%', height: '200px' }} />
+                    <div className="col-md-2 pt-2 pr-0">
+                        <Player video="s/4almu/qjkrrt" height={'200px'} />
                         <div className="row justify-content-end">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>

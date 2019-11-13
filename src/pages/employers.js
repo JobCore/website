@@ -66,57 +66,61 @@ const Employers = () => {
                         </div>
 
                         <div className="col-md-6 pt-3">
-                            <Player video="izRld2t-Xw8" height={'300px'} style={{ backgroundColor: '#dcdbdb' }} />
+                            <Player video="s/4almu/qjkrrt" height={'300px'} />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="py-10 px-10 text-center">
+            <div className="py-2 px-10 text-center">
                 <div className="container">
-                    <h3>
-                        Finally a centralized <span className="text-brightblue">source of talents </span>
-                        and companies!
-                    </h3>
+                    <div className="py-10 text-center">
+                        <div>
+                            <h3>
+                                Finally a centralized <span className="text-brightblue">source of talents </span>
+                                and companies!
+                            </h3>
 
-                    <p className="pt-3">
-                        Sign up, setup your job preferences and start receiving invitations to work as Chef, Cook, <br />
-                        Bartender, Cleaning Staff or any other role surrounding hospitality.
-                    </p>
+                            <p className="pt-3">
+                                JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                            </p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them and schedule, pay, and rate them quickly and efficiently.</p>
 
-                    <div className="mt-5 d-flex justify-content-between align-items-end">
-                        <div className="w-250px mb-auto">
-                            <img src={Suitcase} />
-                            <h6 className="mt-3">Publish Shifts</h6>
-                            <p className="text-secondary font-size-13px">Setup your job and preferences in a custom calendar.</p>
-                        </div>
-                        <div className="w-250px mb-auto">
-                            <img src={Magnify} />
-                            <h6 className="mt-2">Find Talent</h6>
-                            <p className="text-secondary font-size-13px">Access a talent pool of people in Miami, rated with experience.</p>
-                        </div>
-                        <div className="w-250px mb-auto">
-                            <img src={Calendar} />
-                            <h6 className="mt-3">Manage Schedule</h6>
-                            <p className="text-secondary font-size-13px">Automatically send employees job location and shift times.</p>
-                        </div>
-                    </div>
+                            <div className="mt-5 d-flex justify-content-between align-items-end">
+                                <div className="w-250px mb-auto">
+                                    <img src={Suitcase} width="50" height="50" />
+                                    <h6 className="mt-3">Publish Shifts</h6>
+                                    <p className="text-secondary font-size-13px">Setup your job and preferences in a custom calendar.</p>
+                                </div>
+                                <div className="w-250px mb-auto">
+                                    <img src={Magnify} width="50" height="50" />
+                                    <h6 className="mt-3">Find Talent</h6>
+                                    <p className="text-secondary font-size-13px">Access a talent pool of people in Miami, rated with experience.</p>
+                                </div>
+                                <div className="w-250px mb-auto">
+                                    <img src={Calendar} width="50" height="50" />
+                                    <h6 className="mt-3">Manage Schedule</h6>
+                                    <p className="text-secondary font-size-13px">Automatically send employees job location and shift times.</p>
+                                </div>
+                            </div>
 
-                    <div className="mt-5 d-flex justify-content-between align-items-end">
-                        <div className="w-250px mb-auto">
-                            <img src={Clock} />
-                            <h6 className="mt-1">Clock In-Out</h6>
-                            <p className="text-secondary font-size-13px">Track employee performance with GPS located clock in-out features.</p>
-                        </div>
-                        <div className="w-250px mb-auto">
-                            <img src={Money} />
-                            <h6 className="mt-2">Payroll Reports</h6>
-                            <p className="text-secondary font-size-13px">Instant payroll reports based on employee activity.</p>
-                        </div>
-                        <div className="w-250px mb-auto">
-                            <img src={Envelope} />
-                            <h6 className="mt-2">Direct Payments</h6>
-                            <p className="text-secondary font-size-13px">Direct ACH payments to employee bank accounts.</p>
+                            <div className="mt-5 d-flex justify-content-between align-items-end">
+                                <div className="w-250px mb-auto">
+                                    <img src={Clock} width="50" height="50" />
+                                    <h6 className="mt-3">Clock In-Out</h6>
+                                    <p className="text-secondary font-size-13px">Track employee performance with GPS located clock in-out features.</p>
+                                </div>
+                                <div className="w-250px mb-auto">
+                                    <img src={Money} width="70" height="50" />
+                                    <h6 className="mt-3">Payroll Reports</h6>
+                                    <p className="text-secondary font-size-13px">Instant payroll reports based on employee activity.</p>
+                                </div>
+                                <div className="w-250px mb-auto">
+                                    <img src={Envelope} width="70" height="50" />
+                                    <h6 className="mt-3">Direct Payments</h6>
+                                    <p className="text-secondary font-size-13px">Direct ACH payments to employee bank accounts.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

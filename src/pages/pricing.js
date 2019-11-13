@@ -9,21 +9,7 @@ import FAQ from '../components/faq-question'
 /* eslint-disable */
 
 const Pricing = () => {
-    const [showFAQ, setShowFAQ] = useState(false)
-    const [showFAQ2, setShowFAQ2] = useState(false)
-    const [showFAQ3, setShowFAQ3] = useState(false)
-    const [showFAQ4, setShowFAQ4] = useState(false)
-    const [showFAQ5, setShowFAQ5] = useState(false)
-    const [showFAQ6, setShowFAQ6] = useState(false)
 
-    const [getStarted, setGetStarted] = useState('')
-    const [emailGetStarted, setemailGetStarted] = useState('')
-
-    const handleInputChange = event => {
-        event.persist()
-
-        setemailGetStarted(emailGetStarted => ({ ...emailGetStarted, [event.target.name]: event.target.value }))
-    }
 
     return (
         <Layout>
@@ -32,7 +18,7 @@ const Pricing = () => {
             <div className="pink-top-image text-light d-flex align-items-center">
                 <div className="text-center w-100 px-10">
                     <h1 className="font-size-4em">
-                        <span className="p-2 px-4 bg-black-opacity">Pricing</span>
+                        <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Pricing</span>
                     </h1>
                 </div>
             </div>
@@ -337,44 +323,6 @@ const Pricing = () => {
                 <p class="lead">Try it now for free / No credit card needed</p>
                 <div className="pt-3 d-flex align-items-center justify-content-center">
                     <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
-                </div>
-            </div>
-            <div class={getStarted !== '' ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header" style={{ borderStyle: 'none' }}>
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                Are you a jobseeker or an employer?
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={() => setGetStarted('')}>
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="row justfy-content-center text-center p-4">
-                            <div className="col">
-                                <button
-                                    type="button"
-                                    class="btn btn-primary"
-                                    value="jobseeker"
-                                    onClick={email => navigate(`/job-seekers-signup/${emailGetStarted['email'] ? '?email=' + emailGetStarted['email'] : null}`)}
-                                    style={{ color: 'white', backgroundColor: '#a319a3', border: 'none', borderRadius: '30px', width: '140px' }}
-                                >
-                                    Jobseeker
-                                </button>
-                            </div>
-                            <div className="col">
-                                <button
-                                    type="button"
-                                    class="btn btn-primary"
-                                    value="employer"
-                                    onClick={email => navigate(`/employers-signup/${emailGetStarted['email'] ? '?email=' + emailGetStarted['email'] : null}`)}
-                                    style={{ color: 'white', backgroundColor: '#12687E', border: 'none', borderRadius: '30px', width: '140px' }}
-                                >
-                                    Employer
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </Layout>

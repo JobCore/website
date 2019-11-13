@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import validator from 'validator'
 import { navigate } from '@reach/router'
 
-const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalButton1, modalButton2, modalNavigation1, modalNavigation2, }) => {
+const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQuestion, modalButton1, modalButton2, modalNavigation1, modalNavigation2, }) => {
     const [showModal, setShowModal] = useState()
     const [inputs, setInput] = useState({
         email: '',
@@ -32,7 +32,8 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalB
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header" style={{ borderStyle: 'none' }}>
-                            <h5 class="modal-title" id="exampleModalLabel">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">
+                                Are you a jobseeker or an employer?
 
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={(e) => setShowModal('')}>
