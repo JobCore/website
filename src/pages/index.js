@@ -74,7 +74,7 @@ export default () => {
                         </div>
 
                         <div className="col-md-6">
-                            <Player video="izRld2t-Xw8" height={'300px'} style={{ backgroundColor: '#dcdbdb' }} />
+                            <Player video="qgRIFChkz3U" height={'300px'} style={{ backgroundColor: '#dcdbdb' }} />
                         </div>
                     </div>
                 </div>
