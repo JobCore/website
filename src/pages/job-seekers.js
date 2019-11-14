@@ -277,7 +277,7 @@ const JobSeekers = () => {
                 </div>
 
                 <h3 className="pt-5 mt-3">
-                    It's never been easier <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.
+                    It's never been easier to <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.
                 </h3>
 
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>

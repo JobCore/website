@@ -6,7 +6,7 @@ import { navigate } from "@reach/router"
 export default () => {
     const [accountType, setAccountType] = useState('');
     return (
-        <div>
+        <div id="top">
 
             <div className="d-none d-md-block">
 

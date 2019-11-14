@@ -39,7 +39,7 @@ const Login = () => {
                 <div className="pink-top-image text-light d-flex align-items-center mb-2">
                     <div className="text-center w-100 px-10">
                         <h1 style={{ fontSize: '3.5vw' }}>
-                            <span className="p-2 px-4 bg-black-opacity">
+                            <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>
                                 Login Your
                                 <span className="text-brightblue"> Account</span>
                             </span>
@@ -89,7 +89,7 @@ const Login = () => {
                                 </label>
                                 <div class="icon_form">
                                     <span class="fas fa-envelope"></span>
-                                    <input placeholder="example@gmail.com" maxlength="59" type="text" name="email" onChange={handleInputChange} value={inputs.email} />
+                                    <input placeholder="example@gmail.com" maxlength="59" type="text" name="email" onChange={handleInputChange} value={inputs.email} autoFocus />
                                 </div>
                             </div>
                             <h6 className="mt-4" style={{ fontWeight: 'bold' }}>
