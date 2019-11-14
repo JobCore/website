@@ -13,7 +13,7 @@ const Footer = () => (
     <footer className="text-light d-flex justify-content-around s1000-display-column">
         <div className="d-flex justify-content-around s700-display-column">
             <div className="s700-mx-auto py-2 mb-3 pr-9">
-                <Link to="/">
+                <Link to="#top">
                     <a>
                         <img className="pb-4" src={Logo} />
                     </a>
@@ -62,8 +62,7 @@ const Footer = () => (
                     <strong>Resources</strong>
                     <ul>
                         <li>
-
-                    <Link to="/blog">
+                            <Link to="/blog">
                                 <a>Blog</a>
                             </Link>
                         </li>
@@ -74,7 +73,7 @@ const Footer = () => (
                             <a href="#">Case Studies</a>
                         </li>
                         <li>
-                        <Link to="/prices">
+                            <Link to="/pricing">
                                 <a>Prices</a>
                             </Link>
                         </li>
@@ -85,52 +84,48 @@ const Footer = () => (
         <div className="text-center pt-3">
             <div className="row pb-4 justify-content-center text-center">
                 <div className="col">
-                <span className="round-links bg-white mr-3">
-                    <a href="#">
-                        <span className="d-flex align-items-center justify-content-center">
-                            <i class="fab fa-facebook-f"></i>
-                        </span>
-                    </a>
-                </span>
-                    
+                    <span className="round-links bg-white mr-3">
+                        <a href="#">
+                            <span className="d-flex align-items-center justify-content-center">
+                                <i class="fab fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </span>
                 </div>
                 <div className="col">
-                <span className="round-links bg-white mr-3">
-                    <a href="#">
-                        <span className="d-flex align-items-center justify-content-center">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-                    </a>
-                </span>
-
+                    <span className="round-links bg-white mr-3">
+                        <a href="#">
+                            <span className="d-flex align-items-center justify-content-center">
+                                <i class="fab fa-twitter"></i>
+                            </span>
+                        </a>
+                    </span>
                 </div>
                 <div className="col">
-                <span className="round-links bg-white mr-3">
-                    <a href="#">
-                        <span className="d-flex align-items-center justify-content-center">
-                            <i class="fab fa-instagram"></i>
-                        </span>
-                    </a>
-                </span>
-
+                    <span className="round-links bg-white mr-3">
+                        <a href="#">
+                            <span className="d-flex align-items-center justify-content-center">
+                                <i class="fab fa-instagram"></i>
+                            </span>
+                        </a>
+                    </span>
                 </div>
                 <div className="col">
-                <span className="round-links bg-white mr-3">
-                    <a href="#">
-                        <span className="d-flex align-items-center justify-content-center">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                    </a>
-                </span>
-
+                    <span className="round-links bg-white mr-3">
+                        <a href="#">
+                            <span className="d-flex align-items-center justify-content-center">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </a>
+                    </span>
                 </div>
             </div>
             <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
-                                <img src={GooglePlayStore} width="125px" height="40px"/>
-                            </a>
-                            <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
-                                <img src={AppleStore} width="125px" height="40px" />
-                            </a>
+                <img src={GooglePlayStore} width="125px" height="40px" />
+            </a>
+            <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
+                <img src={AppleStore} width="125px" height="40px" />
+            </a>
         </div>
     </footer>
 )

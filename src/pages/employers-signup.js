@@ -99,15 +99,17 @@ const EmployersSignUp = ({ search }) => {
     return (
         <Layout>
             <SEO title="Sign Up" />
-
-            <div className="pink-top-image text-light d-flex align-items-center">
-                <div className="text-center w-100 px-10">
-                    <h1 className="font-size-4em">
-                        <span className="p-2 px-4 bg-black-opacity">Employers
+            <div className="d-none d-lg-block">
+                <div className="pink-top-image text-light d-flex align-items-center">
+                    <div className="text-center w-100 px-10">
+                        <h1 className="font-size-4em">
+                            <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Employers
                         <span className="text-brightblue"> Sign Up</span>
-                        </span>
-                    </h1>
+                            </span>
+                        </h1>
+                    </div>
                 </div>
+
             </div>
 
             <div className="container my-5">

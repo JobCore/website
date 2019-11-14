@@ -87,19 +87,22 @@ const JobSeekersSignUp = ({ search }) => {
     return (
         <Layout>
             <SEO title="Sign Up" />
+            <div className=" d-none d-lg-block">
 
-            <div className="pink-top-image text-light d-flex align-items-center">
-                <div className="text-center w-100 px-10">
-                    <h1
-                        // className="font-size-4em"
-                        style={{ fontSize: '3.5vw' }}
-                    >
-                        <span className="p-2 px-4 bg-black-opacity">
-                            Job Seekers
+                <div className="pink-top-image text-light d-flex align-items-center bg-lightgrey">
+                    <div className="text-center w-100 px-10">
+                        <h1
+                            // className="font-size-4em"
+                            style={{ fontSize: '3.5vw' }}
+                        >
+                            <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>
+                                Job Seekers
                             <span className="text-brightblue"> Sign Up</span>
-                        </span>
-                    </h1>
+                            </span>
+                        </h1>
+                    </div>
                 </div>
+
             </div>
 
             <div className="container my-5">

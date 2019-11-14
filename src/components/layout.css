@@ -20,11 +20,17 @@ footer a {
 nav button {
     margin-left: 4em;
 }
+
+.nav-links:hover {
+    background-color: rgb(17, 186, 192);
+    cursor: 'pointer';
+}
+
 .jobcore-logo-img {
     max-height: 100px;
     width: 50px;
     margin: 0 auto;
-   
+
     width: auto;
     height: auto;
     display: block;
@@ -33,37 +39,40 @@ nav button {
     position: relative;
     color: #aaa;
     font-size: 16px;
-  }
-  
-  .icon_form input {
+}
+
+.icon_form input {
     width: 100%;
     height: 50px;
     padding-right: 65px;
     background: white;
     border: 1px solid #ced4da;
     border-radius: 25px;
-    
-  }
-  
-  .icon_form input { text-indent: 20px;}
-  .icon_form .fa { 
-    float: right;
-    top: 15px;
-    position: absolute;
-    z-index: 2;
-    color: grey;
-  }
-  .icon_form .fa {left: 90%;}
-  .icon_form .fas { 
-    float: right;
-    top: 15px;
-    position: absolute;
-    z-index: 2;
-    color: grey;
-  }
-  .icon_form .fas {left: 90%;}
-  
+}
 
+.icon_form input {
+    text-indent: 20px;
+}
+.icon_form .fa {
+    float: right;
+    top: 15px;
+    position: absolute;
+    z-index: 2;
+    color: grey;
+}
+.icon_form .fa {
+    left: 90%;
+}
+.icon_form .fas {
+    float: right;
+    top: 15px;
+    position: absolute;
+    z-index: 2;
+    color: grey;
+}
+.icon_form .fas {
+    left: 90%;
+}
 
 .background-image-platform {
     background-image: url('../images/platform-glance.png');
@@ -83,35 +92,37 @@ nav button {
     color: white;
 }
 
+@media (max-width: 576px) {
+    .pink-top-image {
+        height: 300px;
+        background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+        background-size: cover;
+        text-shadow: 1px 1px 6px black;
+        color: white;
+        /* border: 5px solid blue;  */
+    }
+}
 
+@media (max-width: 768px) {
+    .pink-top-image {
+        height: 250px;
+        background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+        background-size: cover;
+        text-shadow: 1px 1px 6px black;
+        color: white;
+        /* border: 5px solid blue;  */
+    }
+}
 
-@media (max-width: 576px) { .pink-top-image {
-    height: 300px;
-    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
-    background-size: 100% 100%;
-    text-shadow: 1px 1px 6px black;
-    color: white;
-    /* border: 5px solid blue;  */
-} }
-
-
-@media (max-width: 768px) { .pink-top-image {
-    height: 250px;
-    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
-    background-size: 100% 100%;
-    text-shadow: 1px 1px 6px black;
-    color: white;
-    /* border: 5px solid blue;  */
-}}
-
-
-@media (min-width: 1000px) { .pink-top-image {
-    height: 300px;
-    /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
-    background-size: 100% 100%;
-    text-shadow: 1px 1px 6px black;
-    color: white;
-}}
+@media (min-width: 1000px) {
+    .pink-top-image {
+        height: 300px;
+        background-color: #f0f0f0;
+        background-size: cover;
+        text-shadow: 1px 1px 6px black;
+        color: white;
+    }
+}
 .darkgreen-top-image {
     height: 450px;
     background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BKpZoQ4viqlda90c/videoblocks-dark-green-abstract-motion-loopable-background_rzxkiiwqf_thumbnail-full01.png');
@@ -183,12 +194,11 @@ nav button {
     padding: 24px;
     text-align: left;
 }
-@media only screen and (max-width : 425px) {
-   
+@media only screen and (max-width: 425px) {
     .ratingtalent_star {
-        padding-bottom: "36px"
+        padding-bottom: '36px';
     }
-    }
+}
 .round-links {
     display: inline-block;
     padding: 1px;
@@ -207,10 +217,12 @@ nav button {
     border-radius: 50%;
     background-image: url('../images/footer-green.png');
 }
-#error-form{
-    border: solid 2px red; background-color: #ffe5e5
+#error-form {
+    border: solid 2px red;
+    background-color: #ffe5e5;
 }
-.animated-employee, .animated-employer{
+.animated-employee,
+.animated-employer {
     max-height: 400px;
 }
 
@@ -273,12 +285,12 @@ nav button {
 .alert-thankyou-shown {
     opacity: 1;
     transition: all 325ms linear;
-  }
-  
-  .alert-thankyou-hidden {
+}
+
+.alert-thankyou-hidden {
     opacity: 0;
     transition: all 325ms linear;
-  }
+}
 
 @media screen and (max-width: 700px) {
     .s700-hide {
