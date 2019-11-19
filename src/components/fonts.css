@@ -36,11 +36,16 @@ h3 {
 .font-size-12px {
     font-size: 12px;
 }
-
-.font-size-13px {
-    font-size: 13px;
+@media only screen and (min-width: 768px) {
+    .font-size-13px {
+        font-size: 16px;
+    }
 }
-
+@media only screen and (max-width: 600px) {
+    .font-size-13px {
+        font-size: 12px;
+    }
+}
 .font-size-14px {
     font-size: 14px;
 }
@@ -55,4 +60,15 @@ h3 {
 
 .font-size-4em {
     font-size: 3.5em;
+}
+
+@media only screen and (min-width: 768px) {
+    .font-size-header {
+        font-size: 56px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .font-size-header {
+        font-size: 30px;
+    }
 }

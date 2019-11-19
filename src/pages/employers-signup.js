@@ -137,7 +137,7 @@ const EmployersSignUp = ({ search }) => {
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
-                                    <input id={errors.includes("First name is required") ? "error-form" : null} placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} />
+                                    <input id={errors.includes("First name is required") ? "error-form" : null} placeholder="John" autoFocus maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} />
                                 </div>
                                 {errors.includes("First name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("First name is required")]}</strong></div> : null}
 
