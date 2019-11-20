@@ -44,8 +44,8 @@ const Employers = () => {
                     <div className="row">
                         <div className="col-md-6 text-left">
                             <h1 className="">
-                                Get work fast & <span className="text-brightblue">get paid </span>
-                                the same day
+                                Create your shift schedule & hire your <span className="text-brightblue">part-time </span>
+                                staff
                             </h1>
 
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
