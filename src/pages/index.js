@@ -15,6 +15,7 @@ import GooglePlay from '../images/google-play.png'
 import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
+import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
 
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
@@ -51,7 +52,7 @@ export default () => {
             <SEO title="Home" />
             <div class="jumbotron jumbotron-fluid">
 
-                <video autoPlay muted loop poster="https://dummyimage.com/900x400/000/fff/">
+                <video autoPlay muted loop poster={BannerVideoPlaceholder}>
                     <source src={BannerVideo} data-src="//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
 
                 </video>
