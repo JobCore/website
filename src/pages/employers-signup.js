@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import withLocation from '../withLocation'
 import { navigate } from "@reach/router"
 import validator from 'validator'
+import ReCAPTCHA from "react-google-recaptcha";
 import { registerEmployer } from '../actions';
 /* eslint-disable */
 const handleInputPhone = (value) => {
