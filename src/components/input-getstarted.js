@@ -28,7 +28,7 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
                 {buttonText}
             </button>
             <div className="text-left"> {showModal === false ? <span style={{ fontSize: '12px', color: 'red' }}>{errorLabel}</span> : null}</div>
-            <div class={showModal ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header" style={{ borderStyle: 'none' }}>

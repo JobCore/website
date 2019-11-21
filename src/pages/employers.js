@@ -180,34 +180,55 @@ const Employers = () => {
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
-                <div class="card-deck mx-auto" style={{ width: '55%' }}>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{ height: '120px' }} />
+                <div className="row  justify-content-center">
+                    <div className="col-12 col-sm-7 col-md-8 col-lg-7">
 
-                        <div class="card-body">
-                            <p class="card-title">Find Talent</p>
-                        </div>
-                    </div>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Job Preferences</p>
-                        </div>
-                    </div>
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Clock In and Out</p>
-                        </div>
-                    </div>
 
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{ height: '120px' }} />
-                        <div class="card-body">
-                            <p class="card-title">Get Paid Same Day</p>
+
+
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img class="card-img-top " src={PlatformGlance1} alt="Card 1" style={{ height: '120px' }} />
+                                    <div class="card-block">
+                                        <p class="card-title mt-4" style={{ color: "#787878" }}>Find Talent</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img class="card-img-top " src={PlatformGlance2} alt="Card 2" style={{ height: '120px' }} />
+                                    <div class="card-block">
+                                        <p class="card-title mt-4" style={{ color: "#787878" }} >Job Preferences</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-sm hidden-md-up"></div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img class="card-img-top " src={PlatformGlance3} alt="Card 3" style={{ height: '120px' }} />
+                                    <div class="card-block">
+                                        <p class="card-title mt-4" >Clock In and Out</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <img class="card-img-top " src={PlatformGlance1} alt="Card 4" style={{ height: '120px' }} />
+                                    <div class="card-block">
+                                        <p class="card-title mt-4">Get Paid Some Day</p>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
 
                 <h3 className="my-4">
                     What our <span className="text-brightblue">customers</span> are saying about us
@@ -289,7 +310,7 @@ const Employers = () => {
                     <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
-                <div class={showModal ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style={{ borderStyle: 'none' }}>
