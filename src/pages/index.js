@@ -5,6 +5,8 @@ import SEO from '../components/seo'
 import Player from '../components/player'
 import GetStarted from '../components/input-getstarted'
 import GetStartedModal from '../components/modal-getstarted'
+//banner video
+import BannerVideo from '../videos/BannerVideo.mp4'
 
 import { Link } from 'gatsby'
 //assets
@@ -13,6 +15,7 @@ import GooglePlay from '../images/google-play.png'
 import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
+import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
 
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
@@ -47,40 +50,95 @@ export default () => {
     return (
         <Layout>
             <SEO title="Home" />
+            <div class="jumbotron jumbotron-fluid">
 
-            <div className="bg-lightgray py-10 m-0">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 text-left">
+                <video autoPlay muted loop poster={BannerVideoPlaceholder}>
+                    <source src={BannerVideo} data-src="//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+
+                </video>
+
+                <div class="container text-white">
+
+
+                    <div className="row justify-content-center">
+                        <div className="col-sm-9 text-left">
                             <h1 className="">
-                                Create your shift schedule & hire your<span className="text-brightblue"> part-time</span> staff
-                                {/* <span className="text-brightblue"> get paid </span> */}
+                                <span style={{ color: "white" }}>Create your shift schedule & hire your</span><span className="text-brightblue"> part-time</span> <span style={{ color: "white" }}>staff</span>
+
                             </h1>
+                            <div className="row">
+                                <div className="col-md-6">
 
-                            <p>JobCore is where events are organized: A curated and validated talent pool of workers and hundreds of companies organizing events and hiring everyday.</p>
+                                    <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing eventes and hiring every day.</p>
 
-                            <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                    <div className="pt-3 d-flex align-items-center  ">
+                                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                    </div>
+
+                                    <div className=" pt-5 mb-2">
+                                        <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
+                                            <img src={GooglePlayStore} width="125px" height="40px" />
+                                        </a>
+                                        <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
+                                            <img src={AppleStore} width="125px" height="40px" />
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div className="text-center pt-5 mb-2">
-                                <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
-                                    <img src={GooglePlayStore} width="125px" height="40px" />
-                                </a>
-                                <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
-                                    <img src={AppleStore} width="125px" height="40px" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <Player video="s/4almu/qjkrrt" height={'300px'} />
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div className="py-2 px-10 text-center">
+                </div>
+
+            </div>
+            {/* <div className="bg-lightgray py-10 m-0" style={{ display: "block", position: "relative", height: "100%" }}>
+
+                <div style={{ position: 'absolute', top: "0px", bottom: "0px", display: "block", align: "center", width: "100%", height: "100%", overflow: "hidden" }}>
+
+                    <video loop autoPlay id="videoBG">
+                        <source src={BannerVideo} type="video/mp4" />
+                        <source src={BannerVideo} type="video/ogg" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+
+                <div className="row justify-content-center">
+                    <div className="col-sm-9 text-left">
+                        <h1 className="">
+                            <span>Create your shift schedule & hire your</span><span className="text-brightblue"> part-time</span> staff
+
+                            </h1>
+                        <div className="row">
+                            <div className="col-md-6">
+
+                                <p>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing eventes and hiring every day.</p>
+
+                                <div className="pt-3 d-flex align-items-center  ">
+                                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                </div>
+
+                                <div className=" pt-5 mb-2">
+                                    <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
+                                        <img src={GooglePlayStore} width="125px" height="40px" />
+                                    </a>
+                                    <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
+                                        <img src={AppleStore} width="125px" height="40px" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+          
+
+                </div>
+
+
+
+
+            </div >  */}
+
+            < div className="py-2 px-10 text-center" >
                 <div className="container">
                     <div className="py-10 text-center">
                         <div>
@@ -92,7 +150,7 @@ export default () => {
                             <p className="pt-3">
                                 JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them and schedule, pay, and rate them quickly and efficiently.</p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
@@ -132,11 +190,11 @@ export default () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
-                    Finally a job platform for the
+                    Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
                 </h3>
 
@@ -294,6 +352,6 @@ export default () => {
 
                 </div>
             </div>
-        </Layout>
+        </Layout >
     )
 }

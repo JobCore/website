@@ -95,7 +95,8 @@ nav button {
 @media (max-width: 576px) {
     .pink-top-image {
         height: 300px;
-        background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+        /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+        background-color: #f0f0f0;
         background-size: cover;
         text-shadow: 1px 1px 6px black;
         color: white;
@@ -106,7 +107,8 @@ nav button {
 @media (max-width: 768px) {
     .pink-top-image {
         height: 250px;
-        background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg');
+        /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+        background-color: #f0f0f0;
         background-size: cover;
         text-shadow: 1px 1px 6px black;
         color: white;
@@ -209,6 +211,38 @@ nav button {
 }
 .round-links:hover {
     background-color: rgb(17, 186, 192);
+}
+.fade.show {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    height: 100vh !important;
+    display: flex;
+}
+
+.modal-content {
+    margin: auto !important;
+    height: fit-content !important;
+}
+.jumbotron {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+.jumbotron video {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*  object-fit is not supported on IE  */
+    object-fit: cover;
+    opacity: 0.5;
+}
+.jumbotron .container {
+    z-index: 2;
+    position: relative;
 }
 .round-links span {
     display: inline-block;

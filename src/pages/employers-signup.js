@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import withLocation from '../withLocation'
 import { navigate } from "@reach/router"
 import validator from 'validator'
+import ReCAPTCHA from "react-google-recaptcha";
 import { registerEmployer } from '../actions';
 /* eslint-disable */
 const handleInputPhone = (value) => {
@@ -118,7 +119,7 @@ const EmployersSignUp = ({ search }) => {
 
 
                     <h2 className="text-brightblue" style={{ fontWeight: "bold" }}>REQUEST A DEMO</h2>
-                    <div className="text-secondary mb-5" style={{ fontSize: "14px" }}>After submitting the contact from a representative will reach out to you to schedule a demo. We look forward to speaking with you!</div>
+                    <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>After submitting the contact from a representative will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                     <form onSubmit={e => {
                         setErrors([''])
@@ -137,7 +138,7 @@ const EmployersSignUp = ({ search }) => {
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
-                                    <input id={errors.includes("First name is required") ? "error-form" : null} placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} />
+                                    <input id={errors.includes("First name is required") ? "error-form" : null} placeholder="John" autoFocus maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} />
                                 </div>
                                 {errors.includes("First name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("First name is required")]}</strong></div> : null}
 
@@ -179,10 +180,10 @@ const EmployersSignUp = ({ search }) => {
                         </div>
                         <div className="form-row s700-display-column">
                             <div className="form-group col py-1">
-                                <label className=""><h6>Password</h6></label>
+                                <label className=""><h6>Create Password</h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
-                                    <span class="fas fa-envelope"></span>
+                                    <span class="fas fa-lock"></span>
                                     <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type="password" name="password" onChange={handleInputChange} value={inputs.password} />
                                     {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
                                     {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
@@ -194,7 +195,7 @@ const EmployersSignUp = ({ search }) => {
                                 <label className=""><h6>Repeat Password</h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
-                                    <span class="fas fa-phone"></span>
+                                    <span class="fas fa-lock"></span>
                                     <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type="password" name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} />
                                     {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
                                     {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
@@ -237,7 +238,8 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                         </div>
-
+                        <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
+                            onChange={(e) => setCaptcha(true)} />
                         <button
                             disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
                             className="btn radius btn-purple mt-3 px-5 py-2" type="submit"
@@ -255,7 +257,7 @@ const EmployersSignUp = ({ search }) => {
                             {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
                         </button>
                         <div className="pt-4 text-gray">
-                            <small>
+                            <small style={{ fontSize: '16px' }}>
                                 By clicking the button above you agree to the
                             <Link to="/terms">
                                     <a> Terms of Service </a>

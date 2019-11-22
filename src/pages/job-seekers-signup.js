@@ -7,6 +7,7 @@ import { navigate } from '@reach/router'
 import { registerJobSeeker } from '../actions'
 import withLocation from '../withLocation'
 import validator from 'validator'
+import ReCAPTCHA from "react-google-recaptcha";
 
 /* eslint-disable */
 
@@ -76,6 +77,7 @@ const JobSeekersSignUp = ({ search }) => {
     })
 
     const [errors, setErrors] = useState([''])
+    const [captcha, setCaptcha] = useState([false])
     const [submitData, setSubmitData] = useState(0)
 
     const handleInputChange = event => {
@@ -83,6 +85,7 @@ const JobSeekersSignUp = ({ search }) => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
+
 
     return (
         <Layout>
@@ -110,7 +113,7 @@ const JobSeekersSignUp = ({ search }) => {
                     <div className="col-12 col-md-6">
                         <h2 className="text-brightblue">SIGN UP NOW</h2>
                         <div className="text-gray pb-4">
-                            <small style={{ fontSize: '11px' }}>After you submit the form, please check your email for the mobile app download link. Please download the mobile app to complete the sign-up process.</small>
+                            <small style={{ fontSize: '18px' }}>After you submit the form, please check your email for the mobile app download link. Please download the mobile app to complete the sign-up process.</small>
                         </div>
                         <form
                             onSubmit={e => {
@@ -131,7 +134,7 @@ const JobSeekersSignUp = ({ search }) => {
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
-                                    <input id={errors.includes('First name is required') ? 'error-form' : null} placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} />
+                                    <input id={errors.includes('First name is required') ? 'error-form' : null} placeholder="John" maxlength="254" type="text" name="firstName" onChange={handleInputChange} value={inputs.firstName} autoFocus />
 
                                     {errors.includes('First name is required') ? (
                                         <div className="text-center pt-1">
@@ -184,7 +187,7 @@ const JobSeekersSignUp = ({ search }) => {
                             </div>
                             <div className="form-group py-1">
                                 <label className="">
-                                    <h6>Password</h6>
+                                    <h6>Create Password</h6>
                                 </label>
                                 <div class="icon_form">
                                     <span class="fas fa-lock"></span>
@@ -265,10 +268,11 @@ const JobSeekersSignUp = ({ search }) => {
                                     ) : null}
                                 </div>
                             </div>
-
+                            <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
+                                onChange={(e) => setCaptcha(true)} />
                             <button
                                 disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
-                                className="btn radius btn-purple  mt-2 px-5 py-2"
+                                className="btn radius btn-purple  mt-4 px-5 py-2"
                                 type="submit"
                                 onSubmit={e => {
                                     setErrors([''])
@@ -302,6 +306,7 @@ const JobSeekersSignUp = ({ search }) => {
                                 </small>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

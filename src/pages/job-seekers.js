@@ -64,7 +64,7 @@ const JobSeekers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 pt-3   ">
+                        <div className="col-md-6 my-auto">
                             <Player video="s/4almu/qjkrrt" height={'300px'} />
                         </div>
                     </div>

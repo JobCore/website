@@ -16,7 +16,7 @@ export default () => {
                     </Link>
 
                     <div>
-                        <div className="text-right nav-top">
+                        {/* <div className="text-right nav-top">
                             <small>
                                 <span className="pr-4">(305) 555-8473</span>
                                 <Link to="/about" activeClassName="active">
@@ -30,7 +30,7 @@ export default () => {
                                     Sign In
                                 </Link>
                             </small>
-                        </div>
+                        </div> */}
                         <div>
                             <Link to="/job-seekers" activeClassName="active">
                                 <a className="link px-3 s700-collapse-padding">
@@ -50,17 +50,23 @@ export default () => {
                             </Link>
 
                             <button
-                                className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin"
+                                className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin ml-0"
                                 type="submit"
                                 onClick={() => setAccountType("signup")}
                             >
                                 Get Started
                             </button>
+
+                            <Link to="/login" className="link px-2">
+                                <i class="fas fa-caret-right text-brightblue mr-2"></i>
+                                Sign In
+                                </Link>
                         </div>
                     </div>
                 </nav>
             </div>
-            <div class={accountType !== "" ? "modal d-block" : "modal"} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class={accountType ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header" style={{ borderStyle: "none" }}>
