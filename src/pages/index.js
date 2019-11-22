@@ -7,6 +7,7 @@ import GetStarted from '../components/input-getstarted'
 import GetStartedModal from '../components/modal-getstarted'
 //banner video
 import BannerVideo from '../videos/BannerVideo.mp4'
+import Logo from '../images/jobcorelogo.png'
 
 import { Link } from 'gatsby'
 //assets
@@ -67,7 +68,7 @@ export default () => {
 
                             </h1>
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-9">
 
                                     <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing eventes and hiring every day.</p>
 
@@ -210,8 +211,8 @@ export default () => {
                 </div>
             </div>
             <div className="py-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row">
-                    <div className="col-12 col-md-6 my-auto">
+                <div className="row ml-0 mr-0">
+                    <div className="col-11 col-md-6 my-auto">
                         <div>
                             <h3 className="ml-4">
                                 Employers can manage
@@ -228,17 +229,17 @@ export default () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-12 col-md-6">
-                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: '100%' }} src={animationEmployer} />
+                    <div className="col-11 col-md-6">
+                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: "100%" }} src={animationEmployer} />
                     </div>
                 </div>
             </div>
             <div className="text-left d-flex justify-content-center align-items-center">
-                <div className="row">
-                    <div className="col-12 col-md-4">
+                <div className="row ml-0 mr-0">
+                    <div className=" col-11 col-md-6 my-auto order-2 order-sm-1">
                         <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                     </div>
-                    <div className="col-md-8 my-auto">
+                    <div className="col-11 col-md-6 my-auto order-1 order-sm-2">
                         <div>
                             <h3 className="ml-4">
                                 Job seekers can find
@@ -282,10 +283,13 @@ export default () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4">
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                <div className="row justify-content-center py-4 mx-auto">
+                    <div className="col-md-2 pt-2 pr-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -302,9 +306,14 @@ export default () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2 pr-2">
+
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -320,9 +329,12 @@ export default () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2 pr-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>

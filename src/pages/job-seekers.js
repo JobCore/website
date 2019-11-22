@@ -6,6 +6,7 @@ import Player from '../components/player'
 import { navigate } from '@reach/router'
 import GetStartedModal from '../components/modal-getstarted'
 import GetStarted from '../components/input-getstarted'
+import Logo from '../images/jobcorelogo.png'
 
 //assets
 import AppStore from '../images/app-store.png'
@@ -65,7 +66,7 @@ const JobSeekers = () => {
                         </div>
 
                         <div className="col-md-6 my-auto">
-                            <Player video="s/4almu/qjkrrt" height={'300px'} />
+                            <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
                         </div>
                     </div>
                 </div>
@@ -140,7 +141,7 @@ const JobSeekers = () => {
             </div>
 
             <div className="pt-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row">
+                <div className="row ml-0 mr-0">
                     <div className="col-12 col-md-4">
                         <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                     </div>
@@ -180,7 +181,7 @@ const JobSeekers = () => {
                 </p>
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
-                <div className="row justify-content-center">
+                <div className="row justify-content-center ml-0 mr-0">
                     <div className="col-11 col-md-7">
 
                         <div class="card-deck mx-auto">
@@ -218,10 +219,13 @@ const JobSeekers = () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4">
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                <div className="row justify-content-center py-4 mx-auto">
+                    <div className="col-md-2 pt-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -238,9 +242,14 @@ const JobSeekers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2">
+
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -256,9 +265,12 @@ const JobSeekers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>

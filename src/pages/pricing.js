@@ -316,7 +316,7 @@ const Pricing = () => {
 
 
             </div>
-            <div class="jumbotron jumbotron-fluid text-center mb-0 mt-3">
+            <div class="jumbotron jumbotron-fluid text-center mb-0 mt-3" style={{ backgroundColor: "#E9ECEF" }}>
                 <h2 style={{ fontWeight: '900' }}>
                     Start Using <span style={{ color: '#75c7d2' }}>JobCore</span> today
                 </h2>

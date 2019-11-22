@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import JobCoreLogo from "../images/jobcorelogo.png";
+
 const Player = ({
   video,
-  autoplay = 0,
+  autoplay = 1,
   rel,
   modest,
   placeholder,
@@ -15,21 +15,59 @@ const Player = ({
 
   return (
     <div
+      className="border"
       style={{
         width: "100%",
         height: height,
         display: "inline-block",
         backgroundSize: `contain`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
+        backgroundPosition: "center",
+        backgroundColor: "White",
         textAlign: "center",
         cursor: "pointer",
+        backgroundImage: `url('${placeholder}')`,
         ...style
+
       }}
     >
-      <iframe src={`https://streamable.com/${video}`} frameborder="0" width="100%" height="100%" allowfullscreen style={{ width: '100%', height: '100%', overflow: 'hidden' }}></iframe>
-    </div >
+      {status === "idle" ? (
+        <div style={{ display: "inline-block" }}>
+          <div
+            onClick={() => setStatus("playing")}
+            style={{
+              height: height,
+              display: "table-cell",
+              verticalAlign: "middle"
+            }}
+          >
+            <button
+              style={{
+                borderRadius: "50%",
+                width: "80px",
+                height: "80px",
+                cursor: "pointer",
+                fontSize: "20px"
+              }}
+            >
+              ▶
+            </button>
+          </div>
+        </div>
+      ) : (
+          <iframe
+            title={tittle}
+            src={`https://www.youtube.com/embed/${video}?autoplay=${autoplay}&rel=${rel}&modestbranding=${modest}&controls=${controls}&showinfo=${controls}`}
+            className="player"
+            type="text/html"
+            width="100%"
+            height="100%"
+            allow="autoplay"
+            frameBorder="0"
+          />)}
+    </div>
   );
 };
 
 export default Player;
+

@@ -3,6 +3,8 @@ import { navigate } from '@reach/router'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
+import Logo from '../images/jobcorelogo.png'
+
 import GetStartedModal from '../components/modal-getstarted'
 //assets
 import AppStore from '../images/app-store.png'
@@ -66,7 +68,7 @@ const Employers = () => {
                         </div>
 
                         <div className="col-md-6 my-auto">
-                            <Player video="s/4almu/qjkrrt" height={'300px'} />
+                            <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
                         </div>
                     </div>
                 </div>
@@ -143,10 +145,9 @@ const Employers = () => {
 
                 </div>
             </div>
-
             <div className="py-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row">
-                    <div className="col-12 col-md-6 my-auto">
+                <div className="row ml-0 mr-0">
+                    <div className="col-11 col-md-6 my-auto">
                         <div>
                             <h3 className="ml-4">
                                 Employers can manage
@@ -163,11 +164,12 @@ const Employers = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-12 col-md-6">
-                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: '100%' }} src={animationEmployer} />
+                    <div className="col-11 col-md-6">
+                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: "100%" }} src={animationEmployer} />
                     </div>
                 </div>
             </div>
+
 
             <GetStartedModal />
             <div className="py-10 text-left text-center">
@@ -180,14 +182,14 @@ const Employers = () => {
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
-                <div className="row  justify-content-center">
+                <div className="row  justify-content-center ml-0 mr-0">
                     <div className="col-12 col-sm-7 col-md-8 col-lg-7">
 
 
 
 
                         <div class="row justify-content-center">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance1} alt="Card 1" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -196,7 +198,7 @@ const Employers = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance2} alt="Card 2" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -206,7 +208,7 @@ const Employers = () => {
                                 </div>
                             </div>
                             <div class="clearfix visible-sm hidden-md-up"></div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance3} alt="Card 3" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -215,7 +217,7 @@ const Employers = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance1} alt="Card 4" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -233,13 +235,17 @@ const Employers = () => {
                 <h3 className="my-4">
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
-                <div className="row justify-content-center py-4">
-                    <div className="col-md-3 pt-2 pr-0">
+
+                <div className="row justify-content-center py-4 mx-auto">
+                    <div className="col-md-2 pt-2 pr-2">
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -256,12 +262,17 @@ const Employers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 pt-2 pr-0">
+                    <div className="col-md-2 pt-2 pr-2">
+
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -277,12 +288,15 @@ const Employers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 pt-2 pr-0">
+                    <div className="col-md-2 pt-2 pr-2">
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+                        <div className="row justify-content-end ml-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -299,6 +313,7 @@ const Employers = () => {
                         </div>
                     </div>
                 </div>
+
 
                 <h3 className="pt-5 mt-3">
                     It's never been easier to <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.

@@ -27,14 +27,15 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
             <button type="submit" className="btn radius btn-purple my-2 ml-2 px-4 py-2 d-inline" onClick={validateEmail}>
                 {buttonText}
             </button>
-            <div className="text-left"> {showModal === false ? <span style={{ fontSize: '12px', color: 'red' }}>{errorLabel}</span> : null}</div>
+            <div className="text-left"> {showModal === false ? <div class="alert alert-danger" role="alert">
+                {errorLabel}
+            </div> : null}</div>
             <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header" style={{ borderStyle: 'none' }}>
-                            <h5 class="modal-title text-center" id="exampleModalLabel">
-                                Are you a jobseeker or an employer?
-
+                            <h5 class="modal-title" id="exampleModalLabel" style={{ color: "black" }}>
+                                {modalQuestion}
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={(e) => setShowModal('')}>
                                 <span aria-hidden="true">&times;</span>
@@ -46,7 +47,7 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
                                     type="button"
                                     class="btn btn-primary"
                                     value="jobseeker"
-                                    onClick={() => navigate(`${modalNavigation1 + inputs.inputName ? `?${inputName}=` + inputs.inputName : ''}`)}
+                                    onClick={() => navigate(`/job-seekers-signup/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)}
                                     style={{ color: 'white', backgroundColor: '#a319a3', border: 'none', borderRadius: '30px', width: '140px' }}
                                 >
                                     {modalButton1}
@@ -57,7 +58,7 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
                                     type="button"
                                     class="btn btn-primary"
                                     value="employer"
-                                    onClick={() => navigate(`${modalNavigation2 + inputs.inputName ? `?${inputName}=` + inputs.inputName : ''}`)}
+                                    onClick={() => navigate(`/employers-signup/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)}
                                     style={{ color: 'white', backgroundColor: '#12687E', border: 'none', borderRadius: '30px', width: '140px' }}
                                 >
                                     {modalButton2}

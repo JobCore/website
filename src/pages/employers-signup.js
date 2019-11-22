@@ -238,8 +238,8 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                         </div>
-                        <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
-                            onChange={(e) => setCaptcha(true)} />
+                        {/* <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
+                            onChange={(e) => setCaptcha(true)} /> */}
                         <button
                             disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
                             className="btn radius btn-purple mt-3 px-5 py-2" type="submit"

@@ -7,7 +7,7 @@ export default () => {
     const [accountType, setAccountType] = useState('');
     return (
         <div id="top">
-
+            <span style={{ position: 'absolute', top: "10px", right: "16px" }} className="px-3 d-none d-lg-block"><i className="fas fa-phone-alt"></i> (305) 555-8473</span>
             <div className="d-none d-md-block">
 
                 <nav className="navbar justify-content-between px-10 s1000-display-column s700-collapse-padding">
