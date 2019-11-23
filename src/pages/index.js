@@ -54,14 +54,14 @@ export default () => {
             <div class="jumbotron jumbotron-fluid">
 
                 <video autoPlay muted loop poster={BannerVideoPlaceholder}>
-                    <source src={BannerVideo} data-src="//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+                    <source src={BannerVideo} type="video/mp4" />
 
                 </video>
 
                 <div class="container text-white">
 
 
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-left">
                         <div className="col-sm-9 text-left">
                             <h1 className="">
                                 <span style={{ color: "white" }}>Create your shift schedule & hire your</span><span className="text-brightblue"> part-time</span> <span style={{ color: "white" }}>staff</span>
@@ -78,10 +78,10 @@ export default () => {
 
                                     <div className=" pt-5 mb-2">
                                         <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
-                                            <img src={GooglePlayStore} width="125px" height="40px" />
+                                            <img src={GooglePlayStore} width="140px" height="60px" />
                                         </a>
                                         <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
-                                            <img src={AppleStore} width="125px" height="40px" />
+                                            <img src={AppleStore} width="140px" height="60px" />
                                         </a>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@ export default () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>
@@ -360,7 +360,7 @@ export default () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>

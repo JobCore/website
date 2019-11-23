@@ -7,7 +7,6 @@ export default () => {
     const [accountType, setAccountType] = useState('');
     return (
         <div id="top">
-            <span style={{ position: 'absolute', top: "10px", right: "16px" }} className="px-3 d-none d-lg-block"><i className="fas fa-phone-alt"></i> (305) 555-8473</span>
             <div className="d-none d-md-block">
 
                 <nav className="navbar justify-content-between px-10 s1000-display-column s700-collapse-padding">
@@ -32,12 +31,15 @@ export default () => {
                             </small>
                         </div> */}
                         <div>
+                            <a className="link px-3 s700-collapse-padding" href="tel:+1-305-555-8473">
+                                <i className="fas fa-phone-alt"></i> (305) 555-8473
+                                
+                                </a>
                             <Link to="/job-seekers" activeClassName="active">
                                 <a className="link px-3 s700-collapse-padding">
                                     Job Seekers
                                 </a>
                             </Link>
-
                             <Link to="/employers" activeClassName="active">
                                 <a className="link px-3 s700-collapse-padding">
                                     Employers
@@ -50,7 +52,7 @@ export default () => {
                             </Link>
 
                             <button
-                                className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin ml-0"
+                                className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin ml-0 mr-2"
                                 type="submit"
                                 onClick={() => setAccountType("signup")}
                             >
@@ -61,6 +63,7 @@ export default () => {
                                 <i class="fas fa-caret-right text-brightblue mr-2"></i>
                                 Sign In
                                 </Link>
+                      
                         </div>
                     </div>
                 </nav>
@@ -69,12 +72,18 @@ export default () => {
 
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header" style={{ borderStyle: "none" }}>
-                            <h5 class="modal-title" id="exampleModalLabel">Are you a jobseeker or an employer?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick={() => setAccountType("")}>
+
+                        <div class="modal-header" style={{ borderStyle: 'none' }}>
+                            <h5 class="modal-title" id="exampleModalLabel" style={{ color: "black" }}>
+                                
+                            </h5>
+                            <button type="button" class="close" style={{color: "#a319a3"}} data-dismiss="modal" aria-label="Close" onClick={(e) => setAccountType('')}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <div class="modal-body">
+        <h4 className="text-center" style={{color:"rgb(17, 186, 192)", fontWeight: "bolder"}}>Are you a jobseeker or an employer?</h4>
+      </div>
                         <div className="row justfy-content-center text-center p-4">
                             <div className="col">
                                 <button type="button" class="btn btn-primary" onClick={() => navigate("/job-seekers-signup/")} style={{ color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px" }}>Jobseeker</button>
