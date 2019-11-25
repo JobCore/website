@@ -7,8 +7,7 @@ import Logo from '../images/jobcorelogo.png'
 
 import GetStartedModal from '../components/modal-getstarted'
 //assets
-import AppStore from '../images/app-store.png'
-import GooglePlay from '../images/google-play.png'
+
 import Clock from '../images/clock.png'
 import Magnify from '../images/magnifying-glass.png'
 import Suitcase from '../images/suitcase.png'
@@ -17,8 +16,6 @@ import Money from '../images/money.png'
 import Envelope from '../images/envelope.png'
 import animationEmployer from '../images/animation-employer.gif'
 import Review1 from '../images/review1.png'
-import Review2 from '../images/review2.png'
-import Review3 from '../images/review3.png'
 import PlatformGlance1 from '../images/platform-glance-1.png'
 import PlatformGlance2 from '../images/platform-glance-2.png'
 import PlatformGlance3 from '../images/platform-glance-3.png'
@@ -237,7 +234,7 @@ const Employers = () => {
                 </h3>
 
                 <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-2 pt-2 pr-2">
+                    <div className="col-md-3 pt-2 pr-2">
 
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
@@ -262,7 +259,7 @@ const Employers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2 pr-2">
+                    <div className="col-md-3 pt-2 pr-2">
 
 
                         <div className="reviews">
@@ -288,7 +285,7 @@ const Employers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2 pr-2">
+                    <div className="col-md-3 pt-2 pr-2">
 
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,

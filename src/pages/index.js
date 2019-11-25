@@ -17,6 +17,7 @@ import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
 import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
+import data from '../jsons/home.json';
 
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
@@ -47,7 +48,7 @@ export default () => {
 
         setemailGetStarted(emailGetStarted => ({ ...emailGetStarted, [event.target.name]: event.target.value }))
     }
-    console.log(getStarted)
+    console.log(data)
     return (
         <Layout>
             <SEO title="Home" />
@@ -92,57 +93,14 @@ export default () => {
                 </div>
 
             </div>
-            {/* <div className="bg-lightgray py-10 m-0" style={{ display: "block", position: "relative", height: "100%" }}>
-
-                <div style={{ position: 'absolute', top: "0px", bottom: "0px", display: "block", align: "center", width: "100%", height: "100%", overflow: "hidden" }}>
-
-                    <video loop autoPlay id="videoBG">
-                        <source src={BannerVideo} type="video/mp4" />
-                        <source src={BannerVideo} type="video/ogg" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
-
-                <div className="row justify-content-center">
-                    <div className="col-sm-9 text-left">
-                        <h1 className="">
-                            <span>Create your shift schedule & hire your</span><span className="text-brightblue"> part-time</span> staff
-
-                            </h1>
-                        <div className="row">
-                            <div className="col-md-6">
-
-                                <p>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing eventes and hiring every day.</p>
-
-                                <div className="pt-3 d-flex align-items-center  ">
-                                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
-                                </div>
-
-                                <div className=" pt-5 mb-2">
-                                    <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
-                                        <img src={GooglePlayStore} width="125px" height="40px" />
-                                    </a>
-                                    <a href="https://apps.apple.com/us/app/jobcore-talent/id1437290430?app=itunes&ign-mpt=uo%3D4">
-                                        <img src={AppleStore} width="125px" height="40px" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-          
-
-                </div>
-
-
-
-
-            </div >  */}
+    
 
             < div className="py-2 px-10 text-center" >
                 <div className="container">
                     <div className="py-10 text-center">
                         <div>
+                            <div>
+
                             <h3>
                                 Finally a centralized <span className="text-brightblue">source of talents </span>
                                 and companies!
@@ -152,6 +110,7 @@ export default () => {
                                 JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
                             <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
+                            </div>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
@@ -284,9 +243,33 @@ export default () => {
                 </h3>
 
                 <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-2 pt-2 pr-2">
+                    <div className="col-md-3 pt-2 pr-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
+                            <div className="col-6 col-md-3 text-right my-auto">
+                                <span>
+                                    <div>
+                                        <small>Tanya,</small>
+                                    </div>
+                                    <div>
+                                        <small className="text-gray">Victoria</small>
+                                    </div>
+                                </span>
+                            </div>
+                            <div className="col-6 col-md-3 my-auto">
+                                <img src={Review1} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-md-3 pt-2 pr-2">
+
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
 
 
                         <div className="row justify-content-end m-0">
@@ -305,31 +288,7 @@ export default () => {
                             </div>
                         </div>
                     </div>
-
-                    <div className="col-md-2 pt-2 pr-2">
-
-
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
-
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-2 pt-2 pr-2">
+                    <div className="col-md-3 pt-2 pr-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
