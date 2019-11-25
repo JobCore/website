@@ -52,6 +52,7 @@ export default () => {
     return (
         <Layout>
             <SEO title="Home" />
+
             <div class="jumbotron jumbotron-fluid">
 
                 <video autoPlay muted loop poster={BannerVideoPlaceholder}>
@@ -71,7 +72,7 @@ export default () => {
                             <div className="row">
                                 <div className="col-md-9">
 
-                                    <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing eventes and hiring every day.</p>
+                                    <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing events and hiring every day.</p>
 
                                     <div className="pt-3 d-flex align-items-center  ">
                                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
@@ -93,7 +94,7 @@ export default () => {
                 </div>
 
             </div>
-    
+
 
             < div className="py-2 px-10 text-center" >
                 <div className="container">
@@ -101,15 +102,15 @@ export default () => {
                         <div>
                             <div>
 
-                            <h3>
-                                Finally a centralized <span className="text-brightblue">source of talents </span>
-                                and companies!
+                                <h3>
+                                    Finally a centralized <span className="text-brightblue">source of talents </span>
+                                    and companies!
                             </h3>
 
-                            <p className="pt-3">
-                                JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                <p className="pt-3">
+                                    JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
+                                <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
                             </div>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
@@ -121,7 +122,7 @@ export default () => {
                                 <div className="w-250px mb-auto">
                                     <img src={Magnify} width="50" height="50" />
                                     <h6 className="mt-3">Find Talent</h6>
-                                    <p className="text-secondary font-size-13px">Access a talent pool of people in Miami, rated with experience.</p>
+                                    <p className="text-secondary font-size-13px">Access a talent pool of people, rated with experience.</p>
                                 </div>
                                 <div className="w-250px mb-auto">
                                     <img src={Calendar} width="50" height="50" />
@@ -165,7 +166,7 @@ export default () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>
@@ -319,7 +320,7 @@ export default () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>

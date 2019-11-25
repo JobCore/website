@@ -33,7 +33,7 @@ export default () => {
                         <div>
                             <a className="link px-3 s700-collapse-padding" href="tel:+1-305-555-8473">
                                 <i className="fas fa-phone-alt"></i> (305) 555-8473
-                                
+
                                 </a>
                             <Link to="/job-seekers" activeClassName="active">
                                 <a className="link px-3 s700-collapse-padding">
@@ -46,7 +46,7 @@ export default () => {
                                 </a>
                             </Link>
                             <Link to="/pricing" activeClassName="active">
-                                <a className="link px-3 s700-collapse-padding">
+                                <a className="link px-3 s700-collapse-padding mr-3">
                                     Pricing
                             </a>
                             </Link>
@@ -59,11 +59,11 @@ export default () => {
                                 Get Started
                             </button>
 
-                            <Link to="/login" className="link px-2">
-                                <i class="fas fa-caret-right text-brightblue mr-2"></i>
+                            <Link to="/login" className="link px-2 ml-3">
+                                <i class="fas fa-caret-right text-brightblue mr-1"></i>
                                 Sign In
                                 </Link>
-                      
+
                         </div>
                     </div>
                 </nav>
@@ -75,15 +75,15 @@ export default () => {
 
                         <div class="modal-header" style={{ borderStyle: 'none' }}>
                             <h5 class="modal-title" id="exampleModalLabel" style={{ color: "black" }}>
-                                
+
                             </h5>
-                            <button type="button" class="close" style={{color: "#a319a3"}} data-dismiss="modal" aria-label="Close" onClick={(e) => setAccountType('')}>
+                            <button type="button" class="close" style={{ color: "#a319a3" }} data-dismiss="modal" aria-label="Close" onClick={(e) => setAccountType('')}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-        <h4 className="text-center" style={{color:"rgb(17, 186, 192)", fontWeight: "bolder"}}>Are you a jobseeker or an employer?</h4>
-      </div>
+                            <h4 className="text-center" style={{ color: "rgb(17, 186, 192)", fontWeight: "bolder" }}>Are you a jobseeker or an employer?</h4>
+                        </div>
                         <div className="row justfy-content-center text-center p-4">
                             <div className="col">
                                 <button type="button" class="btn btn-primary" onClick={() => navigate("/job-seekers-signup/")} style={{ color: "white", backgroundColor: "#a319a3", border: "none", borderRadius: "30px", width: "140px" }}>Jobseeker</button>

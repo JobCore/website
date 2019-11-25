@@ -119,7 +119,7 @@ const EmployersSignUp = ({ search }) => {
 
 
                     <h2 className="text-brightblue" style={{ fontWeight: "bold" }}>REQUEST A DEMO</h2>
-                    <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>After submitting the contact from a representative will reach out to you to schedule a demo. We look forward to speaking with you!</div>
+                    <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                     <form onSubmit={e => {
                         setErrors([''])
@@ -257,7 +257,7 @@ const EmployersSignUp = ({ search }) => {
                             {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
                         </button>
                         <div className="pt-4 text-gray">
-                            <small style={{ fontSize: '16px' }}>
+                            <small style={{ fontSize: '18px' }}>
                                 By clicking the button above you agree to the
                             <Link to="/terms">
                                     <a> Terms of Service </a>

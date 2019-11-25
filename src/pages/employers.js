@@ -50,7 +50,7 @@ const Employers = () => {
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                            <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                             </div>
 
@@ -64,7 +64,7 @@ const Employers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 my-auto">
+                        <div className="col-md-6">
                             <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const Employers = () => {
                             </h3>
 
                             <p className="pt-3">
-                                JobCore is a platform focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                JobCore is a marketplace focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
                             <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
 
@@ -94,7 +94,7 @@ const Employers = () => {
                                 <div className="w-250px mb-auto">
                                     <img src={Magnify} width="50" height="50" />
                                     <h6 className="mt-3">Find Talent</h6>
-                                    <p className="text-secondary font-size-13px">Access a talent pool of people in Miami, rated with experience.</p>
+                                    <p className="text-secondary font-size-13px">Access a talent pool of people, rated with experience.</p>
                                 </div>
                                 <div className="w-250px mb-auto">
                                     <img src={Calendar} width="50" height="50" />
@@ -138,7 +138,7 @@ const Employers = () => {
                 </p>
 
                 <div className="mt-4 d-flex align-items-center justify-content-center">
-                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>
@@ -319,7 +319,7 @@ const Employers = () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
                 <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
