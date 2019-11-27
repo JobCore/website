@@ -5,7 +5,7 @@ const GetStartedModal = () => {
     const [showModal, setShowModal] = useState(false)
 
     return (
-        <div>
+        <div className="container-fluid p-0">
             <div className="bg-lightgray px-5 py-10 m-0 text-center">
                 <h3 className="mb-1">
                     It's never been easier to
@@ -14,7 +14,7 @@ const GetStartedModal = () => {
 
                 <p>Sign up today and experience the difference. It's fast and easy!</p>
 
-                <button className="btn radius btn-purple mt-3 my-2 ml-2 pt-3 pb-3 pl-5 pr-5" onClick={() => setShowModal(true)}>
+                <button className="btn radius btn-purple pl-4 pr-4" onClick={() => setShowModal(true)}>
                     Get Started
                 </button>
             </div>
@@ -24,15 +24,15 @@ const GetStartedModal = () => {
 
                         <div class="modal-header" style={{ borderStyle: 'none' }}>
                             <h5 class="modal-title" id="exampleModalLabel" style={{ color: "black" }}>
-                                
+
                             </h5>
-                            <button type="button" class="close" style={{color: "#a319a3"}} data-dismiss="modal" aria-label="Close" onClick={(e) => setShowModal('')}>
+                            <button type="button" class="close" style={{ color: "#a319a3" }} data-dismiss="modal" aria-label="Close" onClick={(e) => setShowModal('')}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-        <h4 className="text-center" style={{color:"rgb(17, 186, 192)", fontWeight: "bolder"}}>Are you a jobseeker or an employer?</h4>
-      </div>
+                            <h4 className="text-center" style={{ color: "rgb(17, 186, 192)", fontWeight: "bolder" }}>Are you a jobseeker or an employer?</h4>
+                        </div>
                         <div className="row justfy-content-center text-center pb-5">
                             <div className="col">
                                 <button

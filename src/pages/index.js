@@ -74,8 +74,11 @@ export default () => {
 
                                     <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing events and hiring every day.</p>
 
-                                    <div className="pt-3 d-flex align-items-center  ">
-                                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                    <div className="row pt-4">
+                                        <div className="col-md-6">
+
+                                            <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                        </div>
                                     </div>
 
                                     <div className=" pt-5 mb-2">
@@ -96,7 +99,7 @@ export default () => {
             </div>
 
 
-            < div className="py-2 px-10 text-center" >
+            <div className="py-2 text-center" >
                 <div className="container">
                     <div className="py-10 text-center">
                         <div>
@@ -153,7 +156,7 @@ export default () => {
                 </div>
             </div >
 
-            <div className="bg-lightgray px-10 py-10 m-0 text-center">
+            <div className="bg-lightgray py-10 m-0 text-center">
                 <h3 className="mb-2">
                     Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
@@ -165,14 +168,17 @@ export default () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row mt-4 justify-content-center">
+                    <div className="col-md-4">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
             </div>
-            <div className="py-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row ml-0 mr-0">
-                    <div className="col-11 col-md-6 my-auto">
+            <div className="container py-10">
+                <div className="row">
+                    <div className="col-12 col-md-6 my-auto">
                         <div>
                             <h3 className="ml-4">
                                 Employers can manage
@@ -189,17 +195,17 @@ export default () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-11 col-md-6">
+                    <div className="col-12 col-md-6">
                         <img className="animated-employer mx-auto d-block pb-3" style={{ width: "100%" }} src={animationEmployer} />
                     </div>
                 </div>
             </div>
-            <div className="text-left d-flex justify-content-center align-items-center">
-                <div className="row ml-0 mr-0">
-                    <div className=" col-11 col-md-6 my-auto order-2 order-sm-1">
+            <div className="container">
+                <div className="row" style={{ paddingBottom: "80px" }}>
+                    <div className=" col-12 col-md-6 my-auto order-2 order-sm-1">
                         <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                     </div>
-                    <div className="col-11 col-md-6 my-auto order-1 order-sm-2">
+                    <div className="col-12 col-md-6 my-auto order-1 order-sm-2">
                         <div>
                             <h3 className="ml-4">
                                 Job seekers can find
@@ -226,7 +232,7 @@ export default () => {
 
             <GetStartedModal />
 
-            <div className="py-10 text-left text-center">
+            <div className="container text-left text-center" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
                 <h3 className="mb-2">
                     The <span className="text-brightblue">platform</span> at a glance
                 </h3>
@@ -244,7 +250,7 @@ export default () => {
                 </h3>
 
                 <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-3 pt-2 pr-2">
+                    <div className="col-md-4 pt-2 pr-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -266,7 +272,7 @@ export default () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 pt-2 pr-2">
+                    <div className="col-md-4 pt-2 pr-2">
 
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
@@ -289,7 +295,7 @@ export default () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 pt-2 pr-2">
+                    <div className="col-md-4 pt-2 pr-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -312,17 +318,22 @@ export default () => {
                     </div>
                 </div>
 
-                <h3 className="pt-5 mt-5">
+
+                <h3 className="mt-5">
                     It's never been easier to
                     {" "}<span className="text-brightblue"> find jobs and hire</span> in the hospitality industry.
                 </h3>
 
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
-                <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row justify-content-center">
+                    <div className="col-md-6">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
+
             </div>
         </Layout >
     )

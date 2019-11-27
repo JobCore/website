@@ -256,8 +256,8 @@ const EmployersSignUp = ({ search }) => {
                         >
                             {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
                         </button>
-                        <div className="pt-4 text-gray">
-                            <small style={{ fontSize: '18px' }}>
+                        <div className="pt-4 text-gray" >
+                            <small style={{ fontSize: "16px" }}>
                                 By clicking the button above you agree to the
                             <Link to="/terms">
                                     <a> Terms of Service </a>

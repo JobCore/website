@@ -113,7 +113,7 @@ const JobSeekersSignUp = ({ search }) => {
                     <div className="col-12 col-md-6">
                         <h2 className="text-brightblue">SIGN UP NOW</h2>
                         <div className="text-gray pb-4">
-                            <small style={{ fontSize: '18px' }}>After you submit the form, please check your email for the mobile app download link. Please download the mobile app to complete the sign-up process.</small>
+                            <small style={{ fontSize: '16px' }}>After you submit the form, please check your email for the mobile app download link. Please download the mobile app to complete the sign-up process.</small>
                         </div>
                         <form
                             onSubmit={e => {
@@ -287,8 +287,8 @@ const JobSeekersSignUp = ({ search }) => {
                             >
                                 {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
                             </button>
-                            <div className="pt-4 text-gray">
-                                <small style={{ fontSize: '11px' }}>
+                            <div className="pt-4 text-gray" >
+                                <small style={{ fontSize: "16px" }}>
                                     By clicking the button above you agree to the
                                     <br />
                                     <Link to="/terms">
@@ -301,7 +301,7 @@ const JobSeekersSignUp = ({ search }) => {
                                     .
                                     <div className="d-flex justify-content-start mt-3">
                                         <input className="mt-1 mr-2" type="checkbox" />
-                                        <div style={{ fontSize: '11px' }}>I consent to receive updates and agree to receive occasional automated text message from JobCore. Message and data rates may apply. Text STOP to cancel or HELP for help.</div>
+                                        <div style={{ fontSize: '16px' }}>I consent to receive updates and agree to receive occasional automated text message from JobCore. Message and data rates may apply. Text STOP to cancel or HELP for help.</div>
                                     </div>
                                 </small>
                             </div>
