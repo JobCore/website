@@ -111,9 +111,9 @@ export default () => {
                             </h3>
 
                                 <p className="pt-3">
-                                    JobCore is a platform focused on the hospitality industry that connects carterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                    JobCore is a platform focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                                <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
+                                <p>Employers create their calendar shifts, recruit workers from our curated pool, and communicate with them. They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
                             </div>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">

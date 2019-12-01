@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactPlayer from 'react-player'
 
 const Player = ({
   video,
@@ -55,16 +56,11 @@ const Player = ({
           </div>
         </div>
       ) : (
-          <iframe
-            title={tittle}
-            src={`https://www.youtube.com/embed/${video}?autoplay=${autoplay}&rel=${rel}&modestbranding=${modest}&controls=${controls}&showinfo=${controls}`}
-            className="player"
-            type="text/html"
-            width="100%"
-            height="100%"
-            allow="autoplay"
-            frameBorder="0"
-          />)}
+
+          
+        <ReactPlayer url={video} playing loop controls="false"/>
+
+        )}
     </div>
   );
 };

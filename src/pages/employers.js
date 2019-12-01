@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
 import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
 
 import GetStartedModal from '../components/modal-getstarted'
 //assets
@@ -41,8 +42,8 @@ const Employers = () => {
             <div className="bg-lightgray py-10 m-0">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6 text-left">
-                            <h1 className="">
+                        <div className="col-md-6 text-left pb-2">
+                            <h1>
                                 Create your shift schedule & hire your <span className="text-brightblue">part-time </span>
                                 staff
                             </h1>
@@ -65,7 +66,7 @@ const Employers = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
+                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px"/>
                         </div>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ const Employers = () => {
                             <p className="pt-3">
                                 JobCore is a marketplace focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, and communicate with them. They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
@@ -127,7 +128,7 @@ const Employers = () => {
 
             <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
-                    Finally a job platform for the
+                    Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
                 </h3>
 
@@ -137,8 +138,11 @@ const Employers = () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row mt-4 justify-content-center">
+                    <div className="col-md-5">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
             </div>

@@ -7,6 +7,7 @@ import { navigate } from '@reach/router'
 import GetStartedModal from '../components/modal-getstarted'
 import GetStarted from '../components/input-getstarted'
 import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
 
 //assets
 import AppStore from '../images/app-store.png'
@@ -66,7 +67,7 @@ const JobSeekers = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
+                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px" />
                         </div>
                     </div>
                 </div>
@@ -134,8 +135,11 @@ const JobSeekers = () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row mt-4 justify-content-center">
+                    <div className="col-md-5">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
             </div>
