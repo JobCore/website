@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import JobCoreLogo from "../images/jobcorelogo.png";
+import ReactPlayer from 'react-player'
+
 const Player = ({
   video,
-  autoplay = 0,
+  autoplay = 1,
   rel,
   modest,
   placeholder,
@@ -15,21 +16,54 @@ const Player = ({
 
   return (
     <div
+      className="border"
       style={{
         width: "100%",
         height: height,
         display: "inline-block",
         backgroundSize: `contain`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
+        backgroundPosition: "center",
+        backgroundColor: "White",
         textAlign: "center",
         cursor: "pointer",
+        backgroundImage: `url('${placeholder}')`,
         ...style
+
       }}
     >
-      <iframe src={`https://streamable.com/${video}`} frameborder="0" width="100%" height="100%" allowfullscreen style={{ width: '100%', height: '100%', overflow: 'hidden' }}></iframe>
-    </div >
+      {status === "idle" ? (
+        <div style={{ display: "inline-block" }}>
+          <div
+            onClick={() => setStatus("playing")}
+            style={{
+              height: height,
+              display: "table-cell",
+              verticalAlign: "middle"
+            }}
+          >
+            <button
+              style={{
+                borderRadius: "50%",
+                width: "80px",
+                height: "80px",
+                cursor: "pointer",
+                fontSize: "20px"
+              }}
+            >
+              ▶
+            </button>
+          </div>
+        </div>
+      ) : (
+
+          
+        <ReactPlayer url={video} playing loop controls="false"/>
+
+        )}
+    </div>
   );
 };
 
 export default Player;
+

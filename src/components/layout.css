@@ -238,7 +238,7 @@ nav button {
     height: 100%;
     /*  object-fit is not supported on IE  */
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 .jumbotron .container {
     z-index: 2;

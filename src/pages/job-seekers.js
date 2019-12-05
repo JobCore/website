@@ -6,6 +6,8 @@ import Player from '../components/player'
 import { navigate } from '@reach/router'
 import GetStartedModal from '../components/modal-getstarted'
 import GetStarted from '../components/input-getstarted'
+import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
 
 //assets
 import AppStore from '../images/app-store.png'
@@ -50,7 +52,7 @@ const JobSeekers = () => {
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                             </div>
 
@@ -64,8 +66,8 @@ const JobSeekers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 my-auto">
-                            <Player video="s/4almu/qjkrrt" height={'300px'} />
+                        <div className="col-md-6">
+                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px" />
                         </div>
                     </div>
                 </div>
@@ -133,14 +135,17 @@ const JobSeekers = () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row mt-4 justify-content-center">
+                    <div className="col-md-5">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
             </div>
 
             <div className="pt-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row">
+                <div className="row ml-0 mr-0">
                     <div className="col-12 col-md-4">
                         <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                     </div>
@@ -180,7 +185,7 @@ const JobSeekers = () => {
                 </p>
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
-                <div className="row justify-content-center">
+                <div className="row justify-content-center ml-0 mr-0">
                     <div className="col-11 col-md-7">
 
                         <div class="card-deck mx-auto">
@@ -218,10 +223,13 @@ const JobSeekers = () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4">
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                <div className="row justify-content-center py-4 mx-auto">
+                    <div className="col-md-2 pt-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -238,9 +246,14 @@ const JobSeekers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2">
+
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -256,9 +269,12 @@ const JobSeekers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2 pr-0">
-                        <Player video="s/4almu/qjkrrt" height={'200px'} />
-                        <div className="row justify-content-end">
+                    <div className="col-md-2 pt-2">
+
+                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -283,7 +299,7 @@ const JobSeekers = () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
             </div>

@@ -3,10 +3,12 @@ import { navigate } from '@reach/router'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
+import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
+
 import GetStartedModal from '../components/modal-getstarted'
 //assets
-import AppStore from '../images/app-store.png'
-import GooglePlay from '../images/google-play.png'
+
 import Clock from '../images/clock.png'
 import Magnify from '../images/magnifying-glass.png'
 import Suitcase from '../images/suitcase.png'
@@ -15,8 +17,6 @@ import Money from '../images/money.png'
 import Envelope from '../images/envelope.png'
 import animationEmployer from '../images/animation-employer.gif'
 import Review1 from '../images/review1.png'
-import Review2 from '../images/review2.png'
-import Review3 from '../images/review3.png'
 import PlatformGlance1 from '../images/platform-glance-1.png'
 import PlatformGlance2 from '../images/platform-glance-2.png'
 import PlatformGlance3 from '../images/platform-glance-3.png'
@@ -42,8 +42,8 @@ const Employers = () => {
             <div className="bg-lightgray py-10 m-0">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6 text-left">
-                            <h1 className="">
+                        <div className="col-md-6 text-left pb-2">
+                            <h1>
                                 Create your shift schedule & hire your <span className="text-brightblue">part-time </span>
                                 staff
                             </h1>
@@ -51,7 +51,7 @@ const Employers = () => {
                             <p>JobCore is where events are organized: A talent pool of curated workers and hundreds of companies organizing events and hiring everyday.</p>
 
                             <div className="pt-3 d-flex align-items-center justify-content-center">
-                                <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                                <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                             </div>
 
@@ -65,8 +65,8 @@ const Employers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6 my-auto">
-                            <Player video="s/4almu/qjkrrt" height={'300px'} />
+                        <div className="col-md-6">
+                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px"/>
                         </div>
                     </div>
                 </div>
@@ -82,9 +82,9 @@ const Employers = () => {
                             </h3>
 
                             <p className="pt-3">
-                                JobCore is a platform focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                JobCore is a marketplace focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them, and schedule, pay, and rate them quickly and efficiently.</p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, and communicate with them. They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
@@ -95,7 +95,7 @@ const Employers = () => {
                                 <div className="w-250px mb-auto">
                                     <img src={Magnify} width="50" height="50" />
                                     <h6 className="mt-3">Find Talent</h6>
-                                    <p className="text-secondary font-size-13px">Access a talent pool of people in Miami, rated with experience.</p>
+                                    <p className="text-secondary font-size-13px">Access a talent pool of people, rated with experience.</p>
                                 </div>
                                 <div className="w-250px mb-auto">
                                     <img src={Calendar} width="50" height="50" />
@@ -128,7 +128,7 @@ const Employers = () => {
 
             <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
-                    Finally a job platform for the
+                    Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
                 </h3>
 
@@ -138,15 +138,17 @@ const Employers = () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="mt-4 d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                <div className="row mt-4 justify-content-center">
+                    <div className="col-md-5">
+
+                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    </div>
 
                 </div>
             </div>
-
             <div className="py-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row">
-                    <div className="col-12 col-md-6 my-auto">
+                <div className="row ml-0 mr-0">
+                    <div className="col-11 col-md-6 my-auto">
                         <div>
                             <h3 className="ml-4">
                                 Employers can manage
@@ -163,11 +165,12 @@ const Employers = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-12 col-md-6">
-                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: '100%' }} src={animationEmployer} />
+                    <div className="col-11 col-md-6">
+                        <img className="animated-employer mx-auto d-block pb-3" style={{ width: "100%" }} src={animationEmployer} />
                     </div>
                 </div>
             </div>
+
 
             <GetStartedModal />
             <div className="py-10 text-left text-center">
@@ -180,14 +183,14 @@ const Employers = () => {
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
-                <div className="row  justify-content-center">
+                <div className="row  justify-content-center ml-0 mr-0">
                     <div className="col-12 col-sm-7 col-md-8 col-lg-7">
 
 
 
 
                         <div class="row justify-content-center">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance1} alt="Card 1" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -196,7 +199,7 @@ const Employers = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance2} alt="Card 2" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -206,7 +209,7 @@ const Employers = () => {
                                 </div>
                             </div>
                             <div class="clearfix visible-sm hidden-md-up"></div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance3} alt="Card 3" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -215,7 +218,7 @@ const Employers = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top " src={PlatformGlance1} alt="Card 4" style={{ height: '120px' }} />
                                     <div class="card-block">
@@ -233,13 +236,17 @@ const Employers = () => {
                 <h3 className="my-4">
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
-                <div className="row justify-content-center py-4">
-                    <div className="col-md-3 pt-2 pr-0">
+
+                <div className="row justify-content-center py-4 mx-auto">
+                    <div className="col-md-3 pt-2 pr-2">
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -256,12 +263,17 @@ const Employers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 pt-2 pr-0">
+                    <div className="col-md-3 pt-2 pr-2">
+
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+
+                        <div className="row justify-content-end m-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -277,12 +289,15 @@ const Employers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 pt-2 pr-0">
+                    <div className="col-md-3 pt-2 pr-2">
+
                         <div className="reviews">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
                             repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
                         </div>
-                        <div className="row justify-content-end pt-2">
+
+
+                        <div className="row justify-content-end ml-0">
                             <div className="col-6 col-md-2 text-right my-auto">
                                 <span>
                                     <div>
@@ -300,6 +315,7 @@ const Employers = () => {
                     </div>
                 </div>
 
+
                 <h3 className="pt-5 mt-3">
                     It's never been easier to <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.
                 </h3>
@@ -307,7 +323,7 @@ const Employers = () => {
                 <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                 <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
 
                 </div>
                 <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
