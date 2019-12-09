@@ -8,11 +8,11 @@ const PositionCard = ({ data, onClick }) => (
         <div className="d-flex justify-content-between">
             <div>
                 <i class="fas fa-map-marker-alt mr-1 text-purple"></i>
-                <span>{data.venue.street_address.split(",")[1]}</span>
+                <span>{data.venue.street_address.split(",").splice(0, data.venue.street_address.split(",").length - 2).join()}</span>
             </div>
             <div>
-                <i class="far fa-calendar-check mr-1 text-purple"></i>
-                <span>${data.minimum_hourly_rate}/ Hour</span>
+                <i class="fas fa-money-bill-wave mr-1 text-purple"></i>
+                <span>${data.minimum_hourly_rate}/hrs</span>
             </div>
         </div>
 
