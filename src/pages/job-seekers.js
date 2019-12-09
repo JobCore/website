@@ -7,6 +7,7 @@ import { navigate } from '@reach/router'
 import GetStartedModal from '../components/modal-getstarted'
 import GetStarted from '../components/input-getstarted'
 import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
 
 //assets
 import AppStore from '../images/app-store.png'

@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
 import Logo from '../images/jobcorelogo.png'
+import ReactPlayer from 'react-player'
 
 import GetStartedModal from '../components/modal-getstarted'
 //assets
@@ -41,8 +42,8 @@ const Employers = () => {
             <div className="bg-lightgray py-10 m-0">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6 text-left">
-                            <h1 className="">
+                        <div className="col-md-6 text-left pb-2">
+                            <h1>
                                 Create your shift schedule & hire your <span className="text-brightblue">part-time </span>
                                 staff
                             </h1>
@@ -65,7 +66,7 @@ const Employers = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} />
+                            <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px" />
                         </div>
                     </div>
                 </div>
@@ -127,7 +128,7 @@ const Employers = () => {
 
             <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
-                    Finally a job platform for the
+                    Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
                 </h3>
 
