@@ -271,7 +271,7 @@ const EmployersSignUp = ({ search }) => {
                                     <input className="mt-1 mr-2" type="checkbox" />
                                     <div>
                                         I consent to receive updates and agree to receive occasional
-                                        automated text message from JobCore. Message and data rates may
+                                        automated text messages from JobCore. Messages and data rates may
                                         apply. Text STOP to cancel or HELP for help.
                                 </div>
                                 </div>

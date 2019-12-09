@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PositionCard from '../components/position-card'
@@ -34,63 +34,80 @@ itaque magni.`,
 
 const rows = [1, 2, 3, 4];
 
-const Positions = () => (
-    <Layout>
-        <SEO title="Positions" />
-        <div className="gray-top-image text-light d-flex align-items-center">
-            <div className="text-center w-100 px-10">
-                <h1>
-                    Every Job In
-                        <span className="text-brightblue"> One Place</span>
-                </h1>
-                <h4>
-                    Your <span className="text-brightblue">Dream Job</span>{' '}
-                    Just A Click Away!
-                </h4>
-                <div>Want to find a job? We have 263</div>
+const Positions = () => {
+    const [hasError, setErrors] = useState(false)
+    const [positions, setPositions] = useState([]);
 
-                <div className="input-group py-5 px-10 w-100">
-                    <input
-                        type="text"
-                        className="form-control border-0 rounded-0 w-50"
-                        placeholder="Keywords"
-                        size="20"
-                    />
-                    <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25">
-                        <option selected>Location</option>
-                        <option value="1">Miami Beach</option>
-                        <option value="2">Coral Gables</option>
-                        <option value="3">Downtown</option>
-                        <option value="4">Key Biscayne</option>
-                    </select>
-                    <div className="input-group-append rounded-0">
-                        <span className="input-group-text btn-purple border-0 rounded-0 px-4">
-                            Get Started
+    async function fetchData() {
+        const res = await fetch("http://api.jobcore.co/api/public/shifts");
+        res
+            .json()
+            .then(res => setPositions(res.splice(0, 50)))
+            .catch(err => setErrors(err));
+    }
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    console.log(positions)
+    return (
+        <Layout>
+            <SEO title="Positions" />
+            <div className="gray-top-image text-light d-flex align-items-center">
+                <div className="text-center w-100 px-10">
+                    <h1 style={{ color: "white" }}>
+                        Every Job In
+                        <span className="text-brightblue"> One Place</span>
+                    </h1>
+                    <h4>
+                        Your <span className="text-brightblue">Dream Job</span>{' '}
+                        Just A Click Away!
+                </h4>
+                    <div>Want to find a job? We have 263</div>
+
+                    <div className="input-group py-5 px-10 w-100">
+                        <input
+                            type="text"
+                            className="form-control border-0 rounded-0 w-50"
+                            placeholder="Keywords"
+                            size="20"
+                        />
+                        <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25">
+                            <option selected>Location</option>
+                            <option value="1">Miami Beach</option>
+                            <option value="2">Coral Gables</option>
+                            <option value="3">Downtown</option>
+                            <option value="4">Key Biscayne</option>
+                        </select>
+                        <div className="input-group-append rounded-0">
+                            <span className="input-group-text btn-purple border-0 rounded-0 px-4">
+                                Get Started
                         </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div className="container text-center my-5 py-5">
-            {rows.map((e, i) => {
-                return (
-                    <div className="row my-2" key={i}>
-                        {data.map((e, i) => {
-                            let hide = i === 2 ? "s900-hide" : "";
-                            return (
-                                <div className={"col my-2 s1000-collapse-margin " + hide}
-                                    key={i}>
-                                    <PositionCard data={e} />
-                                </div>
-                            )
-                        })}
-                    </div>
-                )
-            }
-            )}
-        </div>
-    </Layout>
-)
+            {/* {positions.map(e => <span>{e.position.title}</span>)} */}
+            <div className="container text-center my-5 py-5">
+                {rows.map((e, i) => {
+                    return (
+                        <div className="row my-2" key={i}>
+                            {positions.map((e, i) => {
+                                let hide = i === 2 ? "s900-hide" : "";
+                                return (
+                                    <div className={"col my-2 s1000-collapse-margin " + hide}
+                                        key={i}>
+                                        <PositionCard data={e} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+                }
+                )}
+            </div>
+        </Layout>
+    )
+}
 
 export default Positions
