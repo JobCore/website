@@ -42,8 +42,8 @@ const JobSeekers = () => {
 
             <div className="bg-lightgray py-10 m-0">
                 <div className="px-10">
-                    <div className="row">
-                        <div className="col-md-6 text-left pb-2">
+                    <div className="row justify-content-center">
+                        <div className="col-md-5 text-left pb-2">
                             <h1 className="">
                                 Get work fast & <span className="text-brightblue">get paid </span>
                                 the same day
@@ -195,7 +195,7 @@ const JobSeekers = () => {
                         </div>
                     </div>
                 </div> */}
-            <div className="row justify-content-center pt-3 pb-3">
+            <div className="row justify-content-center py-10">
                 <div className="col-md-4">
 
                     <Player video="izRld2t-Xw8" height="400px" placeholder={Logo} />
@@ -204,7 +204,7 @@ const JobSeekers = () => {
             {/* </div> */}
             <GetStartedModal />
 
-            <div className="py-10 text-center">
+            <div className="container py-10 text-center">
                 <h3 className="mb-2">
                     The <span className="text-brightblue">platform</span> at a glance
                 </h3>
@@ -217,7 +217,7 @@ const JobSeekers = () => {
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
                 <div className="row justify-content-center ml-0 mr-0">
-                    <div className="col-11 col-md-7">
+                    <div className="col">
 
                         <div class="card-deck mx-auto">
                             <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -255,7 +255,7 @@ const JobSeekers = () => {
                 </h3>
 
                 <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -277,7 +277,7 @@ const JobSeekers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
@@ -300,7 +300,7 @@ const JobSeekers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -332,7 +332,7 @@ const JobSeekers = () => {
                     <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                     <div className="row justify-content-center">
-                        <div className="col-md-4">
+                        <div className="col-md-7">
 
                             <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                         </div>

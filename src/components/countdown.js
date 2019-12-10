@@ -42,7 +42,7 @@ const Countdown = ({ deadline }) => {
 
     return (
         <div>
-            Ends in {timerComponents.length ? timerComponents : <span>Expired!</span>}
+            Ends in {timerComponents.length ? timerComponents : <span style={{ color: "black" }}>Ends in 0 Days 0 hr 0 m 0 s</span>}
         </div>
     );
 }

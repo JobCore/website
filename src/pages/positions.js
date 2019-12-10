@@ -2,54 +2,53 @@ import React, { useState, useEffect } from "react";
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PositionCard from '../components/position-card'
+import useInfiniteScroll from '../components/infinite-list'
+import Spinner from '../images/loading2.gif'
 
-const data = [
-    {
-        location: 'Miami Beach',
-        amount: '$11',
-        position: 'Bartenders',
-        description: `Lorem ipsum dolor sit amet consect adipisicing elit. Volupta
-enim delec saepe cumque totam dolor aut reprehenderit optio
-itaque magni.`,
-        type: 'Freelance',
-        expiration: 'Ends in 3 Days 21h 24m 36s',
-    },
-    {
-        location: 'Coral Gables',
-        amount: '$11.5',
-        position: 'Servers',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi tempore laborum aperiam officiis eos in esse saepe iusto nam.`,
-        type: 'Part Time',
-        expiration: 'Ends in 3 Days 21h 24m 36s',
-    },
-    {
-        location: 'Key Biscayne',
-        amount: '$12',
-        position: 'Maids',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, nostrum eum consequuntur fuga sit nihil enim tempora ex.`,
-        type: 'Full Time',
-        expiration: 'Ends in 3 Days 21h 24m 36s',
-    }
-];
-
-const rows = [1, 2, 3, 4];
 
 const Positions = () => {
     const [hasError, setErrors] = useState(false)
     const [positions, setPositions] = useState([]);
+    const [isFetching, setIsFetching] = useInfiniteScroll(fetchMorePositions);
+    const [offset, setOffset] = useState(0)
+    const [loading, setLoading] = useState(true)
+    const [noresults, setNoResults] = useState(false)
 
     async function fetchData() {
-        const res = await fetch("http://api.jobcore.co/api/public/shifts");
-        res
-            .json()
-            .then(res => setPositions(res.splice(0, 50)))
-            .catch(err => setErrors(err));
+        if (!noresults) {
+            setLoading(true)
+            const res = await fetch(`http://api.jobcore.co/api/public/shifts?upcoming=true&limit=6&offset=${offset}`);
+            res
+                .json()
+                .then(res => {
+                    if (positions.length === 0) {
+                        setPositions(res)
+                        setLoading(false)
+                    } else if (res.length === 0) {
+                        setNoResults(true)
+                        setLoading(false)
+                    } else {
+                        let next = offset + 5
+                        setOffset(next)
+                        console.log(res)
+                        setPositions(positions.concat(res))
+                        setLoading(false)
+                    }
+                })
+                .catch(err => setErrors(err));
+        }
     }
     useEffect(() => {
         fetchData()
     }, [])
 
-    console.log(positions)
+    function fetchMorePositions() {
+
+        setTimeout(() => {
+            fetchData()
+            setIsFetching(false);
+        }, 500);
+    }
     return (
         <Layout>
             <SEO title="Positions" />
@@ -87,24 +86,21 @@ const Positions = () => {
                     </div>
                 </div>
             </div>
-            {/* {positions.map(e => <span>{e.position.title}</span>)} */}
+
             <div className="container text-center my-5 py-5">
-                {rows.map((e, i) => {
-                    return (
-                        <div className="row my-2" key={i}>
-                            {positions.map((e, i) => {
-                                let hide = i === 2 ? "s900-hide" : "";
-                                return (
-                                    <div className={"col my-2 s1000-collapse-margin " + hide}
-                                        key={i}>
-                                        <PositionCard data={e} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    )
-                }
-                )}
+                <div className="row my-2">
+                    {positions.map((e, i) => {
+                        let hide = i === 2 ? "s900-hide" : "";
+                        return (
+                            <div className={"col my-2 s1000-collapse-margin " + hide}
+                                key={i}>
+                                <PositionCard data={e} />
+                            </div>
+                        )
+                    })}
+                </div>
+                {loading ? <img src={Spinner} /> : null}
+                {noresults ? <h4 className="pt-4">No more results found.</h4> : null}
             </div>
         </Layout>
     )

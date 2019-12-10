@@ -18,7 +18,10 @@ import Star from '../images/star.png'
 import Clock from '../images/clock.png'
 import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
 import data from '../jsons/home.json';
-
+import PlatformGlance1 from '../images/platform-glance-1.png'
+import PlatformGlance2 from '../images/platform-glance-2.png'
+import PlatformGlance3 from '../images/platform-glance-3.png'
+import PlatformGlance4 from '../images/platform-glance-4.png'
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
 import Money from '../images/money.png'
@@ -243,7 +246,46 @@ export default () => {
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
+                <p>
+                    JobCore provides an easy to use end-to-end experience for employers and job seekers
+                    <br />
+                    in the hospitality industry on mobile and desktop.
+                </p>
+                {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
+                {/* <div className="background-image-platform" /> */}
+                <div className="row justify-content-center ml-0 mr-0">
+                    <div className="col">
 
+                        <div class="card-deck mx-auto">
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{ height: '120px' }} />
+
+                                <div class="card-body">
+                                    <p class="card-title">Find Talent</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Job Preferences</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Clock In and Out</p>
+                                </div>
+                            </div>
+
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Get Paid Same Day</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="background-image-platform2" />
 
                 <h3 className="my-4">
