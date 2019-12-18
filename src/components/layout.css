@@ -91,6 +91,13 @@ nav button {
     text-shadow: 1px 1px 6px black;
     color: white;
 }
+.salmon-top-image {
+    height: 450px;
+    background-color: #fa8072;
+    background-size: 100% 100%;
+    text-shadow: 1px 1px 6px black;
+    color: white;
+}
 
 @media (max-width: 576px) {
     .pink-top-image {
@@ -99,6 +106,46 @@ nav button {
         background-color: #f0f0f0;
         background-size: cover;
         text-shadow: 1px 1px 6px black;
+        color: white;
+        /* border: 5px solid blue;  */
+    }
+}
+
+/* arrow color carousel */
+.slick-prev:before {
+    color: black !important;
+}
+.slick-next:before {
+    color: black !important;
+}
+@media (max-width: 768px) {
+    .grey-top-image {
+        height: 250px;
+        /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+        background-color: #f0f0f0;
+        background-size: cover;
+
+        color: white;
+        /* border: 5px solid blue;  */
+    }
+}
+
+@media (min-width: 1000px) {
+    .grey-top-image {
+        height: 300px;
+        background-color: #f0f0f0;
+        background-size: cover;
+
+        color: white;
+    }
+}
+@media (max-width: 576px) {
+    .grey-top-image {
+        height: 300px;
+        /* background-image: url('https://ak6.picdn.net/shutterstock/videos/3248236/thumb/1.jpg'); */
+        background-color: #f0f0f0;
+        background-size: cover;
+
         color: white;
         /* border: 5px solid blue;  */
     }
@@ -389,3 +436,30 @@ li {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* height: 600px;
     overflow: scroll;} */
+
+/* SOCIAL MEDIA SIDE BAR */
+.icon-bar {
+    position: fixed;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: 20px;
+}
+
+.icon-bar a:hover {
+    background-color: #f7f7f7;
+}
+
+.sidebar {
+    background: white;
+    color: black;
+}

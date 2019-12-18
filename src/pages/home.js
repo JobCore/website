@@ -17,7 +17,6 @@ import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
 import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
-import data from '../jsons/home.json';
 
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
@@ -48,7 +47,7 @@ export default () => {
 
         setemailGetStarted(emailGetStarted => ({ ...emailGetStarted, [event.target.name]: event.target.value }))
     }
-    console.log(data)
+
     return (
         <Layout>
             <SEO title="Home" />

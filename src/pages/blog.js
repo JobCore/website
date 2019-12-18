@@ -42,14 +42,16 @@ const posts = [
 export default () => (
     <Layout>
         <SEO title="Blog" />
-        <div className="darkgreen-top-image d-flex align-items-center px-10">
-            <div className="text-center w-100 px-10">
-                <h1 className="font-size-4em">
-                    <span className="p-2 px-4 bg-black-opacity">
-                        Blog
-                    </span>
-                </h1>
+        <div className="d-none d-lg-block">
+            <div className="pink-top-image text-light d-flex align-items-center">
+                <div className="text-center w-100 px-10">
+                    <h1 className="font-size-4em">
+                        <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Blog
+                            </span>
+                    </h1>
+                </div>
             </div>
+
         </div>
 
         <div className="d-flex justify-content-center my-5 px-5">

@@ -17,7 +17,6 @@ import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
 import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
-import data from '../jsons/home.json';
 import PlatformGlance1 from '../images/platform-glance-1.png'
 import PlatformGlance2 from '../images/platform-glance-2.png'
 import PlatformGlance3 from '../images/platform-glance-3.png'
@@ -51,7 +50,6 @@ export default () => {
 
         setemailGetStarted(emailGetStarted => ({ ...emailGetStarted, [event.target.name]: event.target.value }))
     }
-    console.log(data)
     return (
         <Layout>
             <SEO title="Home" />
@@ -114,10 +112,9 @@ export default () => {
                             </h3>
 
                                 <p className="pt-3">
-                                    JobCore is a platform focused on the hospitality industry that connects carterers, full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                    JobCore is a platform focused on the hospitality industry that connects caterers, full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                                <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them.</p>
-                                <p>They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
+                                <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate, schedule, pay and rate them quicky and efficiently.</p>
                             </div>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
@@ -173,7 +170,7 @@ export default () => {
                 </p>
 
                 <div className="row mt-4 justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-lg-5">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -237,16 +234,12 @@ export default () => {
             <GetStartedModal />
 
             <div className="container text-left text-center" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-                <h3 className="mb-2">
+                <h3 className="mt-4">
                     The <span className="text-brightblue">platform</span> at a glance
                 </h3>
 
-                <p>
-                    JobCore provides an easy to use end-to-end experience for employers and job seekers
-                    <br />
-                    in the hospitality industry on mobile and desktop.
-                </p>
-                <p>
+
+                <p className="mt-4">
                     JobCore provides an easy to use end-to-end experience for employers and job seekers
                     <br />
                     in the hospitality industry on mobile and desktop.

@@ -66,13 +66,13 @@ const JobSeekers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6">
+                        <div className="col-md-7">
                             {/* <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} /> */}
                             <div className="row ml-0 mr-0">
-                                <div className="col-12 col-md-4">
+                                <div className="col-12 col-md-6">
                                     <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                                 </div>
-                                <div className="col-md-8 my-auto pb-2">
+                                <div className="col-md-6 my-auto pb-2">
                                     <div>
                                         <h3 className="ml-4">
                                             Find jobs in minutes and
@@ -114,7 +114,7 @@ const JobSeekers = () => {
                         <div className="w-250px mb-auto">
                             <img src={FindJobs} height="50" />
                             <h6 className="mt-3">Find Jobs</h6>
-                            <p className="text-secondary font-size-13px">Access to many jobs in South Florida and get hired some day.</p>
+                            <p className="text-secondary font-size-13px">Access jobs in your area and get hired the same day.</p>
                         </div>
                         <div className="w-250px mb-auto">
                             <img src={OpenEnvelope} height="50" />

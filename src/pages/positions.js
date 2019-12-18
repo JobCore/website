@@ -17,23 +17,22 @@ const Positions = () => {
     async function fetchData() {
         if (!noresults) {
             setLoading(true)
-            const res = await fetch(`http://api.jobcore.co/api/public/shifts?upcoming=true&limit=6&offset=${offset}`);
+            //upcoming=true
+            const res = await fetch(`http://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}`);
             res
                 .json()
                 .then(res => {
-                    if (positions.length === 0) {
-                        setPositions(res)
-                        setLoading(false)
-                    } else if (res.length === 0) {
-                        setNoResults(true)
-                        setLoading(false)
-                    } else {
+                    if (res.length !== 0) {
                         let next = offset + 5
                         setOffset(next)
                         console.log(res)
                         setPositions(positions.concat(res))
                         setLoading(false)
+                    } else {
+                        setNoResults(true)
+                        setLoading(false)
                     }
+
                 })
                 .catch(err => setErrors(err));
         }
@@ -94,7 +93,7 @@ const Positions = () => {
                         return (
                             <div className={"col my-2 s1000-collapse-margin " + hide}
                                 key={i}>
-                                <PositionCard data={e} />
+                                <PositionCard data={e} onClick={console.log('clcik')} />
                             </div>
                         )
                     })}

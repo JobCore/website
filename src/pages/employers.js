@@ -84,8 +84,8 @@ const Employers = () => {
                             <p className="pt-3">
                                 JobCore is a marketplace focused on the hospitality industry that connects caterers, full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate with them.</p>
-                            <p>They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate, schedule, pay and rate them quicky and efficiently.</p>
+
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
                                     <img src={Suitcase} width="50" height="50" />
