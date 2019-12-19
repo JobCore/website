@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import SocialMediaSideBar from '../components/socialmedia-sidebar.js'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -18,12 +19,7 @@ const Position = () => {
         <Layout>
             <SEO title="Positions" />
             <div>
-                <div class="icon-bar d-none d-lg-block mobile">
-                    <a href="#" class="sidebar border border-bottom-0"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="sidebar border border-bottom-0"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="sidebar border border-bottom-0"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="sidebar border"><i class="fas fa-envelope"></i></a>
-                </div>
+                <SocialMediaSideBar />
                 <div className="container pt-4 mt-4">
                     <div class="row">
                         <div class="col-md-8">

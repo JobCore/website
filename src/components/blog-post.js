@@ -11,7 +11,7 @@ export default Object.assign(({ data }) => (
             {data.date} <a className="text-brightblue">{data.author}</a>
         </small>
         <p className="text-gray py-3">
-            {data.content}
+            contenido
         </p>
         <button className="btn radius btn-darkgreen px-4 py-2 mb-3">
             Read More
