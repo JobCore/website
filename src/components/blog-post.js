@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from "gatsby-link";
 
 /* eslint-disable */
 
 export default Object.assign(({ data }) => (
+
     <div className="pb-3">
         <img src={data.image} />
         <h4 className="pt-3">{data.title}</h4>
@@ -11,11 +13,18 @@ export default Object.assign(({ data }) => (
             {data.date} <a className="text-brightblue">{data.author}</a>
         </small>
         <p className="text-gray py-3">
-            contenido
+            {data.content}
         </p>
-        <button className="btn radius btn-darkgreen px-4 py-2 mb-3">
-            Read More
+        <Link
+
+            to={"/blog/" + decodeURIComponent(data.title)}
+            style={{ textDecoration: `none`, color: `inherit` }}
+        >
+            <button className="btn radius btn-darkgreen px-4 py-2 mb-3">
+                Read More
         </button>
+        </Link>
+
 
         <hr className="w-620px" />
     </div>

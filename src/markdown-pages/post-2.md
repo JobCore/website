@@ -1,8 +1,7 @@
 ---
-path: '/blog/my-second-post'
 date: '2019-08-04'
 title: 'My second blog post'
-image: ''
+image: '../images/blog-people.png'
 author: 'John Doe'
 tags: ['events', 'weddings', 'article', 'job', 'tutorial', 'blog', 'maid']
 ---

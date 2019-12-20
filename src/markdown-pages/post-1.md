@@ -1,8 +1,8 @@
 ---
-path: '/blog/my-first-post'
+path: 'pathy'
 date: '2019-05-04'
 title: 'My first blog post'
-image: ''
+image: '../images/blog-people.png'
 author: 'Ixax Tavarez'
 tags: ['events', 'weddings', 'article', 'job', 'tutorial', 'blog', 'safety']
 ---
