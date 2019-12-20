@@ -66,7 +66,7 @@ const Employers = () => {
                         </div>
 
                         <div className="col-md-6">
-                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px"/>
+                            <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px" />
                         </div>
                     </div>
                 </div>
@@ -82,9 +82,9 @@ const Employers = () => {
                             </h3>
 
                             <p className="pt-3">
-                                JobCore is a marketplace focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                JobCore is a marketplace focused on the hospitality industry that connects caterers, full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                            <p>Employers create their calendar shifts, recruit workers from our curated pool, and communicate with them. They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
+                            <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate, schedule, pay and rate them quicky and efficiently.</p>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
                                 <div className="w-250px mb-auto">
@@ -138,8 +138,8 @@ const Employers = () => {
                     Sign up today and give it a try!
                 </p>
 
-                <div className="row mt-4 justify-content-center">
-                    <div className="col-md-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-4">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -315,16 +315,21 @@ const Employers = () => {
                     </div>
                 </div>
 
+                <div className="px-10  m-0 text-center">
 
-                <h3 className="pt-5 mt-3">
-                    It's never been easier to <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.
+                    <h3 className="pt-5 mt-3">
+                        It's never been easier to <span className="text-brightblue">find job</span> in the hospitality industry.
                 </h3>
 
-                <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
+                    <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
-                <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <div className="row justify-content-center">
+                        <div className="col-md-4">
 
+                            <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                        </div>
+
+                    </div>
                 </div>
                 <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

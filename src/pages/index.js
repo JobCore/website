@@ -17,14 +17,16 @@ import Magnify from '../images/magnifying-glass.png'
 import Star from '../images/star.png'
 import Clock from '../images/clock.png'
 import BannerVideoPlaceholder from '../images/BannerPHVideo.png'
-import data from '../jsons/home.json';
-
+import PlatformGlance1 from '../images/platform-glance-1.png'
+import PlatformGlance2 from '../images/platform-glance-2.png'
+import PlatformGlance3 from '../images/platform-glance-3.png'
+import PlatformGlance4 from '../images/platform-glance-4.png'
 import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
 import Money from '../images/money.png'
 import Envelope from '../images/envelope.png'
-import animationEmployer from '../images/animation-employer.gif'
-import animationEmployee from '../images/animation-employee.gif'
+import animationEmployer from '../images/animation-employer2.gif'
+import animationEmployee from '../images/animation-employee2.gif'
 import Review1 from '../images/review1.png'
 import Review2 from '../images/review2.png'
 import Review3 from '../images/review3.png'
@@ -48,7 +50,6 @@ export default () => {
 
         setemailGetStarted(emailGetStarted => ({ ...emailGetStarted, [event.target.name]: event.target.value }))
     }
-    console.log(data)
     return (
         <Layout>
             <SEO title="Home" />
@@ -70,17 +71,17 @@ export default () => {
 
                             </h1>
                             <div className="row">
-                                <div className="col-md-9">
+                                <div className="col-md">
 
                                     <p style={{ color: "white" }}>JobCore is a scheduling, hiring and payment marketplace for the hospitality industry: a validated and curated talent pool of workers and hundreds of companies organizing events and hiring every day.</p>
 
-                                    <div className="row pt-4">
-                                        <div className="col-md-6">
+                                    <div className="row">
+                                        <div className="col-md-8">
 
                                             <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                                         </div>
-                                    </div>
 
+                                    </div>
                                     <div className=" pt-5 mb-2">
                                         <a className="mr-2" href="https://play.google.com/store/apps/details?id=co.jobcore.talent&hl=en_US">
                                             <img src={GooglePlayStore} width="140px" height="60px" />
@@ -111,9 +112,9 @@ export default () => {
                             </h3>
 
                                 <p className="pt-3">
-                                    JobCore is a platform focused on the hospitality industry that connects caterers, single location full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
+                                    JobCore is a platform focused on the hospitality industry that connects caterers, full service restaurants, nightclubs, bars and janitorial services companies to qualified part-time workers.
                             </p>
-                                <p>Employers create their calendar shifts, recruit workers from our curated pool, and communicate with them. They then schedule the workers and after the job is done, pay and rate them quickly and efficiently.</p>
+                                <p>Employers create their calendar shifts, recruit workers from our curated pool, communicate, schedule, pay and rate them quicky and efficiently.</p>
                             </div>
 
                             <div className="mt-5 d-flex justify-content-between align-items-end">
@@ -156,7 +157,7 @@ export default () => {
                 </div>
             </div >
 
-            <div className="bg-lightgray py-10 m-0 text-center">
+            <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
                     Finally a job marketplace for the
                     <span className="text-brightblue"> hospitality industry!</span>
@@ -169,7 +170,7 @@ export default () => {
                 </p>
 
                 <div className="row mt-4 justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-lg-5">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -233,16 +234,51 @@ export default () => {
             <GetStartedModal />
 
             <div className="container text-left text-center" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-                <h3 className="mb-2">
+                <h3 className="mt-4">
                     The <span className="text-brightblue">platform</span> at a glance
                 </h3>
 
-                <p>
+
+                <p className="mt-4">
                     JobCore provides an easy to use end-to-end experience for employers and job seekers
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
+                {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
+                {/* <div className="background-image-platform" /> */}
+                <div className="row justify-content-center ml-0 mr-0">
+                    <div className="col">
 
+                        <div class="card-deck mx-auto">
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top " src={PlatformGlance1} alt="Card image cap" style={{ height: '120px' }} />
+
+                                <div class="card-body">
+                                    <p class="card-title">Find Talent</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance2} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Job Preferences</p>
+                                </div>
+                            </div>
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance3} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Clock In and Out</p>
+                                </div>
+                            </div>
+
+                            <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <img class="card-img-top" src={PlatformGlance4} alt="Card image cap" style={{ height: '120px' }} />
+                                <div class="card-body">
+                                    <p class="card-title">Get Paid Same Day</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="background-image-platform2" />
 
                 <h3 className="my-4">
@@ -318,20 +354,21 @@ export default () => {
                     </div>
                 </div>
 
+                <div className="px-10 m-0 text-center">
 
-                <h3 className="mt-5">
-                    It's never been easier to
-                    {" "}<span className="text-brightblue"> find jobs and hire</span> in the hospitality industry.
-                </h3>
+                    <h3 className="pt-5 mt-3">
+                        It's never been easier to <span className="text-brightblue">find job</span> in the hospitality industry.
+</h3>
 
-                <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
+                    <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
-                <div className="row justify-content-center">
-                    <div className="col-md-6">
+                    <div className="row justify-content-center">
+                        <div className="col-md-7">
 
-                        <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                            <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                        </div>
+
                     </div>
-
                 </div>
 
             </div>

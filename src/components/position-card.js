@@ -1,28 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Countdown from "../components/countdown";
+import moment from "moment"
 
 const PositionCard = ({ data, onClick }) => (
-    <div onClick={e=> onClick && onClick(data)} className="position-card border mx-auto">
+    <div onClick={e => onClick && onClick(data)} className="position-card border mx-auto">
         <div className="d-flex justify-content-between">
             <div>
                 <i class="fas fa-map-marker-alt mr-1 text-purple"></i>
-                <span>{data.location}</span>
+                <span>{data.venue.street_address.split(",").splice(0, data.venue.street_address.split(",").length - 2).join()}</span>
             </div>
             <div>
-                <i class="far fa-calendar-check mr-1 text-purple"></i>
-                <span>{data.amount} / Hour</span>
+                <i class="fas fa-money-bill-wave mr-1 text-purple"></i>
+                <span>${data.minimum_hourly_rate}/hrs</span>
             </div>
         </div>
 
-        <h6>{data.position}</h6>
+        <h6>{data.position.title}</h6>
 
-        <p>{data.description}</p>
+        <p>Earn ${Math.floor(Math.abs(new Date(data.ending_at) - new Date(data.starting_at)) / 36e5) * data.minimum_hourly_rate} working as a {data.position.title} during {Math.floor(Math.abs(new Date(data.ending_at) - new Date(data.starting_at)) / 36e5)} on {moment(data.starting_at).format("MMMM Do")}.</p>
 
         <div className="d-flex justify-content-between align-items-center">
             <button className="btn radius btn-darkgreen d-inline">
-                {data.type}
+                Read more
             </button>
-            <small>{data.expiration}</small>
+            <small><Countdown deadline={data.starting_at} /></small>
         </div>
     </div>
 )

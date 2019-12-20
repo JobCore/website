@@ -26,14 +26,14 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
 
             <form onSubmit={validateEmail} >
                 <div className="row">
-                    <div className="col my-auto">
-                        <input type="text" name={inputName} className={showModal === false ? 'form-control d-inline w-300px is-invalid' : 'form-control d-inline w-300px'} placeholder={inputPlaceholder} value={inputs.inputName} onChange={handleInputChange} />
+                    <div className="col-md-8 my-auto">
+                        <input type="text" name={inputName} className={showModal === false ? 'form-control d-inline is-invalid' : 'form-control d-inline'} placeholder={inputPlaceholder} value={inputs.inputName} onChange={handleInputChange} />
 
                         <div className="text-left mt-2" style={{ fontSize: "1rem" }}> {showModal === false ? <div class="alert alert-danger p-2" role="alert">
                             {errorLabel}
                         </div> : null}</div>
                     </div>
-                    <div className="col">
+                    <div className="col-md-4">
 
                         <button type="submit" className="btn radius btn-purple pl-4 pr-4" onClick={validateEmail}>
                             {buttonText}

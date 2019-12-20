@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Post from '../components/blog-post'
 import SideBar from '../components/blog-sidebar'
+import { graphql } from 'gatsby';
 
 import People from '../images/blog-people.png'
 
@@ -10,7 +11,7 @@ import People from '../images/blog-people.png'
 
 const posts = [
     {
-        image: People,
+        image: '../images/blog-people.png',
         title: "Everything you need to know about events",
         date: "12 Mar, 2019",
         author: "Meras Zabria",
@@ -39,28 +40,56 @@ const posts = [
     },
 ]
 
-export default () => (
-    <Layout>
-        <SEO title="Blog" />
-        <div className="darkgreen-top-image d-flex align-items-center px-10">
-            <div className="text-center w-100 px-10">
-                <h1 className="font-size-4em">
-                    <span className="p-2 px-4 bg-black-opacity">
-                        Blog
-                    </span>
-                </h1>
+export default ({ data }) => {
+    // const { markdownRemark } = data // data.markdownRemark holds your post data
+    // const { frontmatter, html } = markdownRemark
+    console.log(data)
+    return (
+        <Layout>
+            <SEO title="Blog" />
+            <div className="d-none d-lg-block">
+                <div className="pink-top-image text-light d-flex align-items-center">
+                    <div className="text-center w-100 px-10">
+                        <h1 className="font-size-4em">
+                            <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Blog
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-        <div className="d-flex justify-content-center my-5 px-5">
-            <div className="w-620px mr-3">
-                {posts.map((e, i) => (
-                    <Post key={i} data={e} />
-                ))}
+            <div className="d-flex justify-content-center my-5 px-5">
+                <div className="w-620px mr-3">
+                    {posts.map((e, i) => (
+                        <Post key={i} data={e} />
+                    ))}
+                </div>
+
+                <SideBar />
             </div>
 
-            <SideBar />
-        </div>
+        </Layout>
+    )
+}
 
-    </Layout>
-)
+export const pageQuery = graphql`
+{
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+            author
+              date
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

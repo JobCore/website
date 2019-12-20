@@ -32,7 +32,7 @@ export default () => {
                         </div> */}
                         <div>
                             <a className="link px-3 s700-collapse-padding" href="tel:+1-305-555-8473">
-                                <i className="fas fa-phone-alt"></i> (305) 555-8473
+                                <i className="fas fa-phone-alt"></i> (305) 667-6668
 
                                 </a>
                             <Link to="/job-seekers" activeClassName="active">

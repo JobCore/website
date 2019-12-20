@@ -301,7 +301,7 @@ const JobSeekersSignUp = ({ search }) => {
                                     .
                                     <div className="d-flex justify-content-start mt-3">
                                         <input className="mt-1 mr-2" type="checkbox" />
-                                        <div style={{ fontSize: '16px' }}>I consent to receive updates and agree to receive occasional automated text message from JobCore. Message and data rates may apply. Text STOP to cancel or HELP for help.</div>
+                                        <div style={{ fontSize: '16px' }}>I consent to receive updates and agree to receive occasional automated text messages from JobCore. Messages and data rates may apply. Text STOP to cancel or HELP for help.</div>
                                     </div>
                                 </small>
                             </div>

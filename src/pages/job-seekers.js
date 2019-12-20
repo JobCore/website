@@ -18,7 +18,7 @@ import Suitcase from '../images/suitcase.png'
 import Calendar from '../images/calendar.png'
 import Money from '../images/money.png'
 import OpenEnvelope from '../images/open-envelope.png'
-import animationEmployee from '../images/animation-employee.gif'
+import animationEmployee from '../images/animation-employee2.gif'
 import Review1 from '../images/review1.png'
 import Review2 from '../images/review2.png'
 import Review3 from '../images/review3.png'
@@ -41,9 +41,9 @@ const JobSeekers = () => {
             <SEO title="Job Seekers" />
 
             <div className="bg-lightgray py-10 m-0">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 text-left">
+                <div className="px-10">
+                    <div className="row justify-content-center">
+                        <div className="col-md-5 text-left pb-2">
                             <h1 className="">
                                 Get work fast & <span className="text-brightblue">get paid </span>
                                 the same day
@@ -66,8 +66,33 @@ const JobSeekers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-6">
-                        <ReactPlayer url="https://streamable.com/s07d3" className='react-player' playing loop controls="false" width="100%" height="300px" />
+                        <div className="col-md-7">
+                            {/* <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} /> */}
+                            <div className="row ml-0 mr-0">
+                                <div className="col-12 col-md-6">
+                                    <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
+                                </div>
+                                <div className="col-md-6 my-auto pb-2">
+                                    <div>
+                                        <h3 className="ml-4">
+                                            Find jobs in minutes and
+                                <br />
+                                            <span className="text-brightblue"> get paid</span> faster
+                            </h3>
+                                        <ul className="purple-checkmark text-left mt-3">
+                                            <li>Setup your location, profile and preferences</li>
+                                            <li>
+                                                Start receiving invites to work on shifts based <br />
+                                                on your preferences
+                                </li>
+                                            <li>Apply to the invitations you like</li>
+                                            <li>Get to work: clock-in and clock-out at the event</li>
+                                            <li>Get paid in less than 24 hrs</li>
+                                            <li>It is that simple!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +114,7 @@ const JobSeekers = () => {
                         <div className="w-250px mb-auto">
                             <img src={FindJobs} height="50" />
                             <h6 className="mt-3">Find Jobs</h6>
-                            <p className="text-secondary font-size-13px">Access to many jobs in South Florida and get hired some day.</p>
+                            <p className="text-secondary font-size-13px">Access jobs in your area and get hired the same day.</p>
                         </div>
                         <div className="w-250px mb-auto">
                             <img src={OpenEnvelope} height="50" />
@@ -111,7 +136,7 @@ const JobSeekers = () => {
                         </div>
                         <div className="w-250px mb-auto">
                             <img src={Money} height="50" />
-                            <h6 className="mt-3">Paid Same Day</h6>
+                            <h6 className="mt-3">Get Paid Same Day</h6>
                             <p className="text-secondary font-size-13px">Clock in/out & receive the money into your account in less than 24hrs.</p>
                         </div>
                         <div className="w-250px mb-auto">
@@ -130,13 +155,13 @@ const JobSeekers = () => {
                 </h3>
 
                 <p>
-                    Finding talent and jobs in the hospitality industry has never been easier.
+                    Finding jobs in the hospitality industry has never been easier.
                     <br />
                     Sign up today and give it a try!
                 </p>
 
-                <div className="row mt-4 justify-content-center">
-                    <div className="col-md-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-4">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -144,8 +169,8 @@ const JobSeekers = () => {
                 </div>
             </div>
 
-            <div className="pt-10 text-left d-flex justify-content-center align-items-center">
-                <div className="row ml-0 mr-0">
+            {/* <div className="pt-10 text-left d-flex justify-content-center align-items-center"> */}
+            {/* <div className="row ml-0 mr-0">
                     <div className="col-12 col-md-4">
                         <img className="animated-employee mx-auto d-block pb-3" src={animationEmployee} />
                     </div>
@@ -169,11 +194,17 @@ const JobSeekers = () => {
                             </ul>
                         </div>
                     </div>
+                </div> */}
+            <div className="row justify-content-center py-10">
+                <div className="col-md-4">
+
+                    <Player video="izRld2t-Xw8" height="400px" placeholder={Logo} />
                 </div>
             </div>
+            {/* </div> */}
             <GetStartedModal />
 
-            <div className="py-10 text-center">
+            <div className="container py-10 text-center">
                 <h3 className="mb-2">
                     The <span className="text-brightblue">platform</span> at a glance
                 </h3>
@@ -186,7 +217,7 @@ const JobSeekers = () => {
                 {/* 4 Cards  Find Talent, Job Preference, Check in and out, Get paid same day*/}
                 {/* <div className="background-image-platform" /> */}
                 <div className="row justify-content-center ml-0 mr-0">
-                    <div className="col-11 col-md-7">
+                    <div className="col">
 
                         <div class="card-deck mx-auto">
                             <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -224,7 +255,7 @@ const JobSeekers = () => {
                 </h3>
 
                 <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -246,7 +277,7 @@ const JobSeekers = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
@@ -269,7 +300,7 @@ const JobSeekers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2 pt-2">
+                    <div className="col pt-2">
 
                         <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
 
@@ -292,15 +323,21 @@ const JobSeekers = () => {
                     </div>
                 </div>
 
-                <h3 className="pt-5 mt-3">
-                    It's never been easier to <span className="text-brightblue">find jobs and hire</span> in the hospitality industry.
-                </h3>
+                <div className="px-10  m-0 text-center">
 
-                <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
+                    <h3 className="pt-5 mt-3">
+                        It's never been easier to <span className="text-brightblue">find job</span> in the hospitality industry.
+</h3>
 
-                <div className="d-flex align-items-center justify-content-center">
-                    <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                    <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
+                    <div className="row justify-content-center">
+                        <div className="col-md-7">
+
+                            <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <div class={getStarted !== '' ? 'modal d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
