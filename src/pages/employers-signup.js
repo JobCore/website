@@ -58,15 +58,15 @@ const handleSubmit = async (event, employer) => {
         errors.push("Password do not match");
     }
 
-    if (validator.isEmpty(employer.business_name)) errors.push("Business name is required");
+    // if (validator.isEmpty(employer.business_name)) errors.push("Business name is required");
 
-    if (validator.isEmpty(employer.about_business)) errors.push("About your business is required");
+    // if (validator.isEmpty(employer.about_business)) errors.push("About your business is required");
 
-    if (validator.isEmpty(employer.business_website)) {
-        errors.push("Business website is required");
-    } else if (!validator.isURL(employer.business_website)) {
-        errors.push("Invalid website");
-    }
+    // if (validator.isEmpty(employer.business_website)) {
+    //     errors.push("Business website is required");
+    // } else if (!validator.isURL(employer.business_website)) {
+    //     errors.push("Invalid website");
+    // }
 
     if (errors.length === 0) return employer
     throw errors
@@ -75,6 +75,7 @@ const handleSubmit = async (event, employer) => {
 
 const EmployersSignUp = ({ search }) => {
     const queryString = search["email"]
+    const queryStringEmployer = search["employer"]
 
     const [inputs, setInputs] = useState({
         firstName: '',
@@ -86,7 +87,8 @@ const EmployersSignUp = ({ search }) => {
         business_name: '',
         business_email: queryString || '',
         business_website: '',
-        about_business: ''
+        about_business: '',
+        employer: queryStringEmployer || null
     })
 
     const [errors, setErrors] = useState([''])
@@ -96,7 +98,7 @@ const EmployersSignUp = ({ search }) => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-
+    console.log(errors)
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -204,40 +206,44 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-row s700-display-column">
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Business Name</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <input id={errors.includes("Business name is required") ? "error-form" : null} maxlength="254" type="text" name="business_name" onChange={handleInputChange} value={inputs.business_name} />
-                                    {errors.includes("Business name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('Business name is required')]}</strong></div> : null}
+                        {!inputs.employer ?
+                            <div>
+                                <div className="form-row s700-display-column">
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Business Name</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <input id={errors.includes("Business name is required") ? "error-form" : null} maxlength="254" type="text" name="business_name" onChange={handleInputChange} value={inputs.business_name} />
+                                            {errors.includes("Business name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('Business name is required')]}</strong></div> : null}
 
+                                        </div>
+                                    </div>
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Business Website</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+                                            <span class="fa fa-globe-americas"></span>
+                                            <input id={errors.includes("Business website is required") ? "error-form" : null} maxlength="254" type="text" name="business_website" onChange={handleInputChange} value={inputs.business_website} />
+                                            {errors.includes("Business website is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Business website is required")]}</strong></div> : null}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row s700-display-column">
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Tell us about your business</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+
+                                            <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
+                                            {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Business Website</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-                                    <span class="fa fa-globe-americas"></span>
-                                    <input id={errors.includes("Business website is required") ? "error-form" : null} maxlength="254" type="text" name="business_website" onChange={handleInputChange} value={inputs.business_website} />
-                                    {errors.includes("Business website is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Business website is required")]}</strong></div> : null}
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-row s700-display-column">
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Tell us about your business</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-
-                                    <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
-                                    {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
-
-                                </div>
-                            </div>
-                        </div>
+                            : null}
                         {/* <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
                             onChange={(e) => setCaptcha(true)} /> */}
                         <button

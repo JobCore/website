@@ -21,7 +21,10 @@ export const registerEmployer = async employer => {
         method: 'POST',
         mode: 'cors',
         headers: new Headers({ "Content-Type": "application/json" }),
-        body: JSON.stringify({ "email": employer.business_email, "account_type": "employer", "username": employer.business_email, "first_name": employer.firstName, "last_name": employer.lastName, "password": employer.password, "phone": employer.phone, "business_name": employer.business_name, "business_website": employer.business_website, "about_business": employer.about_business })
+        body: JSON.stringify({
+            "email": employer.business_email, "account_type": "employer", "username": employer.business_email, "first_name": employer.firstName, "last_name": employer.lastName, "password": employer.password, "phone": employer.phone,
+            "business_name": employer.business_name, "business_website": employer.business_website, "about_business": employer.about_business
+        })
     }
     try {
         let response = await fetch(url, settings)
