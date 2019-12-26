@@ -7,7 +7,7 @@ import Link from "gatsby-link";
 export default Object.assign(({ data }) => (
 
     <div className="pb-3">
-        <img src={data.image} />
+        <img src={data.image} style={{ width: '100%' }} />
         <h4 className="pt-3">{data.title}</h4>
         <small className="text-secondary">
             {data.date} <a className="text-brightblue">{data.author}</a>
@@ -17,7 +17,7 @@ export default Object.assign(({ data }) => (
         </p>
         <Link
 
-            to={"/blog/" + decodeURIComponent(data.title)}
+            to={'/blog/' + data.url}
             style={{ textDecoration: `none`, color: `inherit` }}
         >
             <button className="btn radius btn-darkgreen px-4 py-2 mb-3">

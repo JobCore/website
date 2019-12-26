@@ -58,15 +58,15 @@ const handleSubmit = async (event, employer) => {
         errors.push("Password do not match");
     }
 
-    // if (validator.isEmpty(employer.business_name)) errors.push("Business name is required");
+    if (validator.isEmpty(employer.business_name)) errors.push("Business name is required");
 
-    // if (validator.isEmpty(employer.about_business)) errors.push("About your business is required");
+    if (validator.isEmpty(employer.about_business)) errors.push("About your business is required");
 
-    // if (validator.isEmpty(employer.business_website)) {
-    //     errors.push("Business website is required");
-    // } else if (!validator.isURL(employer.business_website)) {
-    //     errors.push("Invalid website");
-    // }
+    if (validator.isEmpty(employer.business_website)) {
+        errors.push("Business website is required");
+    } else if (!validator.isURL(employer.business_website)) {
+        errors.push("Invalid website");
+    }
 
     if (errors.length === 0) return employer
     throw errors
@@ -91,14 +91,15 @@ const EmployersSignUp = ({ search }) => {
         employer: queryStringEmployer || null
     })
 
-    const [errors, setErrors] = useState([''])
+    const [errors, setErrors] = useState([])
+    const [loading, setLoading] = useState(false)
     const [submitData, setSubmitData] = useState(0)
     const handleInputChange = event => {
         event.persist()
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-    console.log(errors)
+
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -124,12 +125,22 @@ const EmployersSignUp = ({ search }) => {
                     <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                     <form onSubmit={e => {
+                        setLoading(true)
                         setErrors([''])
                         setSubmitData(inputs)
                         const dataToSubmit = inputs
                         handleSubmit(e, dataToSubmit)
                             .then(validatedData => {
-                                registerEmployer(validatedData)
+                                console.log(validatedData)
+                                registerEmployer(validatedData).then(res => {
+                                    if (res['id']) {
+                                        setLoading(false)
+                                        navigate(`/login`)
+                                    } else {
+                                        setLoading(false)
+                                        setErrors(res.non_field_errors)
+                                    }
+                                })
                             })
                             .catch(errors => setErrors(errors))
                     }}>
@@ -260,8 +271,18 @@ const EmployersSignUp = ({ search }) => {
                                     .catch(errors => setErrors(errors))
                             }}
                         >
-                            {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
+                            {errors.length > 0 ? "Erros have been found" : "SIGN UP"}
                         </button>
+                        <div>
+
+                            {errors.length > 0 ? (
+                                errors.map(e => {
+                                    return (
+                                        <p style={{ color: "red" }}>{e}</p>
+                                    )
+                                })
+                            ) : null}
+                        </div>
                         <div className="pt-4 text-gray" >
                             <small style={{ fontSize: "16px" }}>
                                 By clicking the button above you agree to the

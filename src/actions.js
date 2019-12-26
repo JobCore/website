@@ -15,8 +15,9 @@ export const registerJobSeeker = async jobseeker => {
     }
 }
 
-export const registerEmployer = async employer => {
+export const registerEmployer = async data => {
     const url = process.env.HOST + '/user/register'
+    let employer = Object.entries(data).reduce((a, [k, v]) => (v ? { ...a, [k]: v } : a), {})
     const settings = {
         method: 'POST',
         mode: 'cors',
@@ -28,7 +29,9 @@ export const registerEmployer = async employer => {
     }
     try {
         let response = await fetch(url, settings)
-        return await response.json()
+
+        let responseJSON = response.json()
+        return await responseJSON
     } catch (err) {
         return err
 

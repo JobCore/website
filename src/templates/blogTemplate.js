@@ -57,15 +57,10 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-query ($id: String) {
-  markdownRemark(id: {eq: $id}) {
-    html
+query MyQuery($slug: String) {
+  markdownRemark(fields: {slug: {eq: $slug}}, frontmatter: {}) {
     frontmatter {
-      date(formatString: "MMMM DD, YYYY")
       title
-      author
-      image
-      tags
     }
   }
 }

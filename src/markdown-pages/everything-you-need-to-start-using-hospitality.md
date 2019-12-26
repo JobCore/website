@@ -1,8 +1,13 @@
 ---
-date: '2019-08-04'
-title: 'My second blog post'
-image: '../images/blog-people.png'
-author: 'John Doe'
+slug: 'everything-you-need-to-start-using-hospitality'
+title: 'Everything you need to know about hospitality'
+subtitle: 'Laram si dos cuatro akkeeer'
+image: 'https://ak7.picdn.net/shutterstock/videos/4889387/thumb/1.jpg'
+date: '2019-01-22'
+textColor: 'black'
+author: 'alesanchezr'
+status: 'published'
+
 tags: ['events', 'weddings', 'article', 'job', 'tutorial', 'blog', 'maid']
 ---
 

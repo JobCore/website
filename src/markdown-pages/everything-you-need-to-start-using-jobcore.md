@@ -1,9 +1,13 @@
 ---
-path: 'pathy'
-date: '2019-05-04'
-title: 'My first blog post'
-image: '../images/blog-people.png'
-author: 'Ixax Tavarez'
+slug: 'everything-you-need-to-start-using-jobcore'
+title: 'Everything you need to know about Jobcore'
+subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dolor mauris'
+image: 'https://www.taskforcehr.com/wp-content/uploads/2018/01/ffff.jpg'
+date: '2019-04-28'
+textColor: 'black'
+author: 'ixaxtavarez'
+status: 'published'
+
 tags: ['events', 'weddings', 'article', 'job', 'tutorial', 'blog', 'safety']
 ---
 
