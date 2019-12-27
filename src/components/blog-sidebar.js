@@ -28,10 +28,10 @@ const SideBar = ({ keywords }) => {
                 <h6 className="mb-2">
                     Sign up today to get started.
             </h6>
-                <button className="btn radius btn-purple w-220px mt-5 mb-2 py-3" onClick={() => navigate(`/job-seekers-signup/`)}>
+                <button className="btn radius btn-purple w-220px mt-5 mb-2 py-2" style={{ fontSize: "20px" }} onClick={() => navigate(`/job-seekers-signup/`)}>
                     Get Started
             </button>
-                <button className="btn radius btn-darkgreen w-220px mt-3 mb-4 py-3" onClick={() => navigate(`/positions/`)}>
+                <button className="btn radius btn-darkgreen w-220px mt-3 mb-4 py-2" style={{ fontSize: "20px" }} onClick={() => navigate(`/positions/`)}>
                     View Positions
             </button>
             </div>

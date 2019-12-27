@@ -271,7 +271,7 @@ const EmployersSignUp = ({ search }) => {
                                     .catch(errors => setErrors(errors))
                             }}
                         >
-                            {errors.length > 0 ? "Erros have been found" : "SIGN UP"}
+                            SIGN UP
                         </button>
                         <div>
 

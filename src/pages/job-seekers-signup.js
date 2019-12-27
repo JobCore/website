@@ -77,6 +77,7 @@ const JobSeekersSignUp = ({ search }) => {
     })
 
     const [errors, setErrors] = useState([''])
+    const [loading, setLoading] = useState(false)
     const [captcha, setCaptcha] = useState([false])
     const [submitData, setSubmitData] = useState(0)
 
@@ -117,15 +118,25 @@ const JobSeekersSignUp = ({ search }) => {
                         </div>
                         <form
                             onSubmit={e => {
+                                setLoading(true)
                                 setErrors([''])
                                 setSubmitData(inputs)
                                 const dataToSubmit = inputs
                                 handleSubmit(e, dataToSubmit)
                                     .then(validatedData => {
-                                        registerJobSeeker(validatedData)
+                                        registerJobSeeker(validatedData).then(res => {
+                                            if (res['id']) {
+                                                setLoading(false)
+                                                navigate(`/login`)
+                                            } else {
+                                                setLoading(false)
+                                                setErrors(res.non_field_errors)
+                                            }
+                                        })
                                     })
                                     .catch(errors => setErrors(errors))
                             }}
+
                         >
                             <div className="form-group py-1">
                                 <label className="">
@@ -285,8 +296,20 @@ const JobSeekersSignUp = ({ search }) => {
                                         .catch(errors => setErrors(errors))
                                 }}
                             >
-                                {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
+                                SIGN UP
                             </button>
+                            <div>
+                                <div className="mt-3">
+                                    {errors.length > 0 ? (
+                                        errors.map(e => {
+                                            return (
+                                                <p style={{ color: "red" }}>{e}</p>
+                                            )
+                                        })
+                                    ) : null}
+
+                                </div>
+                            </div>
                             <div className="pt-4 text-gray" >
                                 <small style={{ fontSize: "16px" }}>
                                     By clicking the button above you agree to the

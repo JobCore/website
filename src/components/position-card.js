@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Countdown from "../components/countdown";
 import moment from "moment"
+import { navigate } from '@reach/router'
 
 const PositionCard = ({ data, onClick }) => (
-    <div onClick={e => onClick && onClick(data)} className="position-card border mx-auto">
+    <div onClick={e => navigate(`/position/`)} className="position-card border mx-auto">
         <div className="d-flex justify-content-between">
             <div>
                 <i class="fas fa-map-marker-alt mr-1 text-purple"></i>

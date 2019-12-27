@@ -323,7 +323,7 @@ const Pricing = () => {
                 <p class="lead">Try it now for free / No credit card needed</p>
 
                 <div className="row justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-md-6">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>

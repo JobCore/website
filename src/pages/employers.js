@@ -139,7 +139,7 @@ const Employers = () => {
                 </p>
 
                 <div className="row justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-md-6">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -183,7 +183,7 @@ const Employers = () => {
                     <br />
                     in the hospitality industry on mobile and desktop.
                 </p>
-                <div className="row  justify-content-center ml-0 mr-0">
+                <div className="row  justify-content-center ml-0 mr-0 mb-5 pb-2">
                     <div className="col-12 col-sm-7 col-md-8 col-lg-7">
 
 
@@ -233,7 +233,7 @@ const Employers = () => {
 
 
 
-                <h3 className="my-4">
+                <h3>
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
@@ -324,7 +324,7 @@ const Employers = () => {
                     <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
 
                     <div className="row justify-content-center">
-                        <div className="col-md-4">
+                        <div className="col-md-6">
 
                             <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                         </div>

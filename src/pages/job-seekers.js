@@ -43,7 +43,7 @@ const JobSeekers = () => {
             <div className="bg-lightgray py-10 m-0">
                 <div className="px-10">
                     <div className="row justify-content-center">
-                        <div className="col-md-5 text-left pb-2">
+                        <div className="col-md-6 text-left pb-2">
                             <h1 className="">
                                 Get work fast & <span className="text-brightblue">get paid </span>
                                 the same day
@@ -66,7 +66,7 @@ const JobSeekers = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-7">
+                        <div className="col-md-6">
                             {/* <Player video="izRld2t-Xw8" placeholder={Logo} height={'300px'} /> */}
                             <div className="row ml-0 mr-0">
                                 <div className="col-12 col-md-6">
@@ -161,7 +161,7 @@ const JobSeekers = () => {
                 </p>
 
                 <div className="row justify-content-center">
-                    <div className="col-md-4">
+                    <div className="col-md-6">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -198,7 +198,7 @@ const JobSeekers = () => {
             <div className="row justify-content-center py-10">
                 <div className="col-md-4">
 
-                    <Player video="izRld2t-Xw8" height="400px" placeholder={Logo} />
+                    <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height="400px" placeholder={Logo} />
                 </div>
             </div>
             {/* </div> */}
@@ -257,7 +257,7 @@ const JobSeekers = () => {
                 <div className="row justify-content-center py-4 mx-auto">
                     <div className="col pt-2">
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
 
 
                         <div className="row justify-content-end m-0">
@@ -280,7 +280,7 @@ const JobSeekers = () => {
                     <div className="col pt-2">
 
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
 
 
 
@@ -302,7 +302,7 @@ const JobSeekers = () => {
                     </div>
                     <div className="col pt-2">
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
 
 
                         <div className="row justify-content-end m-0">

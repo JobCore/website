@@ -5,6 +5,8 @@ import SocialMediaSideBar from '../components/socialmedia-sidebar.js'
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import { navigate } from '@reach/router'
+
 const Position = () => {
     // Declare a new state variable, which we'll call "count"
     const [count, setCount] = useState(0);
@@ -108,7 +110,7 @@ const Position = () => {
                                 </ul>
 
                                 <div class="card-footer bg-transparent text-center"><h3 className="text-brightblue" style={{ fontSize: "calc(12px + 1.8vw)" }}>Apply Here</h3>
-                                    <button className="btn radius btn-purple pl-4 pr-4 pt-2 pb-2 w-100 mt-3" style={{ fontSize: "calc(10px + 0.5vw)" }}>
+                                    <button className="btn radius btn-purple pl-4 pr-4 pt-2 pb-2 w-100 mt-3" style={{ fontSize: "calc(10px + 0.5vw)" }} onClick={e => navigate(`/job-seekers-signup/`)}>
                                         Get Started
                     </button>
                                 </div>

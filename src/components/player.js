@@ -16,7 +16,7 @@ const Player = ({
 
   return (
     <div
-      className="border"
+      // className="border"
       style={{
         width: "100%",
         height: height,
@@ -57,8 +57,8 @@ const Player = ({
         </div>
       ) : (
 
-          
-        <ReactPlayer url={video} playing loop controls="false"/>
+
+          <ReactPlayer url={video} playing loop controls="false" width="100%" />
 
         )}
     </div>
