@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
 import { navigate } from '@reach/router'
-import GetStartedModal from '../components/modal-getstarted'
+import ModalJobseeker from '../components/jobseeker-modal'
 import GetStarted from '../components/input-getstarted'
 import Logo from '../images/jobcorelogo.png'
 import ReactPlayer from 'react-player'
@@ -202,7 +202,7 @@ const JobSeekers = () => {
                 </div>
             </div>
             {/* </div> */}
-            <GetStartedModal />
+            <ModalJobseeker />
 
             <div className="container py-10 text-center">
                 <h3 className="mb-2">
@@ -326,7 +326,7 @@ const JobSeekers = () => {
                 <div className="px-10  m-0 text-center">
 
                     <h3 className="pt-5 mt-3">
-                        It's never been easier to <span className="text-brightblue">find job</span> in the hospitality industry.
+                        It's never been easier to <span className="text-brightblue">find jobs</span> in the hospitality industry.
 </h3>
 
                     <p className="mb-4">Sign up today and experience the difference. It's fast and easy!</p>
