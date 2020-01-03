@@ -73,7 +73,7 @@ const Login = () => {
                                                 setLoading(false)
                                             } else if (res['user']['profile']['employer'] !== null) {
                                                 navigate('https://employer.jobcore.co/?token=' + res['token'])
-                                                setLoading(false)
+                                                // setLoading(false)
                                             } else if (res['user']['profile']['employee'] !== null) {
                                                 setErrors(['Only employers are allowed to login into this application. Please download the JobCore application on the App Store or Google Play Store.'])
                                                 setLoading(false)

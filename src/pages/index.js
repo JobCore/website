@@ -170,7 +170,7 @@ export default () => {
                 </p>
 
                 <div className="row mt-4 justify-content-center">
-                    <div className="col-lg-5">
+                    <div className="col-lg-6">
 
                         <GetStarted modalQuestion="Are you a jobseeker or an employer?" buttonText="Get Started" errorLabel="Enter a valid email address." inputPlaceholder="Enter your email" inputName="email" modalButton1="Jobseeker" modalButton2="Employer" modalNavigation1="/job-seekers-signup/" modalNavigation2="employers-signup" />
                     </div>
@@ -288,7 +288,7 @@ export default () => {
                 <div className="row justify-content-center py-4 mx-auto">
                     <div className="col-md-4 pt-2 pr-2">
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
 
 
                         <div className="row justify-content-end m-0">
@@ -311,7 +311,7 @@ export default () => {
                     <div className="col-md-4 pt-2 pr-2">
 
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
 
 
 
@@ -333,7 +333,7 @@ export default () => {
                     </div>
                     <div className="col-md-4 pt-2 pr-2">
 
-                        <Player video="izRld2t-Xw8" height={'200px'} placeholder={Logo} />
+                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
 
 
                         <div className="row justify-content-end m-0">

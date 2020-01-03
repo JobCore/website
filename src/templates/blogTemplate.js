@@ -12,9 +12,9 @@ import People from '../images/blog-people.png'
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
-  console.log(frontmatter)
+  // const { markdownRemark } = data // data.markdownRemark holds your post data
+  // const { frontmatter, html } = markdownRemark
+  console.log(data)
   return (
     <Layout>
       <SEO title="Blog" />
@@ -37,14 +37,14 @@ export default function Template({
           ))} */}
           <div className="pb-3">
             <img src={People} alt="Blog Post Article" />
-            <h2 className="pt-3">{frontmatter.title}</h2>
+            {/* <h2 className="pt-3">sdasdasd</h2> */}
             <span className="text-secondary pb-3">
-              {frontmatter.date}<a className="text-brightblue">{", " + frontmatter.author}</a>
+              <a className="text-brightblue">{", " + "sdasdas"}</a>
             </span>
-            <div
+            {/* <div
               className="pt-3"
               dangerouslySetInnerHTML={{ __html: html }}
-            />
+            /> */}
 
           </div>
         </div>
@@ -57,17 +57,11 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        author
-        image
-        tags
-      }
+query MyQuery($slug: String) {
+  markdownRemark(fields: {slug: {eq: $slug}}, frontmatter: {}) {
+    frontmatter {
+      title
     }
   }
+}
 `

@@ -75,6 +75,7 @@ const handleSubmit = async (event, employer) => {
 
 const EmployersSignUp = ({ search }) => {
     const queryString = search["email"]
+    const queryStringEmployer = search["employer"]
 
     const [inputs, setInputs] = useState({
         firstName: '',
@@ -86,10 +87,12 @@ const EmployersSignUp = ({ search }) => {
         business_name: '',
         business_email: queryString || '',
         business_website: '',
-        about_business: ''
+        about_business: '',
+        employer: queryStringEmployer || null
     })
 
-    const [errors, setErrors] = useState([''])
+    const [errors, setErrors] = useState([])
+    const [loading, setLoading] = useState(false)
     const [submitData, setSubmitData] = useState(0)
     const handleInputChange = event => {
         event.persist()
@@ -122,12 +125,22 @@ const EmployersSignUp = ({ search }) => {
                     <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                     <form onSubmit={e => {
+                        setLoading(true)
                         setErrors([''])
                         setSubmitData(inputs)
                         const dataToSubmit = inputs
                         handleSubmit(e, dataToSubmit)
                             .then(validatedData => {
-                                registerEmployer(validatedData)
+                                console.log(validatedData)
+                                registerEmployer(validatedData).then(res => {
+                                    if (res['id']) {
+                                        setLoading(false)
+                                        navigate(`/login`)
+                                    } else {
+                                        setLoading(false)
+                                        setErrors(res.non_field_errors)
+                                    }
+                                })
                             })
                             .catch(errors => setErrors(errors))
                     }}>
@@ -204,40 +217,44 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-row s700-display-column">
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Business Name</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <input id={errors.includes("Business name is required") ? "error-form" : null} maxlength="254" type="text" name="business_name" onChange={handleInputChange} value={inputs.business_name} />
-                                    {errors.includes("Business name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('Business name is required')]}</strong></div> : null}
+                        {!inputs.employer ?
+                            <div>
+                                <div className="form-row s700-display-column">
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Business Name</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <input id={errors.includes("Business name is required") ? "error-form" : null} maxlength="254" type="text" name="business_name" onChange={handleInputChange} value={inputs.business_name} />
+                                            {errors.includes("Business name is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('Business name is required')]}</strong></div> : null}
 
+                                        </div>
+                                    </div>
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Business Website</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+                                            <span class="fa fa-globe-americas"></span>
+                                            <input id={errors.includes("Business website is required") ? "error-form" : null} maxlength="254" type="text" name="business_website" onChange={handleInputChange} value={inputs.business_website} />
+                                            {errors.includes("Business website is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Business website is required")]}</strong></div> : null}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row s700-display-column">
+                                    <div className="form-group col py-1">
+                                        <label className=""><h6>Tell us about your business</h6></label>
+                                        {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                        <div class="icon_form">
+
+                                            <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
+                                            {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Business Website</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-                                    <span class="fa fa-globe-americas"></span>
-                                    <input id={errors.includes("Business website is required") ? "error-form" : null} maxlength="254" type="text" name="business_website" onChange={handleInputChange} value={inputs.business_website} />
-                                    {errors.includes("Business website is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Business website is required")]}</strong></div> : null}
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="form-row s700-display-column">
-                            <div className="form-group col py-1">
-                                <label className=""><h6>Tell us about your business</h6></label>
-                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
-                                <div class="icon_form">
-
-                                    <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
-                                    {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
-
-                                </div>
-                            </div>
-                        </div>
+                            : null}
                         {/* <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
                             onChange={(e) => setCaptcha(true)} /> */}
                         <button
@@ -254,8 +271,18 @@ const EmployersSignUp = ({ search }) => {
                                     .catch(errors => setErrors(errors))
                             }}
                         >
-                            {JSON.stringify(submitData) === JSON.stringify(inputs) ? "Errors have been found" : "SIGN UP"}
+                            SIGN UP
                         </button>
+                        <div>
+
+                            {errors.length > 0 ? (
+                                errors.map(e => {
+                                    return (
+                                        <p style={{ color: "red" }}>{e}</p>
+                                    )
+                                })
+                            ) : null}
+                        </div>
                         <div className="pt-4 text-gray" >
                             <small style={{ fontSize: "16px" }}>
                                 By clicking the button above you agree to the
