@@ -18,7 +18,7 @@ const Positions = () => {
         if (!noresults) {
             setLoading(true)
             //upcoming=true
-            const res = await fetch(`http://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}`);
+            const res = await fetch(`https://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}`);
             res
                 .json()
                 .then(res => {
@@ -48,6 +48,30 @@ const Positions = () => {
             setIsFetching(false);
         }, 500);
     }
+
+    async function searchPosition(keywords) {
+        if (!noresults) {
+            setLoading(true)
+            //upcoming=true
+            const res = await fetch(`https://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}keywords=${keywords}`);
+            res
+                .json()
+                .then(res => {
+                    if (res.length !== 0) {
+                        let next = offset + 5
+                        setOffset(next)
+                        console.log(res)
+                        setPositions(res)
+                        setLoading(false)
+                    } else {
+                        setNoResults(true)
+                        setLoading(false)
+                    }
+
+                })
+                .catch(err => setErrors(err));
+        }
+    }
     return (
         <Layout>
             <SEO title="Positions" />
@@ -63,26 +87,29 @@ const Positions = () => {
                 </h4>
                     <div>Want to find a job? We have 263</div>
 
-                    <div className="input-group py-5 px-10 w-100">
-                        <input
-                            type="text"
-                            className="form-control border-0 rounded-0 w-50"
-                            placeholder="Keywords"
-                            size="20"
-                        />
-                        <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25">
-                            <option selected>Location</option>
-                            <option value="1">Miami Beach</option>
-                            <option value="2">Coral Gables</option>
-                            <option value="3">Downtown</option>
-                            <option value="4">Key Biscayne</option>
-                        </select>
-                        <div className="input-group-append rounded-0">
-                            <span className="input-group-text btn-purple border-0 rounded-0 px-4">
-                                Get Started
-                        </span>
+                    <form onSubmit={(e) => { e.preventDefault(); console.log(e) }}>
+                        <div className="input-group py-5 px-10 w-100">
+                            <input
+                                type="text"
+                                className="form-control border-0 rounded-0 w-50"
+                                placeholder="Keywords"
+                                size="20"
+                            />
+                            <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25">
+                                <option selected>Location</option>
+                                <option value="1">Miami Beach</option>
+                                <option value="2">Coral Gables</option>
+                                <option value="3">Downtown</option>
+                                <option value="4">Key Biscayne</option>
+                            </select>
+                            <div className="input-group-append rounded-0">
+                                <button type="submit" className="input-group-text btn-purple border-0 rounded-0 px-4" style={{ border: 'none' }}>
+                                    Get Started
+                        </button>
+                            </div>
+
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
