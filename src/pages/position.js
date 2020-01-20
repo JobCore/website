@@ -6,10 +6,14 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import { navigate } from '@reach/router'
+import withLocation from '../withLocation'
+import Countdown from "../components/countdown";
 
-const Position = () => {
-    // Declare a new state variable, which we'll call "count"
+const Position = ({ search }) => {
+    const queryString = search["id"]
     const [count, setCount] = useState(0);
+    const [shiftData, setShiftdata] = useState([]);
+    const [err, setErrors] = useState([]);
     const settings = {
         arrows: true,
         infinite: true,
@@ -17,6 +21,20 @@ const Position = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+
+    async function fetchShift() {
+        const res = await fetch(`https://8080-fd2c98dd-a9cb-48fa-ae47-f5e1621ee59a.ws-us02.gitpod.io/api/public/shifts?id=${queryString || ""}`);
+        res
+          .json()
+          .then(res => setShiftdata(res))
+          .catch(err => setErrors(err));
+      }
+
+      useEffect(() => {
+        fetchShift();
+      }, []);
+
+    console.log(shiftData)
     return (
         <Layout>
             <SEO title="Positions" />
@@ -26,10 +44,10 @@ const Position = () => {
                     <div class="row">
                         <div class="col-md-8">
                             <h1 style={{ fontSize: "calc(12px + 1.8vw)" }}>
-                                Events Coordinator in Miami
+                                {shiftData[0] ? shiftData[0].position.title : ""} 
                         </h1>
                             <h4 style={{ color: "#464646", fontSize: "calc(12px + 0.5vw)" }}>
-                                Ends in 3 Days 21h 24m 36s
+                            <Countdown deadline={shiftData[0] ? shiftData[0].starting_at : ""} />
                         </h4>
                             <div class="row pt-4">
 
@@ -37,31 +55,40 @@ const Position = () => {
 
                                     <h5 style={{ color: "#464646", fontSize: "calc(12px + 0.5vw)" }}>Job Brief</h5>
                                     <p style={{ color: "#787878", fontSize: "calc(10px + 0.5vw)" }}>
-                                        We are looking for a successful and enthuasiastic event planner to produce
-                                        events from conception through to completion. Event coordinator
-                                        responsibilities include providing outstanding customer service and
-                                        organizing memorable events that meet quality expectations.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sem metus, pharetra ac ex eget, euismod vehicula libero. Aliquam imperdiet dapibus mauris, at luctus massa hendrerit vitae. Nulla nisl lacus, ultrices eu vestibulum ac, commodo in lectus. Etiam ut est aliquet, placerat turpis a, efficitur arcu. Vivamus eros neque, imperdiet ut lobortis et, hendrerit sit amet lorem. Aliquam et sollicitudin arcu. Donec vel sagittis purus.
                         </p>
                                     <br />
                                     <h5>Responsibilities</h5>
                                     <ul style={{ listStyleType: "none", color: "#787878", fontSize: "calc(10px + 0.5vw)" }}>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Event planning, design and production while managing all project delivery elements within time limits
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+
                             </li>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Liaise with clients to identify their needs and to ensure customer satisfaction
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+
                             </li>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Conduct market research, gather information and negotiate contracts prior to closing any deals
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+
                             </li>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Provide feedback and periodic reports to stakeholders
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+
                             </li>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Propose ideas to improve provided servies and event quality
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+
                             </li>
                                         <li><i class="fas fa-check-circle" style={{ color: "rgb(163, 25, 163)" }}></i>{" "}
-                                            Ensure complaice with insurace, legal, health and safety obligation              </li>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut.
+
+</li>
 
                                     </ul>
 
@@ -77,7 +104,7 @@ const Position = () => {
 
                                             <i class="fas fa-map-marker-alt" style={{ color: "rgb(163, 25, 163)", fontSize: "calc(24px + 0.5vw)", paddingRight: "15px" }}></i>
                                             <span style={{ color: "#464646", fontSize: "calc(8px + 0.5vw)" }}>Location <br />
-                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}>Miami Beach, Florida</strong></span>
+                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}> {shiftData[0] ? shiftData[0].venue.title + ", " + shiftData[0].venue.street_address : ""} </strong></span>
 
                                         </div>
                                     </li>
@@ -86,7 +113,7 @@ const Position = () => {
 
                                             <i class="far fa-calendar-check" style={{ color: "rgb(163, 25, 163)", fontSize: "calc(24px + 0.5vw)", paddingRight: "15px" }}></i>
                                             <span style={{ color: "#464646", fontSize: "calc(8px + 0.5vw)" }}>Salary <br />
-                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}>$11.53 - $12.03 / Hour</strong></span>
+                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}>{shiftData[0] ? shiftData[0].minimum_hourly_rate : ''} / Hour</strong></span>
 
                                         </div>
                                     </li>
@@ -103,7 +130,7 @@ const Position = () => {
                                         <div style={{ width: '100%', height: "calc(50px + 1vw)", display: "flex", flexDirection: "row", alignItems: "center" }}>
 
                                             <span style={{ color: "#464646", fontSize: "calc(8px + 0.5vw)" }}>Category <br />
-                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}>Wedding Events & Organizer - Event Operators</strong></span>
+                                                <strong style={{ fontSize: "calc(10px + 0.5vw)" }}>Lorem</strong></span>
 
                                         </div>
                                     </li>
@@ -461,4 +488,4 @@ const Position = () => {
     );
 }
 
-export default Position
+export default withLocation(Position)

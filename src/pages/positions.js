@@ -13,12 +13,14 @@ const Positions = () => {
     const [offset, setOffset] = useState(0)
     const [loading, setLoading] = useState(true)
     const [noresults, setNoResults] = useState(false)
+    const [keywords, setKeywords] = useState("");
+    const [location, setLocation] = useState("");
 
     async function fetchData() {
         if (!noresults) {
             setLoading(true)
             //upcoming=true
-            const res = await fetch(`https://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}`);
+            const res = await fetch(`https://8080-fd2c98dd-a9cb-48fa-ae47-f5e1621ee59a.ws-us02.gitpod.io/api/public/shifts?limit=6&offset=${offset}`);
             res
                 .json()
                 .then(res => {
@@ -49,11 +51,11 @@ const Positions = () => {
         }, 500);
     }
 
-    async function searchPosition(keywords) {
+    async function searchPosition() {
         if (!noresults) {
             setLoading(true)
             //upcoming=true
-            const res = await fetch(`https://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}keywords=${keywords}`);
+            const res = await fetch(`https://8080-fd2c98dd-a9cb-48fa-ae47-f5e1621ee59a.ws-us02.gitpod.io/api/public/shifts?keywords=${keywords}&location=${location}`);
             res
                 .json()
                 .then(res => {
@@ -72,6 +74,8 @@ const Positions = () => {
                 .catch(err => setErrors(err));
         }
     }
+    console.log(keywords)
+    console.log(location)
     return (
         <Layout>
             <SEO title="Positions" />
@@ -93,17 +97,19 @@ const Positions = () => {
                                 type="text"
                                 className="form-control border-0 rounded-0 w-50"
                                 placeholder="Keywords"
+                                onChange={e => setKeywords(e.target.value)}
+                                value={keywords}
                                 size="20"
                             />
-                            <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25">
+                            <select class="custom-select border-top-0 border-bottom-0 border-right-0 w-25" onChange={(e) => setLocation(e.target.value)}>
                                 <option selected>Location</option>
-                                <option value="1">Miami Beach</option>
-                                <option value="2">Coral Gables</option>
-                                <option value="3">Downtown</option>
-                                <option value="4">Key Biscayne</option>
+                                <option value="Miami Beach">Miami Beach</option>
+                                <option value="Coral Gables">Coral Gables</option>
+                                <option value="Downtown">Downtown</option>
+                                <option value="Key Biscayne">Key Biscayne</option>
                             </select>
                             <div className="input-group-append rounded-0">
-                                <button type="submit" className="input-group-text btn-purple border-0 rounded-0 px-4" style={{ border: 'none' }}>
+                                <button type="submit" className="input-group-text btn-purple border-0 rounded-0 px-4" style={{ border: 'none' }} onClick={e => searchPosition()}>
                                     Get Started
                         </button>
                             </div>
@@ -120,7 +126,7 @@ const Positions = () => {
                         return (
                             <div className={"col my-2 s1000-collapse-margin " + hide}
                                 key={i}>
-                                <PositionCard data={e} onClick={console.log('clcik')} />
+                                <PositionCard data={e} />
                             </div>
                         )
                     })}
