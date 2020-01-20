@@ -23,7 +23,7 @@ const Position = ({ search }) => {
     };
 
     async function fetchShift() {
-        const res = await fetch(`https://8080-fd2c98dd-a9cb-48fa-ae47-f5e1621ee59a.ws-us02.gitpod.io/api/public/shifts?id=${queryString || ""}`);
+        const res = await fetch(`https://api.jobcore.co/api/public/shifts?id=${queryString || ""}`);
         res
           .json()
           .then(res => setShiftdata(res))

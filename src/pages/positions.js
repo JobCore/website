@@ -20,7 +20,7 @@ const Positions = () => {
         if (!noresults) {
             setLoading(true)
             //upcoming=true
-            const res = await fetch(`https://8080-fd2c98dd-a9cb-48fa-ae47-f5e1621ee59a.ws-us02.gitpod.io/api/public/shifts?limit=6&offset=${offset}`);
+            const res = await fetch(`https://api.jobcore.co/api/public/shifts?limit=6&offset=${offset}`);
             res
                 .json()
                 .then(res => {
