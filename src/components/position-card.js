@@ -4,8 +4,10 @@ import Countdown from "../components/countdown";
 import moment from "moment"
 import { navigate } from '@reach/router'
 
-const PositionCard = ({ data, onClick }) => (
-    <div onClick={e => navigate(`/position/`)} className="position-card border mx-auto">
+const PositionCard = ({ data, onClick }) => {
+    console.log(data);
+    return(
+    <div onClick={e => navigate(`/position?id=${data.id}`)} className="position-card border mx-auto">
         <div className="d-flex justify-content-between">
             <div>
                 <i class="fas fa-map-marker-alt mr-1 text-purple"></i>
@@ -28,7 +30,8 @@ const PositionCard = ({ data, onClick }) => (
             <small><Countdown deadline={data.starting_at} /></small>
         </div>
     </div>
-)
+    )
+}
 
 PositionCard.propTypes = {
     data: PropTypes.object,
