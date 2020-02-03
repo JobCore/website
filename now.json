@@ -8,7 +8,7 @@
     ],
     "build": {
         "env": {
-            "VARIABLE_NAME": "@host"
+            "HOST": "@host"
         }
     }
 }

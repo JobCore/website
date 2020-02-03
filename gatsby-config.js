@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: ["MY_VAR", "MY_OTHER_VAR"]
+        whitelist: ["HOST"]
       },
     },
     `gatsby-transformer-sharp`,
