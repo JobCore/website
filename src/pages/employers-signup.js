@@ -135,7 +135,7 @@ const EmployersSignUp = ({ search }) => {
                                 registerEmployer(validatedData).then(res => {
                                     if (res['id']) {
                                         setLoading(false)
-                                        navigate(`/login`)
+                                        navigate(`/subscriptions`)
                                     } else {
                                         setLoading(false)
                                         setErrors(res.non_field_errors)

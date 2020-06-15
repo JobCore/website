@@ -4,7 +4,7 @@ export const registerJobSeeker = async jobseeker => {
         method: 'POST',
         mode: 'cors',
         headers: new Headers({ "Content-Type": "application/json" }),
-        body: JSON.stringify({ email: jobseeker.email, account_type: 'employee', username: jobseeker.email, first_name: jobseeker.firstName, last_name: jobseeker.lastName, password: jobseeker.password, phone: jobseeker.phone }),
+        body: JSON.stringify({ email: jobseeker.email, account_type: 'employee', username: jobseeker.email, first_name: jobseeker.firstName, last_name: jobseeker.lastName, password: jobseeker.password, phone_number: jobseeker.phone }),
     }
     try {
         let response = await fetch(url, settings)

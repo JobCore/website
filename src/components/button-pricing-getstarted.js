@@ -7,7 +7,15 @@ const GetStartedPricing = () => {
     return (
         <div>
             <div className="mb-3 d-none d-lg-block" style={{ color: 'black' }}>
-                <button onClick={() => setShowModal(true)} className="p-1" style={{ backgroundColor: 'white', border: '1px solid black', textDecoration: 'none', borderRadius: '30px', width: '80%' }}>
+                <button onClick={() => setShowModal(true)} className="p-1" style={{fontSize: "13px",
+  border: '1px solid black',
+  width: "80%",
+  outline: "none",
+  padding: "12px",
+  boxShadow: "2px 5px 10px rgba(0,0,0,.1)",
+  backgroundColor: "white",
+  borderRadius: "30px",
+  fontWeight:'bolder'}}>
                     <strong>GET STARTED</strong>
                 </button>
             </div>
