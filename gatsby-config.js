@@ -17,6 +17,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER,
+        includeInDevelopment: false,
+      },
+    },
+    {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Balance', 'BalanceTransaction', 'Product', 'ApplicationFee', 'Sku', 'Subscription'],
