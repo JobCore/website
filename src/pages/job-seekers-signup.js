@@ -80,6 +80,8 @@ const JobSeekersSignUp = ({ search }) => {
     const [loading, setLoading] = useState(false)
     const [captcha, setCaptcha] = useState([false])
     const [submitData, setSubmitData] = useState(0)
+    const [consent, setConsent] = useState(false)
+    const [consentErrorMsg, setConsentErrorMsg] = useState('')
 
     const handleInputChange = event => {
         event.persist()
@@ -87,6 +89,7 @@ const JobSeekersSignUp = ({ search }) => {
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
 
+    const handleClickConsent = () => setConsent(!consent)
 
     return (
         <Layout>
@@ -118,23 +121,30 @@ const JobSeekersSignUp = ({ search }) => {
                         </div>
                         <form
                             onSubmit={e => {
+                                e.preventDefault();
+                                if(consent){
                                 setLoading(true)
                                 setErrors([''])
                                 setSubmitData(inputs)
                                 const dataToSubmit = inputs
-                                handleSubmit(e, dataToSubmit)
-                                    .then(validatedData => {
-                                        registerJobSeeker(validatedData).then(res => {
-                                            if (res['id']) {
-                                                setLoading(false)
-                                                navigate(`/login`)
-                                            } else {
-                                                setLoading(false)
-                                                setErrors(res.non_field_errors)
-                                            }
+                                    handleSubmit(e, dataToSubmit)
+                                        .then(validatedData => {
+                                            registerJobSeeker(validatedData).then(res => {
+                                                if (res['id']) {
+                                                    setLoading(false)
+                                                    navigate(`/login`)
+                                                } else {
+                                                    setLoading(false)
+                                                    setErrors(res.non_field_errors)
+                                                }
+                                            })
                                         })
-                                    })
-                                    .catch(errors => setErrors(errors))
+                                        .catch(errors => setErrors(errors))
+                                }else {
+                                    alert("Please click the consent checkbox to proceed");
+                                    setConsentErrorMsg("Please click the consent checkbox to proceed");
+                                }
+
                             }}
 
                         >
@@ -323,9 +333,12 @@ const JobSeekersSignUp = ({ search }) => {
                                     </Link>
                                     .
                                     <div className="d-flex justify-content-start mt-3">
-                                        <input className="mt-1 mr-2" type="checkbox" />
+                                        
+                                        <input onChange={handleClickConsent} checked={consent}className="mt-1 mr-2" type="checkbox" />
                                         <div style={{ fontSize: '16px' }}>I consent to receive updates and agree to receive occasional automated text messages from JobCore. Messages and data rates may apply. Text STOP to cancel or HELP for help.</div>
                                     </div>
+                                    <br/>
+                                    {consentErrorMsg != "" && !consent ? <span style={{color:"red"}}>{consentErrorMsg}</span> : null}
                                 </small>
                             </div>
                         </form>

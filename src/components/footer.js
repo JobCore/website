@@ -69,9 +69,9 @@ const Footer = () => (
                         <li>
                             <a href="#">How to Apply (FAQ)</a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="#">Case Studies</a>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/pricing">
                                 <a>Prices</a>
@@ -92,7 +92,7 @@ const Footer = () => (
                         </a>
                     </span>
                 </div>
-                <div className="col">
+                {/* <div className="col">
                     <span className="round-links bg-white mr-3">
                         <a href="#">
                             <span className="d-flex align-items-center justify-content-center">
@@ -100,7 +100,7 @@ const Footer = () => (
                             </span>
                         </a>
                     </span>
-                </div>
+                </div> */}
                 <div className="col">
                     <span className="round-links bg-white mr-3">
                         <a href="#">

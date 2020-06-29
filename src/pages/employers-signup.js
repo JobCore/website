@@ -90,7 +90,8 @@ const EmployersSignUp = ({ search }) => {
         about_business: '',
         employer: queryStringEmployer || null
     })
-
+    const [consent, setConsent] = useState(false)
+    const [consentErrorMsg, setConsentErrorMsg] = useState('')
     const [errors, setErrors] = useState([])
     const [loading, setLoading] = useState(false)
     const [submitData, setSubmitData] = useState(0)
@@ -99,7 +100,8 @@ const EmployersSignUp = ({ search }) => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-
+    const handleClickConsent = () => setConsent(!consent)
+    
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -125,11 +127,13 @@ const EmployersSignUp = ({ search }) => {
                     <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                     <form onSubmit={e => {
+                        e.preventDefault();
+                        if(consent){
                         setLoading(true)
                         setErrors([''])
                         setSubmitData(inputs)
                         const dataToSubmit = inputs
-                        handleSubmit(e, dataToSubmit)
+                            handleSubmit(e, dataToSubmit)
                             .then(validatedData => {
                                 console.log(validatedData)
                                 registerEmployer(validatedData).then(res => {
@@ -143,6 +147,11 @@ const EmployersSignUp = ({ search }) => {
                                 })
                             })
                             .catch(errors => setErrors(errors))
+                        }else {
+                            alert("Please click the consent checkbox to proceed");
+                            setConsentErrorMsg("Please click the consent checkbox to proceed");
+                        }
+                 
                     }}>
                         <div className="form-row s700-display-column">
 
@@ -295,13 +304,15 @@ const EmployersSignUp = ({ search }) => {
                                 </Link>
                                 .
                             <div className="d-flex justify-content-start mt-3">
-                                    <input className="mt-1 mr-2" type="checkbox" />
+                                    <input onChange={handleClickConsent} checked={consent}className="mt-1 mr-2" type="checkbox" />
                                     <div>
                                         I consent to receive updates and agree to receive occasional
                                         automated text messages from JobCore. Messages and data rates may
                                         apply. Text STOP to cancel or HELP for help.
                                 </div>
                                 </div>
+                            <br/>
+                            {consentErrorMsg != "" && !consent ? <span style={{color:"red"}}>{consentErrorMsg}</span> : null}
                             </small>
                         </div>
                     </form>

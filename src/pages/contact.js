@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
+import ContactForm from '../components/contact-form'
 /* eslint-disable */
 
 const Contact = () => (
@@ -11,15 +11,14 @@ const Contact = () => (
         <div className="pink-top-image text-light d-flex align-items-center">
             <div className="text-center w-100 px-10">
                 <h1 className="font-size-4em">
-                    <span className="p-2 px-4 bg-black-opacity">
+                    <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>
                         Contact <span className="text-brightblue"> Us</span>
                     </span>
                 </h1>
             </div>
         </div>
-
         <div className="my-5 pb-5 d-flex justify-content-center align-items-center s900-display-column-reverse">
-            <form className="p-5 shadow w-600px ">
+            {/* <form className="p-5 shadow w-600px ">
                 <h2 className="mb-4 mt-2">Get In Touch</h2>
                 <div className="form-row">
                     <div className="col form-group">
@@ -40,7 +39,8 @@ const Contact = () => (
                         Send Now
                     </button>
                 </div>
-            </form>
+            </form> */}
+            <ContactForm/>
             <div className="w-400px py-5 bg-brightblue-opacity text-white">
                 <div className="d-flex justify-content-start ml-3 pb-4">
                     <div className="round-links d-flex align-items-center justify-content-center mx-3">
@@ -48,8 +48,8 @@ const Contact = () => (
                     </div>
                     <div>
                         <h5>Email Address</h5>
-                        <div className="font-size-15px">youremail@gomain.com</div>
-                        <div className="font-size-15px">help@example.com</div>
+                        <div className="font-size-15px">support@jobcore.co</div>
+                     
                     </div>
                 </div>
                 <div className="d-flex justify-content-start ml-3 py-4">
@@ -58,7 +58,7 @@ const Contact = () => (
                     </div>
                     <div>
                         <h5>Phone Number</h5>
-                        <div className="font-size-15px">(305) 555-7473</div>
+                        <div className="font-size-15px">(305) 667-6668</div>
                     </div>
                 </div>
                 <div className="d-flex justify-content-start ml-3 pt-4">
@@ -83,12 +83,12 @@ const Contact = () => (
                         <div>Facebook</div>
                     </div>
                 </a>
-                <a className="w-150px hover-white mx-2 " href="#">
+                {/* <a className="w-150px hover-white mx-2 " href="#">
                     <div className="hover-bg-brightblue bg-white py-3 border shadow">
                         <i class="fab fa-twitter fa-lg text-primary py-2"></i>
                         <div>Twitter</div>
                     </div>
-                </a>
+                </a> */}
                 <a className="w-150px hover-white mx-2 " href="#">
                     <div className="hover-bg-brightblue bg-white py-3 border shadow">
                         <i class="fab fa-instagram fa-lg text-danger py-2"></i>
