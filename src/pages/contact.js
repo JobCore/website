@@ -77,7 +77,7 @@ const Contact = () => (
         <div className="bg-lightgray text-center py-5 mt-5">
             <h3>Connect <span className="text-brightblue">With Us</span></h3>
             <div className="d-flex justify-content-center pb-5 pt-3">
-                <a className="w-150px hover-white mx-2 " href="#">
+                <a className="w-150px hover-white mx-2 " href="https://www.facebook.com/JobCore-101308241650115">
                     <div className="hover-bg-brightblue bg-white py-3 border shadow">
                         <i className="fab fa-facebook-f fa-lg text-primary py-2"></i>
                         <div>Facebook</div>

@@ -17,7 +17,7 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
     const validateEmail = event => {
         event.preventDefault();
         if (inputs.email.length > 0 && validator.isEmail(inputs.email)) {
-            navigate(`/pricing/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)
+            navigate(`/job-seekers-signup/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)
         }
     }
     return (

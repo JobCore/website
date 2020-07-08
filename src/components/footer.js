@@ -62,9 +62,10 @@ const Footer = () => (
                     <strong>Resources</strong>
                     <ul>
                         <li>
-                            <Link to="/blog">
+                            {/* <Link to="/blog">
                                 <a>Blog</a>
-                            </Link>
+                            </Link> */}
+                            <span>Blog (Coming Soon)</span>
                         </li>
                         <li>
                             <a href="#">How to Apply (FAQ)</a>
@@ -85,7 +86,7 @@ const Footer = () => (
             <div className="row pb-4 justify-content-center text-center">
                 <div className="col">
                     <span className="round-links bg-white mr-3">
-                        <a href="#">
+                        <a href="https://www.facebook.com/JobCore-101308241650115">
                             <span className="d-flex align-items-center justify-content-center">
                                 <i class="fab fa-facebook-f"></i>
                             </span>

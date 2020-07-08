@@ -4,12 +4,16 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { navigate } from '@reach/router'
 import GetStarted from '../components/input-getstarted'
+import PricingTable from '../components/pricing-table'
 import GetStartedPricing from '../components/button-pricing-getstarted'
 import FAQ from '../components/faq-question'
+import withLocation from '../withLocation'
+
 /* eslint-disable */
 
-const Pricing = () => {
-
+const Pricing = ({ search }) => {
+    const queryString = search["email"]
+    console.log(queryString)
 
     return (
         <Layout>
@@ -25,14 +29,29 @@ const Pricing = () => {
 
             <div className="container mt-4">
                 <div className="text-center ml-auto mr-auto mt-auto mb-5">
-                    <span>
+                    {/* <span>
                         It's free for Job Seekers.{' '}
                         <Link to="/job-seekers-signup" style={{ color: '#75c7d2' }}>
                             Sign Up Here
                         </Link>{' '}
                     </span>
+                    <br/>
+                    <br/> */}
+            
+
+                    {queryString ? (
+                        <div>
+                        <span className="mt-4">STEP <strong>1</strong> OF <strong>3</strong></span>
+                        <h3 className="mt-4">JobCore Free Trial - Try 30 Days for Free‎</h3>
+                    
+                        <h3 className="mt-4">Choose the subscription that's right for you.</h3>
+                        
+                        </div>
+                    ): null}
+                      
                 </div>
-                <div className="row d-none d-lg-block">
+      
+                {/* <div className="row d-none d-lg-block">
                     <div className="col shadow">
                         <div className="row justify-content-center border">
                             <div className="col-4 align-self-center text-center" style={{ color: '#75c7d2' }}>
@@ -65,7 +84,7 @@ const Pricing = () => {
                                     <GetStartedPricing />
                                 </div>
                             </div>
-                            <div className="col-2 p-0 border-right text-center">
+                            <div className="col-2 p-0 border-right text-center" style={{border: "10px solid red"}}>
                                 <div className="p-2 align-self-center" style={{ backgroundColor: '#f5ac39', color: 'white', fontSize: '18px' }}>
                                     <strong>Pro</strong>
                                 </div>
@@ -225,8 +244,8 @@ const Pricing = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="d-lg-none">
+                </div> */}
+                {/* <div className="d-lg-none">
                     <div class="card-deck mb-3 text-center">
                         <div class="card mb-4 box-shadow">
                             <div class="card-header" style={{ backgroundColor: '#b3519e', fontWeight: 'bold', color: 'white' }}>
@@ -302,7 +321,17 @@ const Pricing = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+
+                <PricingTable email={queryString}/>
+
+          
+
+
+            </div>
+
+            <div className="row mt-4 pt-4 justify-content-center">
+                <div className="col-md-10">
                 <h3 className="text-center mt-5" style={{ fontWeight: 'bolder', color: '#75c7d2' }}>
                     Frequently Asked Questions
                 </h3>
@@ -313,9 +342,9 @@ const Pricing = () => {
                 <FAQ question="Can I change my plan?" text="So5, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
                 <FAQ question="Does Jobcore offer plans to non-profits, NGO's and educational institutions?" text="So6, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
 
-
-
-            </div>
+                </div>
+      
+                </div>
             <div class="jumbotron jumbotron-fluid text-center mb-0 mt-3" style={{ backgroundColor: "#E9ECEF" }}>
                 <h2 style={{ fontWeight: '900' }}>
                     Start Using <span style={{ color: '#75c7d2' }}>JobCore</span> today
@@ -334,4 +363,4 @@ const Pricing = () => {
     )
 }
 
-export default Pricing
+export default withLocation(Pricing);

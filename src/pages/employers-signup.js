@@ -6,6 +6,8 @@ import withLocation from '../withLocation'
 import { navigate } from "@reach/router"
 import validator from 'validator'
 import ReCAPTCHA from "react-google-recaptcha";
+import { loadStripe } from "@stripe/stripe-js"
+
 import { registerEmployer } from '../actions';
 /* eslint-disable */
 const handleInputPhone = (value) => {
@@ -72,10 +74,30 @@ const handleSubmit = async (event, employer) => {
     throw errors
 }
 
-
+const redirectToCheckout = async (event, plan, token) => {
+    if(plan == "free"){
+        navigate("/login");
+    }
+    event.preventDefault()
+    const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
+    
+    let selectedPlan = plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
+    console.log(selectedPlan);
+    const stripe = await stripePromise
+    const { error } = await stripe.redirectToCheckout({
+      items: [{ plan: selectedPlan, quantity: 1 }],
+      successUrl: `https://employer.jobcore.co/login`,
+      cancelUrl: `https://jobcore.co/payment-failed`,
+    })
+  
+    if (error) {
+      console.warn("Error:", error)
+    }
+  }
 const EmployersSignUp = ({ search }) => {
     const queryString = search["email"]
     const queryStringEmployer = search["employer"]
+    const queryStringPlan = search["plan"]
 
     const [inputs, setInputs] = useState({
         firstName: '',
@@ -93,6 +115,7 @@ const EmployersSignUp = ({ search }) => {
     const [consent, setConsent] = useState(false)
     const [consentErrorMsg, setConsentErrorMsg] = useState('')
     const [errors, setErrors] = useState([])
+    const [showPassword, setShowPassword] = useState('off')
     const [loading, setLoading] = useState(false)
     const [submitData, setSubmitData] = useState(0)
     const handleInputChange = event => {
@@ -101,7 +124,9 @@ const EmployersSignUp = ({ search }) => {
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
     const handleClickConsent = () => setConsent(!consent)
-    
+    const toggleShowPassword = () =>  {
+        setShowPassword(showPassword === "off" ? "on" : "off");
+      }
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -121,12 +146,23 @@ const EmployersSignUp = ({ search }) => {
             <div className="container my-5">
                 <div className="mx-auto w-800px-max">
 
+                    {queryString ? (
+                        <div>
+                        <span className="mt-4">STEP <strong>2</strong> OF <strong>3</strong></span>
+                        
+                        <h3 className="mt-4">Please fill out the information below:</h3>
+                        <span className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan.toUpperCase()}</strong></span>
+                        
+                        </div>
+                    ):(
+                        <div>
+                            <h2 className="text-brightblue" style={{ fontWeight: "bold" }}>REQUEST A DEMO</h2>
+                            <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
+                        </div>
+                    )}
 
-                    <h2 className="text-brightblue" style={{ fontWeight: "bold" }}>REQUEST A DEMO</h2>
-                    <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
-
-                    <form onSubmit={e => {
+                    <form className="mt-4 pt-4" onSubmit={e => {
                         e.preventDefault();
                         if(consent){
                         setLoading(true)
@@ -136,15 +172,18 @@ const EmployersSignUp = ({ search }) => {
                             handleSubmit(e, dataToSubmit)
                             .then(validatedData => {
                                 console.log(validatedData)
-                                registerEmployer(validatedData).then(res => {
-                                    if (res['id']) {
-                                        setLoading(false)
-                                        navigate(`/subscriptions`)
-                                    } else {
-                                        setLoading(false)
-                                        setErrors(res.non_field_errors)
-                                    }
-                                })
+                                    registerEmployer(validatedData).then(res => {
+                                        console.log('res register', res);
+                                        if (res['id']) {
+                                            setLoading(false)
+                                            if(queryStringPlan){
+                                                redirectToCheckout(e,queryStringPlan);
+                                            }
+                                        } else {
+                                            setLoading(false)
+                                            setErrors(res.non_field_errors)
+                                        }
+                                    })
                             })
                             .catch(errors => setErrors(errors))
                         }else {
@@ -156,7 +195,7 @@ const EmployersSignUp = ({ search }) => {
                         <div className="form-row s700-display-column">
 
                             <div className="form-group col py-1">
-                                <label className=""><h6>First Name</h6></label>
+                                <label className=""><h6>First Name<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
@@ -167,7 +206,7 @@ const EmployersSignUp = ({ search }) => {
                             </div>
 
                             <div className="form-group col py-1">
-                                <label className=""><h6>Last Name</h6></label>
+                                <label className=""><h6>Last Name<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
@@ -179,7 +218,7 @@ const EmployersSignUp = ({ search }) => {
                         </div>
                         <div className="form-row s700-display-column">
                             <div className="form-group col py-1">
-                                <label className=""><h6>Business Email</h6></label>
+                                <label className=""><h6>Business Email<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fas fa-envelope"></span>
@@ -190,7 +229,7 @@ const EmployersSignUp = ({ search }) => {
 
                             </div>
                             <div className="form-group col py-1">
-                                <label className=""><h6>Phone</h6></label>
+                                <label className=""><h6>Phone<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fas fa-phone"></span>
@@ -202,11 +241,11 @@ const EmployersSignUp = ({ search }) => {
                         </div>
                         <div className="form-row s700-display-column">
                             <div className="form-group col py-1">
-                                <label className=""><h6>Create Password</h6></label>
+                                <label className=""><h6>Create Password<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
-                                    <span class="fas fa-lock"></span>
-                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type="password" name="password" onChange={handleInputChange} value={inputs.password} />
+                                    {showPassword === "off" ? <span style={{cursor:"pointer"}} class="fa fa-eye-slash" onClick={() => toggleShowPassword()}></span>: <span style={{cursor:"pointer"}} class="fa fa-eye" onClick={() => toggleShowPassword()}></span>}
+                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type={showPassword == "off" ? 'password' : "text"} name="password" onChange={handleInputChange} value={inputs.password} />
                                     {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
                                     {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
                                     {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div> : null}
@@ -214,11 +253,11 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                             <div className="form-group col py-1">
-                                <label className=""><h6>Repeat Password</h6></label>
+                                <label className=""><h6>Repeat Password<span style={{color:"red"}}>*</span></h6></label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
-                                    <span class="fas fa-lock"></span>
-                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type="password" name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} />
+                                    {showPassword === "off" ? <span style={{cursor:"pointer"}} class="fa fa-eye-slash" onClick={() => toggleShowPassword()}></span>: <span style={{cursor:"pointer"}} class="fa fa-eye" onClick={() => toggleShowPassword()}></span>}
+                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type={showPassword == "off" ? 'password' : "text"} name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} />
                                     {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
                                     {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
                                     {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div> : null}
@@ -264,8 +303,7 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                             : null}
-                        {/* <ReCAPTCHA sitekey="6Ldc_MMUAAAAAJ6TXKxWk4KXGs-2G533PLc6PPf3"
-                            onChange={(e) => setCaptcha(true)} /> */}
+                    
                         <button
                             disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
                             className="btn radius btn-purple mt-3 px-5 py-2" type="submit"

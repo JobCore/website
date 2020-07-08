@@ -250,7 +250,7 @@ export default () => (
                                     <li>2 - Create favorite lists</li>
                                     <li>50 - Geo click and out</li>
                                 </ul>
-                                <Checkout plan="basic"/>
+                                {/* <Checkout plan="basic"/> */}
                             </div>
                         </div>
                         <div class="card mb-4 box-shadow">

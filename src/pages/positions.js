@@ -89,7 +89,7 @@ const Positions = () => {
                         Your <span className="text-brightblue">Dream Job</span>{' '}
                         Just A Click Away!
                 </h4>
-                    <div>Want to find a job? We have 263</div>
+                    <div>Want to find a job? Search and apply now!</div>
 
                     <form onSubmit={(e) => { e.preventDefault(); console.log(e) }}>
                         <div className="input-group py-5 px-10 w-100">
