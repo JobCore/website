@@ -41,7 +41,7 @@ const Pricing = ({ search }) => {
 
                     {queryString ? (
                         <div>
-                        <span className="mt-4">STEP <strong>1</strong> OF <strong>3</strong></span>
+                        <span className="mt-4">STEP <strong>1</strong> OF <strong>3</strong>: SELECT SUBSCRIPTION</span>
                         <h3 className="mt-4">JobCore Free Trial - Try 30 Days for Free‎</h3>
                     
                         <h3 className="mt-4">Choose the subscription that's right for you.</h3>

@@ -54,7 +54,7 @@ export default () => {
                             <button
                                 className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin ml-0 mr-2"
                                 type="submit"
-                                onClick={() => setAccountType("signup")}
+                                onClick={() => navigate('/pricing')}
                             >
                                 Get Started
                             </button>

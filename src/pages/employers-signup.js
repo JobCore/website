@@ -8,7 +8,7 @@ import validator from 'validator'
 import ReCAPTCHA from "react-google-recaptcha";
 import { loadStripe } from "@stripe/stripe-js"
 
-import { registerEmployer } from '../actions';
+import { registerEmployer, loginUser } from '../actions';
 /* eslint-disable */
 const handleInputPhone = (value) => {
     if (value) {
@@ -79,6 +79,9 @@ const redirectToCheckout = async (event, plan, token) => {
         navigate("/login");
     }
     event.preventDefault()
+
+ 
+
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     
     let selectedPlan = plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
@@ -86,7 +89,7 @@ const redirectToCheckout = async (event, plan, token) => {
     const stripe = await stripePromise
     const { error } = await stripe.redirectToCheckout({
       items: [{ plan: selectedPlan, quantity: 1 }],
-      successUrl: `https://employer.jobcore.co/login`,
+      successUrl: `https://employer.jobcore.co/?token=${token}`,
       cancelUrl: `https://jobcore.co/payment-failed`,
     })
   
@@ -103,7 +106,7 @@ const EmployersSignUp = ({ search }) => {
         firstName: '',
         lastName: '',
         password: '',
-        repeatPassword: '',
+        repeatPassword: null,
         phone: '',
         account_type: 'employer',
         business_name: '',
@@ -148,7 +151,7 @@ const EmployersSignUp = ({ search }) => {
 
                     {queryString ? (
                         <div>
-                        <span className="mt-4">STEP <strong>2</strong> OF <strong>3</strong></span>
+                        <span className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN EMPLOYER ACCOUNT</span>
                         
                         <h3 className="mt-4">Please fill out the information below:</h3>
                         <span className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan.toUpperCase()}</strong></span>
@@ -175,10 +178,15 @@ const EmployersSignUp = ({ search }) => {
                                     registerEmployer(validatedData).then(res => {
                                         console.log('res register', res);
                                         if (res['id']) {
-                                            setLoading(false)
-                                            if(queryStringPlan){
-                                                redirectToCheckout(e,queryStringPlan);
-                                            }
+                                            setLoading(false);
+                                            loginUser({email: res.email, password: validatedData.password}).then((res) => {
+                                                if(res['token']){
+                                                    if(queryStringPlan){
+                                                        redirectToCheckout(e,queryStringPlan, res['token']);
+                                                    }
+                                                }
+                                            })
+                                      
                                         } else {
                                             setLoading(false)
                                             setErrors(res.non_field_errors)
@@ -264,12 +272,16 @@ const EmployersSignUp = ({ search }) => {
 
                                 </div>
                             </div>
+                            
                         </div>
+                 
+                        {inputs.password == inputs.repeatPassword && <span className="text-success mb-2"><i className="fas fa-check"></i> Password Match</span>}
+                        
                         {!inputs.employer ?
                             <div>
                                 <div className="form-row s700-display-column">
                                     <div className="form-group col py-1">
-                                        <label className=""><h6>Business Name</h6></label>
+                                        <label className=""><h6>Business Name<span style={{color:"red"}}>*</span></h6></label>
                                         {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                         <div class="icon_form">
                                             <i class="fas fa-shield-alt"></i>
@@ -279,7 +291,7 @@ const EmployersSignUp = ({ search }) => {
                                         </div>
                                     </div>
                                     <div className="form-group col py-1">
-                                        <label className=""><h6>Business Website</h6></label>
+                                        <label className=""><h6>Business Website<span style={{color:"red"}}>*</span></h6></label>
                                         {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                         <div class="icon_form">
                                             <span class="fa fa-globe-americas"></span>
@@ -291,7 +303,7 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                                 <div className="form-row s700-display-column">
                                     <div className="form-group col py-1">
-                                        <label className=""><h6>Tell us about your business</h6></label>
+                                        <label className=""><h6>Tell us about your business<span style={{color:"red"}}>*</span></h6></label>
                                         {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                         <div class="icon_form">
 
