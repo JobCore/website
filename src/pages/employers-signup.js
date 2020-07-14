@@ -75,16 +75,14 @@ const handleSubmit = async (event, employer) => {
 }
 
 const redirectToCheckout = async (event, plan, token, search) => {
-    if(plan == "free"){
-        navigate("/login");
-    }
+
     event.preventDefault()
 
     const cancelURL = `https://jobcore.co/employers-signup/?email=${search.email}&plan=${search.plan}`
 
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     
-    let selectedPlan = plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
+    let selectedPlan = plan == "free" ? process.env.FREE : plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
     console.log(selectedPlan);
     const stripe = await stripePromise
     const { error } = await stripe.redirectToCheckout({
