@@ -18,8 +18,11 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
         event.preventDefault();
         if (inputs.email.length > 0 && validator.isEmail(inputs.email)) {
             navigate(`/pricing/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)
-        }
+        }else setShowModal(false)
     }
+
+    console.log(errorLabel);
+    console.log(showModal);
     return (
         <div className="container">
 

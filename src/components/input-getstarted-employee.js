@@ -20,6 +20,7 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
             navigate(`/job-seekers-signup/${inputs['email'] ? '?email=' + inputs['email'] : ''}`)
         }
     }
+    console.log(errorLabel);
     return (
         <div className="container">
 

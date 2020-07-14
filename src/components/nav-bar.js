@@ -54,7 +54,7 @@ export default () => {
                             <button
                                 className="btn radius btn-darkgreen my-2 px-4 s700-collapse-margin ml-0 mr-2"
                                 type="submit"
-                                onClick={() => navigate('/pricing')}
+                                onClick={() => setAccountType("signup")}
                             >
                                 Get Started
                             </button>
@@ -90,7 +90,7 @@ export default () => {
 
                             </div>
                             <div className="col">
-                                <button type="button" class="btn btn-primary" onClick={() => navigate("/employers-signup/")} style={{ color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px" }}>Employer</button>
+                                <button type="button" class="btn btn-primary" onClick={() => navigate("/pricing?email=")} style={{ color: "white", backgroundColor: "#12687E", border: "none", borderRadius: "30px", width: "140px" }}>Employer</button>
 
                             </div>
                         </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import withLocation from '../withLocation'
 import { navigate } from "@reach/router"
+import SEO from '../components/seo'
 import validator from 'validator'
 import ReCAPTCHA from "react-google-recaptcha";
 import { loadStripe } from "@stripe/stripe-js"
@@ -74,13 +74,13 @@ const handleSubmit = async (event, employer) => {
     throw errors
 }
 
-const redirectToCheckout = async (event, plan, token) => {
+const redirectToCheckout = async (event, plan, token, search) => {
     if(plan == "free"){
         navigate("/login");
     }
     event.preventDefault()
 
- 
+    const cancelURL = `https://jobcore.co/employers-signup/?email=${search.email}&plan=${search.plan}`
 
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     
@@ -90,14 +90,17 @@ const redirectToCheckout = async (event, plan, token) => {
     const { error } = await stripe.redirectToCheckout({
       items: [{ plan: selectedPlan, quantity: 1 }],
       successUrl: `https://employer.jobcore.co/?token=${token}`,
-      cancelUrl: `https://jobcore.co/payment-failed`,
+      cancelUrl: cancelURL
     })
   
     if (error) {
       console.warn("Error:", error)
     }
   }
+ 
+  
 const EmployersSignUp = ({ search }) => {
+    console.log(search);
     const queryString = search["email"]
     const queryStringEmployer = search["employer"]
     const queryStringPlan = search["plan"]
@@ -105,8 +108,8 @@ const EmployersSignUp = ({ search }) => {
     const [inputs, setInputs] = useState({
         firstName: '',
         lastName: '',
-        password: '',
-        repeatPassword: null,
+        password: null,
+        repeatPassword: '',
         phone: '',
         account_type: 'employer',
         business_name: '',
@@ -133,7 +136,7 @@ const EmployersSignUp = ({ search }) => {
     return (
         <Layout>
             <SEO title="Sign Up" />
-            <div className="d-none d-lg-block">
+            {/* <div className="d-none d-lg-block">
                 <div className="pink-top-image text-light d-flex align-items-center">
                     <div className="text-center w-100 px-10">
                         <h1 className="font-size-4em">
@@ -144,12 +147,12 @@ const EmployersSignUp = ({ search }) => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
             <div className="container my-5">
                 <div className="mx-auto w-800px-max">
 
-                    {queryString ? (
+                    {/* {queryString ? (
                         <div>
                         <span className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN EMPLOYER ACCOUNT</span>
                         
@@ -163,9 +166,16 @@ const EmployersSignUp = ({ search }) => {
                             <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
 
                         </div>
-                    )}
+                    )} */}
+                
+                        <div>
+                        <h2 className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN ACCOUNT</h2>
+                        <h5 className="mt-4">Please fill out the information below:</h5>
+                        <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan.toUpperCase()}</strong></h5>
 
-                    <form className="mt-4 pt-4" onSubmit={e => {
+                        </div>
+               
+                    <form className="pt-4" onSubmit={e => {
                         e.preventDefault();
                         if(consent){
                         setLoading(true)
@@ -182,7 +192,7 @@ const EmployersSignUp = ({ search }) => {
                                             loginUser({email: res.email, password: validatedData.password}).then((res) => {
                                                 if(res['token']){
                                                     if(queryStringPlan){
-                                                        redirectToCheckout(e,queryStringPlan, res['token']);
+                                                        redirectToCheckout(e,queryStringPlan, res['token'], search);
                                                     }
                                                 }
                                             })
@@ -275,8 +285,11 @@ const EmployersSignUp = ({ search }) => {
                             
                         </div>
                  
-                        {inputs.password == inputs.repeatPassword && <span className="text-success mb-2"><i className="fas fa-check"></i> Password Match</span>}
-                        
+                        {/* {inputs.password.length > 0 && inputs.repeatPainputs.password == inputs.repeatPassword && <span className="text-success mb-2"><i className="fas fa-check"></i> Password Match</span>} */}
+                        <ul style={{listStyle: "none", paddingLeft:"0px"}}>
+                <li>{inputs.password && inputs.password.length > 7 ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Minimum 8 digits</li>
+                <li>{inputs.password && inputs.password == inputs.repeatPassword ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Password match</li>
+                        </ul>
                         {!inputs.employer ?
                             <div>
                                 <div className="form-row s700-display-column">
@@ -315,23 +328,33 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                             </div>
                             : null}
-                    
-                        <button
-                            disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
-                            className="btn radius btn-purple mt-3 px-5 py-2" type="submit"
-                            onSubmit={e => {
-                                setErrors([''])
-                                setSubmitData(inputs)
-                                const dataToSubmit = inputs
-                                handleSubmit(e, dataToSubmit)
-                                    .then(validatedData => {
-                                        registerEmployer(validatedData)
-                                    })
-                                    .catch(errors => setErrors(errors))
-                            }}
-                        >
-                            SIGN UP
-                        </button>
+                        <div className="row">
+                            <div className="col-md-3">
+                            <button type="button" className="btn radius btn-secondary mt-3 px-5 py-2" onClick={() => {
+                                typeof history !== 'undefined' && history.go(-1)
+                            }}>BACK</button>
+                            </div>
+                            <div className="col-md-3">
+                                <button
+                                    disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
+                                    className="btn radius btn-purple mt-3 px-5 py-2" type="submit"
+                                    onSubmit={e => {
+                                        setErrors([''])
+                                        setSubmitData(inputs)
+                                        const dataToSubmit = inputs
+                                        handleSubmit(e, dataToSubmit)
+                                            .then(validatedData => {
+                                                registerEmployer(validatedData)
+                                            })
+                                            .catch(errors => setErrors(errors))
+                                    }}
+                                >
+                                    SIGN UP
+                                </button>
+
+                            </div>
+
+                        </div>
                         <div>
 
                             {errors.length > 0 ? (

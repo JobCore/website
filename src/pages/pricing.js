@@ -13,19 +13,18 @@ import withLocation from '../withLocation'
 
 const Pricing = ({ search }) => {
     const queryString = search["email"]
-    console.log(queryString)
 
     return (
         <Layout>
             <SEO title="Sign Up" />
 
-            <div className="pink-top-image text-light d-flex align-items-center">
+            {/* <div className="pink-top-image text-light d-flex align-items-center">
                 <div className="text-center w-100 px-10">
                     <h1 className="font-size-4em">
                         <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Pricing</span>
                     </h1>
                 </div>
-            </div>
+            </div> */}
 
             <div className="container mt-4">
                 <div className="text-center ml-auto mr-auto mt-auto mb-5">
@@ -39,15 +38,17 @@ const Pricing = ({ search }) => {
                     <br/> */}
             
 
-                    {queryString ? (
+                 
                         <div>
-                        <span className="mt-4">STEP <strong>1</strong> OF <strong>3</strong>: SELECT SUBSCRIPTION</span>
-                        <h3 className="mt-4">JobCore Free Trial - Try 30 Days for Free‎</h3>
+                        <h2 className="mt-4">STEP <strong>1</strong> OF <strong>3</strong>: SELECT SUBSCRIPTION</h2>
+                        <h6 className="mt-4">Start Your Free Trial</h6>
+                        <h6 className="mt-4">Get started with your free 30 day trial with Jobcore</h6>
+
                     
-                        <h3 className="mt-4">Choose the subscription that's right for you.</h3>
+                        <h3 className="mt-4">Choose the subscription that's right for you:</h3>
                         
                         </div>
-                    ): null}
+              
                       
                 </div>
       
