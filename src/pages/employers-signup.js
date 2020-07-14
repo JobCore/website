@@ -171,7 +171,7 @@ const EmployersSignUp = ({ search }) => {
                         <div>
                         <h2 className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN ACCOUNT</h2>
                         <h5 className="mt-4">Please fill out the information below:</h5>
-                        <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan.toUpperCase()}</strong></h5>
+                        <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan ? queryStringPlan.toUpperCase() : ""}</strong></h5>
 
                         </div>
                
