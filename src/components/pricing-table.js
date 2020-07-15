@@ -18,7 +18,7 @@ const PricingTable = (props) => {
         <div className="column">
           <div className="pricing-card free">
             <div className="pricing-header">
-              <span className="plan-title">FREE PLAN</span>
+              <span className="plan-title">FREE 30 DAY TRIAL</span>
               <div className="price-circle">
                 <span className="price-title">
                   <small>$</small><span>0</span>
