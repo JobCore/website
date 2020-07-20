@@ -32,7 +32,7 @@ const PaymentFailed = ({ search }) => {
         if (seconds > 0) {
         setTimeout(() => setSeconds(seconds - 1), 1000);
         } else {
-        window.location.assign('https://employer.jobcore.co/');
+        window.location.assign(`https://employer.jobcore.co/?token=${token}`);
         }
     })
 
@@ -46,7 +46,7 @@ const PaymentFailed = ({ search }) => {
                         <i style={{fontSize: "100px"}} className="far fa-thumbs-up" aria-hidden="true"></i>
 
                         <h1>Payment succesful</h1>
-                        <p>{seconds}</p>
+                        <p style={{fontWeight:"bolder"}}>You will be redirected to JobCore in ...{seconds}</p>
 
                         <a href="https://employer.jobcore.co/login"><button className="btn radius btn-darkgreen px-4 py-2 mb-3">Redirect to login page</button></a>
                     </div>
