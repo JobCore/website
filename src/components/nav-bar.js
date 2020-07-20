@@ -40,7 +40,7 @@ export default () => {
                                     Job Seekers
                                 </a>
                             </Link>
-                            <Link to="/employers" activeClassName="active">
+                            <Link to="/employers" activeClassName="active" style={{cursor:"pointer"}}>
                                 <a className="link px-3 s700-collapse-padding">
                                     Employers
                                 </a>

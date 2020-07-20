@@ -38,12 +38,30 @@ export const registerEmployer = async data => {
     }
 }
 export const loginUser = async user => {
-    const url = "https://jobcore.herokuapp.com/api" + '/login'
+    const url = process.env.HOST + '/login'
     const settings = {
         method: 'POST',
         mode: 'cors',
         headers: new Headers({ "Content-Type": "application/json" }),
         body: JSON.stringify({ "username_or_email": user.email, "password": user.password })
+    }
+    try {
+        const fetchResponse = await fetch(url, settings);
+        const data = await fetchResponse.json();
+
+        return data;
+    } catch (err) {
+        return err
+
+    }
+}
+export const subscription = async user => {
+    const url = process.env.HOST + '/employers/me/subscription'
+    const settings = {
+        method: 'POST',
+        mode: 'cors',
+        headers: new Headers({"Authorization": `JWT ${user.token}`, "Content-Type": "application/json" }),
+        body: JSON.stringify({ "employer": user.employer, "subscription": user.plan })
     }
     try {
         const fetchResponse = await fetch(url, settings);

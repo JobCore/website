@@ -35,6 +35,9 @@ const handleInputPhone = (value) => {
     }
 }
 
+const checkUppercase = (password) => {
+    return password.match(/[a-z]/);
+}
 const handleSubmit = async (event, employer) => {
     event.preventDefault()
 
@@ -74,12 +77,12 @@ const handleSubmit = async (event, employer) => {
     throw errors
 }
 
-const redirectToCheckout = async (event, plan, token, search) => {
+const redirectToCheckout = async (event, plan, token, search, employer) => {
 
     event.preventDefault()
 
     const cancelURL = `https://jobcore.co/employers-signup/?email=${search.email}&plan=${search.plan}`
-
+    const successUrl = `https://jobcore.co/payment-success/?employer=${employer}&plan=${search.plan}&token=${token}`
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     
     let selectedPlan = plan == "free" ? process.env.FREE : plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
@@ -87,18 +90,19 @@ const redirectToCheckout = async (event, plan, token, search) => {
     const stripe = await stripePromise
     const { error } = await stripe.redirectToCheckout({
       items: [{ plan: selectedPlan, quantity: 1 }],
-      successUrl: `https://employer.jobcore.co/?token=${token}`,
+      successUrl: successUrl,
       cancelUrl: cancelURL
     })
-  
+    
+    console.log('strpie', error);
+
     if (error) {
       console.warn("Error:", error)
-    }
+    } else console.log('subscrip pagado');
   }
  
   
 const EmployersSignUp = ({ search }) => {
-    console.log(search);
     const queryString = search["email"]
     const queryStringEmployer = search["employer"]
     const queryStringPlan = search["plan"]
@@ -131,6 +135,8 @@ const EmployersSignUp = ({ search }) => {
     const toggleShowPassword = () =>  {
         setShowPassword(showPassword === "off" ? "on" : "off");
       }
+    
+   
     return (
         <Layout>
             <SEO title="Sign Up" />
@@ -190,7 +196,7 @@ const EmployersSignUp = ({ search }) => {
                                             loginUser({email: res.email, password: validatedData.password}).then((res) => {
                                                 if(res['token']){
                                                     if(queryStringPlan){
-                                                        redirectToCheckout(e,queryStringPlan, res['token'], search);
+                                                        redirectToCheckout(e,queryStringPlan, res['token'], search, res['user']['profile']['employer']);
                                                     }
                                                 }
                                             })
@@ -287,6 +293,7 @@ const EmployersSignUp = ({ search }) => {
                         <ul style={{listStyle: "none", paddingLeft:"0px"}}>
                 <li>{inputs.password && inputs.password.length > 7 ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Minimum 8 digits</li>
                 <li>{inputs.password && inputs.password == inputs.repeatPassword ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Password match</li>
+                <li>{inputs.password && /[A-Z]/g.test(inputs.password) ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} At least 1 upper case letter</li>
                         </ul>
                         {!inputs.employer ?
                             <div>

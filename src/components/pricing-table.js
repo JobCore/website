@@ -15,7 +15,7 @@ const PricingTable = (props) => {
             justifyContent: "center",
             textAlign: "center",
         }}>
-        <div className="column">
+        {/* <div className="column">
           <div className="pricing-card free">
             <div className="pricing-header">
               <span className="plan-title">FREE 30 DAY TRIAL</span>
@@ -65,7 +65,7 @@ const PricingTable = (props) => {
                 <Link to={`/employers-signup/?email=${props.email || ""}&plan=free`}className="buy-now" style={{backgroundColor:"#4b7bec"}}>BUY NOW</Link>
             </div>        
           </div>
-        </div>
+        </div> */}
         <div className="column">
           <div className="pricing-card basic">
             <div className="pricing-header">
@@ -78,6 +78,8 @@ const PricingTable = (props) => {
               </div>
             </div>
             <div className="badge-box">
+              <span>Free 30 Days Trial</span>
+
             </div>
             <ul>
             <li>
@@ -131,6 +133,8 @@ const PricingTable = (props) => {
               </div>
             </div>
             <div className="badge-box">
+              <span>Free 30 Days Trial</span>
+
             </div>
             <ul>
             <li>
@@ -183,6 +187,8 @@ const PricingTable = (props) => {
               </div>
             </div>
             <div className="badge-box">
+              <span>Free 30 Days Trial</span>
+
             </div>
             <ul>
             <li>
