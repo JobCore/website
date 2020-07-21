@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 import { subscription } from '../actions';
 
-const PaymentFailed = ({ search }) => {
+const PaymentSuccess = ({ search }) => {
     const queryStringPlan = search["plan"]
     const queryStringEmployer = search["employer"]
     const queryStringToken = search['token']
@@ -20,7 +20,7 @@ const PaymentFailed = ({ search }) => {
         token: queryStringToken
     }
     const [state, setState] = useState(null)
-    const [seconds, setSeconds] = useState(5);
+    const [seconds, setSeconds] = useState(3);
 
     useEffect(() => {
         subscription(user).then(
@@ -32,7 +32,7 @@ const PaymentFailed = ({ search }) => {
         if (seconds > 0) {
         setTimeout(() => setSeconds(seconds - 1), 1000);
         } else {
-        window.location.assign(`https://employer.jobcore.co/?token=${token}`);
+        window.location.assign(`https://employer.jobcore.co/?token=${queryStringToken}`);
         }
     })
 
@@ -60,4 +60,4 @@ const PaymentFailed = ({ search }) => {
  
 }
 
-export default withLocation(PaymentFailed);
+export default withLocation(PaymentSuccess);
