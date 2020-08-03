@@ -21,8 +21,6 @@ const showModal = ({ buttonText, errorLabel, inputPlaceholder, inputName, modalQ
         }else setShowModal(false)
     }
 
-    console.log(errorLabel);
-    console.log(showModal);
     return (
         <div className="container">
 

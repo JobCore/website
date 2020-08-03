@@ -4,10 +4,13 @@ import Layout from '../components/layout'
 import withLocation from '../withLocation'
 import { navigate } from "@reach/router"
 import SEO from '../components/seo'
+import PaymentConfirmation from '../components/payment-confirmation'
 import validator from 'validator'
 import ReCAPTCHA from "react-google-recaptcha";
 import { loadStripe } from "@stripe/stripe-js"
-
+import PricingBasic from '../components/basic'
+import PricingPro from '../components/pro'
+import PricingEnterprise from '../components/enterprise'
 import { registerEmployer, loginUser } from '../actions';
 /* eslint-disable */
 const handleInputPhone = (value) => {
@@ -38,8 +41,8 @@ const handleInputPhone = (value) => {
 const checkUppercase = (password) => {
     return password.match(/[a-z]/);
 }
-const handleSubmit = async (event, employer) => {
-    event.preventDefault()
+const handleSubmit = async (employer) => {
+    console.log(event);
 
     var errors = []
 
@@ -121,8 +124,11 @@ const EmployersSignUp = ({ search }) => {
         employer: queryStringEmployer || null
     })
     const [consent, setConsent] = useState(false)
+    const [paymentConfirmation, setPaymentConfirmation] = useState(false)
     const [consentErrorMsg, setConsentErrorMsg] = useState('')
     const [errors, setErrors] = useState([])
+    const [plan, setPlan] = useState(queryStringPlan)
+    const [modal, setModal] = useState(false)
     const [showPassword, setShowPassword] = useState('off')
     const [loading, setLoading] = useState(false)
     const [submitData, setSubmitData] = useState(0)
@@ -152,8 +158,9 @@ const EmployersSignUp = ({ search }) => {
                 </div>
 
             </div> */}
-
-            <div className="container my-5">
+            {!paymentConfirmation ? (
+                <div className="container my-5">
+        
                 <div className="mx-auto w-800px-max">
 
                     {/* {queryString ? (
@@ -171,49 +178,19 @@ const EmployersSignUp = ({ search }) => {
 
                         </div>
                     )} */}
-                
+                        
                         <div>
-                        <h2 className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN ACCOUNT</h2>
-                        <h5 className="mt-4">Please fill out the information below:</h5>
+                        <ul className="text-center" id="progressbar">
+                            <li className="active">Select Subscription</li>
+                            <li className="active">Create an Account</li>
+                            <li>Set up payment</li>
+                        </ul> 
+                        <h3 className="mt-4">Please fill out the information below:</h3>
                         <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan ? queryStringPlan.toUpperCase() : ""}</strong></h5>
 
                         </div>
                
-                    <form className="pt-4" onSubmit={e => {
-                        e.preventDefault();
-                        if(consent){
-                        setLoading(true)
-                        setErrors([''])
-                        setSubmitData(inputs)
-                        const dataToSubmit = inputs
-                            handleSubmit(e, dataToSubmit)
-                            .then(validatedData => {
-                                console.log(validatedData)
-                                    registerEmployer(validatedData).then(res => {
-                                        console.log('res register', res);
-                                        if (res['id']) {
-                                            setLoading(false);
-                                            loginUser({email: res.email, password: validatedData.password}).then((res) => {
-                                                if(res['token']){
-                                                    if(queryStringPlan){
-                                                        redirectToCheckout(e,queryStringPlan, res['token'], search, res['user']['profile']['employer']);
-                                                    }
-                                                }
-                                            })
-                                      
-                                        } else {
-                                            setLoading(false)
-                                            setErrors(res.non_field_errors)
-                                        }
-                                    })
-                            })
-                            .catch(errors => setErrors(errors))
-                        }else {
-                            alert("Please click the consent checkbox to proceed");
-                            setConsentErrorMsg("Please click the consent checkbox to proceed");
-                        }
-                 
-                    }}>
+                    <form className="pt-4" >
                         <div className="form-row s700-display-column">
 
                             <div className="form-group col py-1">
@@ -342,18 +319,27 @@ const EmployersSignUp = ({ search }) => {
                             <div className="col-md-3">
                                 <button
                                     disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
-                                    className="btn radius btn-purple mt-3 px-5 py-2" type="submit"
-                                    onSubmit={e => {
+                                    className="btn radius btn-purple mt-3 px-5 py-2" type="button"
+                                    onClick={() => {
+                                        if(consent){
+                                        setLoading(true)
                                         setErrors([''])
                                         setSubmitData(inputs)
                                         const dataToSubmit = inputs
-                                        handleSubmit(e, dataToSubmit)
+                                            handleSubmit(dataToSubmit)
                                             .then(validatedData => {
-                                                registerEmployer(validatedData)
+                                                    window.scrollTo(0, 0);
+                                                    setPaymentConfirmation(true);
+                             
                                             })
                                             .catch(errors => setErrors(errors))
-                                    }}
-                                >
+                                        }else {
+                                            alert("Please click the consent checkbox to proceed");
+                                            setConsentErrorMsg("Please click the consent checkbox to proceed");
+                                        }
+                                 
+                                    }}>
+                                
                                     SIGN UP
                                 </button>
 
@@ -396,7 +382,136 @@ const EmployersSignUp = ({ search }) => {
                     </form>
 
                 </div>
+            </div>   
+            ): (
+                <div className="container h-100 mb-4">
+                <div className="text-center">
+                    <ul id="progressbar">
+                        <li className="active">Select Subscription</li>
+                        <li className="active">Create an Account</li>
+                        <li className="active">Set up payment</li>
+                    </ul>
+                    <h3>Your subscription starts as soon as you set up payment.</h3>
+                </div>
+                <div class={modal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header" style={{ borderStyle: 'none' }}>
+                            <h5 class="modal-title" id="exampleModalLabel" style={{ color: "black" }}>
+
+                            </h5>
+                            <button type="button" class="close" style={{ color: "#a319a3" }} data-dismiss="modal" aria-label="Close" onClick={() => setModal(false )}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 className="text-center" style={{ color: "rgb(17, 186, 192)", fontWeight: "bolder" }}>Change Subscription</h4>
+                        </div>
+                        <div className="row justfy-content-center text-center pb-5">
+                            <div className="col">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    value="jobseeker"
+                                    onClick={() => {setPlan("basic"); setModal(false)}}
+                                    style={{ color: 'white', backgroundColor: '#26de81', border: 'none', borderRadius: '30px', width: '140px' }}
+                                >
+                                    Basic
+                                </button>
+                            </div>
+                            <div className="col">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    value="employer"
+                                    onClick={() => {setPlan("pro"); setModal(false)}}
+                                    style={{ color: 'white', backgroundColor: '#f7b731', border: 'none', borderRadius: '30px', width: '140px' }}
+                                >
+                                    Pro
+                                </button>
+                            </div>
+                            <div className="col">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    value="employer"
+                                    onClick={() => {setPlan("enterprise"); setModal(false)}}
+                                    style={{ color: 'white', backgroundColor: '#a55eea', border: 'none', borderRadius: '30px', width: '140px' }}
+                                >
+                                    Enterprise
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+                <div className="row">
+                    <div className="col">
+                        <h5 className="mt-4 text-center">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan == "basic" ? "BASIC" : queryStringPlan == "pro" ? "PRO" : queryStringPlan == "enterprise" ? "ENTERPRISE" : null}
+                        </strong></h5>
+                        <h5 className="mt-4 text-center"><button className="btn radius btn-secondary py-2" onClick={()=> setModal(true)}>Change Subscription</button></h5>
+                        <div style={{
+                    maxWidth: "300px",
+                    height: "auto",
+                    margin: "auto",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    textAlign: "center",
+                }}>
+                {plan == "basic" ? <PricingBasic/> : plan == "pro" ? <PricingPro/> : plan == "enterprise" ? <PricingEnterprise/> : null}
+                
+                
+                
+              </div>
+                    </div>
+                    <div className="col">
+                        <h5 className="mt-4"> <strong className>SUMMARY:</strong></h5>
+                        <div style={{backgroundColor: "#F5F5F5", fontColor:"black"}}>
+                            <p style={{color:"black"}}>- FIRST 30 DAYS</p>
+                            <p className="text-brightblue"><strong>- FREE</strong></p>
+                            <p style={{color:"black"}}>- {plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null} SUBSCRIPTION</p>
+                        </div>
+                        <hr/>
+                        <div style={{backgroundColor: "#F5F5F5"}}>
+                            <p style={{color:"black"}}>- AFTER 30 DAYS</p>
+                            <p className="text-brightblue"><strong>- ${plan == "basic" ? "49.95" : plan == "pro" ? "99.95" : plan == "enterprise" ? "149.95" : null} / month</strong></p>
+                            <p style={{color:"black"}}>- {plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null} SUBSCRIPTION</p>
+                        </div> 
+                        <span>To finish signup, click the <strong><u>Start Subscription</u></strong> button</span>
+                        <div className="row">
+                            <div className="col">
+                                <button className="btn radius btn-secondary mt-3 px-5 py-2" onClick={()=>{setPaymentConfirmation(false);setSubmitData(0)}}>Back</button>
+
+                            </div>
+                            <div className="col">
+                                <button className="btn radius btn-purple mt-3 px-5 py-2" onClick={(e)=>{
+                                registerEmployer(inputs).then(res => {
+                                            if (res['id']) {
+                                                loginUser({email: res.email, password: inputs.password}).then((res) => {
+                                                    if(res['token']){
+                                                        if(queryStringPlan){
+                                                            redirectToCheckout(e,plan, res['token'], search, res['user']['profile']['employer']);
+                                                        }
+                                                    }
+                                                })
+                                        
+                                            } else {
+                                                setLoading(false)
+                                                setPaymentConfirmation(false)
+                                                setErrors(res.non_field_errors)
+                                            }
+                                        })
+                            }}>Start Subscription</button>
+                            </div>
+                        </div>
+             
+                    </div>
+                </div>
+            </div>
+            )}
+            
         </Layout>
     )
 }

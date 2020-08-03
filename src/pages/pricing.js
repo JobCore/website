@@ -40,8 +40,12 @@ const Pricing = ({ search }) => {
 
                  
                         <div>
-                        <h2 className="mt-4">STEP <strong>1</strong> OF <strong>3</strong>: SELECT SUBSCRIPTION</h2>
-                        <h6 className="mt-4">Start Your Free Trial</h6>
+                        <ul id="progressbar">
+                            <li class="active">Select Subscription</li>
+                            <li>Create an Account</li>
+                            <li>Set up payment</li>
+                        </ul>
+                        <h6>Start Your Free Trial</h6>
                         <h6 className="mt-4">Get started with your free 30 day trial with Jobcore</h6>
 
                     
