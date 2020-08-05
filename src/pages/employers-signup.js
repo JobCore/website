@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import withLocation from '../withLocation'
@@ -12,6 +12,10 @@ import PricingBasic from '../components/basic'
 import PricingPro from '../components/pro'
 import PricingEnterprise from '../components/enterprise'
 import { registerEmployer, loginUser } from '../actions';
+
+
+const CryptoJS = require('crypto-js');
+
 /* eslint-disable */
 const handleInputPhone = (value) => {
     if (value) {
@@ -50,9 +54,9 @@ const handleSubmit = async (employer) => {
 
     if (validator.isEmpty(employer.lastName)) errors.push("Last name is required");
 
-    if (validator.isEmpty(employer.business_email)) {
+    if (validator.isEmpty(employer.email)) {
         errors.push("Business email is required");
-    } else if (!validator.isEmail(employer.business_email)) {
+    } else if (!validator.isEmail(employer.email)) {
         errors.push("Invalid email address");
     }
 
@@ -103,26 +107,56 @@ const redirectToCheckout = async (event, plan, token, search, employer) => {
       console.warn("Error:", error)
     } else console.log('subscrip pagado');
   }
+
+
+
+const redirectToCheckout2 = async (event, data, plan) => {
+    event.preventDefault()
+    data["plan"] = plan;
+
+    var cipherData = CryptoJS.AES.encrypt(JSON.stringify(data), 'jobcore_employer').toString();
+
+    const cancelURL = `http://localhost:8000/employers-signup/?source=${encodeURIComponent(cipherData)}`
+    const successUrl = `http://localhost:8000/payment-success?source=${encodeURIComponent(cipherData)}`
+    const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
+    
+    let selectedPlan = plan == "free" ? process.env.FREE : plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
+    console.log(selectedPlan);
+    const stripe = await stripePromise
+    const { error } = await stripe.redirectToCheckout({
+      items: [{ plan: selectedPlan, quantity: 1 }],
+      successUrl: successUrl,
+      cancelUrl: cancelURL
+    })
+    
+    console.log('strpie', error);
+
+    if (error) {
+      console.warn("Error:", error)
+    } else console.log('subscrip pagado');
+  }
  
   
 const EmployersSignUp = ({ search }) => {
-    const queryString = search["email"]
-    const queryStringEmployer = search["employer"]
+    
     const queryStringPlan = search["plan"]
-
+    console.log(search.source)
     const [inputs, setInputs] = useState({
         firstName: '',
         lastName: '',
         password: null,
-        repeatPassword: '',
-        phone: '',
+        repeatPassword:  '',
+        phone:  '',
         account_type: 'employer',
         business_name: '',
-        business_email: queryString || '',
+        email: search["email"] || '',
         business_website: '',
-        about_business: '',
-        employer: queryStringEmployer || null
+        about_business:  '',
+        employer:  null,
+        validate_email: true
     })
+
+  
     const [consent, setConsent] = useState(false)
     const [paymentConfirmation, setPaymentConfirmation] = useState(false)
     const [consentErrorMsg, setConsentErrorMsg] = useState('')
@@ -142,42 +176,28 @@ const EmployersSignUp = ({ search }) => {
         setShowPassword(showPassword === "off" ? "on" : "off");
       }
     
-   
-    return (
+      useEffect(
+        () => {
+            if(search && search.source){
+                var source = decodeURIComponent(search.source)
+                var bytes  = CryptoJS.AES.decrypt(source, 'jobcore_employer');
+                var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+                setPlan(decryptedData.plan)
+                setInputs(decryptedData)
+            }
+        },
+        [],
+      );
+          return (
         <Layout>
             <SEO title="Sign Up" />
-            {/* <div className="d-none d-lg-block">
-                <div className="pink-top-image text-light d-flex align-items-center">
-                    <div className="text-center w-100 px-10">
-                        <h1 className="font-size-4em">
-                            <span className="p-2 px-4 bg-black-opacity" style={{ color: "white" }}>Employers
-                        <span className="text-brightblue"> Sign Up</span>
-                            </span>
-                        </h1>
-                    </div>
-                </div>
-
-            </div> */}
+         
             {!paymentConfirmation ? (
                 <div className="container my-5">
         
                 <div className="mx-auto w-800px-max">
 
-                    {/* {queryString ? (
-                        <div>
-                        <span className="mt-4">STEP <strong>2</strong> OF <strong>3</strong>: CREATE AN EMPLOYER ACCOUNT</span>
-                        
-                        <h3 className="mt-4">Please fill out the information below:</h3>
-                        <span className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan.toUpperCase()}</strong></span>
-                        
-                        </div>
-                    ):(
-                        <div>
-                            <h2 className="text-brightblue" style={{ fontWeight: "bold" }}>REQUEST A DEMO</h2>
-                            <div className="text-secondary mb-5" style={{ fontSize: "16px" }}>Submit your contact information and one of our representatives will reach out to you to schedule a demo. We look forward to speaking with you!</div>
-
-                        </div>
-                    )} */}
+               
                         
                         <div>
                         <ul className="text-center" id="progressbar">
@@ -186,7 +206,7 @@ const EmployersSignUp = ({ search }) => {
                             <li>Set up payment</li>
                         </ul> 
                         <h3 className="mt-4">Please fill out the information below:</h3>
-                        <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan ? queryStringPlan.toUpperCase() : ""}</strong></h5>
+                        <h5 className="mt-4">SUBSCRIPTION: <strong className="text-brightblue">{plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null}</strong></h5>
 
                         </div>
                
@@ -221,7 +241,7 @@ const EmployersSignUp = ({ search }) => {
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
                                     <span class="fas fa-envelope"></span>
-                                    <input id={errors.includes("Business email is required") || errors.includes("Invalid email address") ? "error-form" : null} placeholder="john.doe@gmail.com" maxlength="254" type="text" name="business_email" onChange={handleInputChange} value={inputs.business_email} />
+                                    <input id={errors.includes("Business email is required") || errors.includes("Invalid email address") ? "error-form" : null} placeholder="john.doe@gmail.com" maxlength="254" type="text" name="email" onChange={handleInputChange} value={inputs.email} />
                                 </div>
                                 {errors.includes("Business email is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Business email is required")]}</strong></div> : null}
                                 {errors.includes("Invalid email address") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Invalid email address")]}</strong></div> : null}
@@ -320,7 +340,8 @@ const EmployersSignUp = ({ search }) => {
                                 <button
                                     disabled={JSON.stringify(submitData) === JSON.stringify(inputs) ? true : false}
                                     className="btn radius btn-purple mt-3 px-5 py-2" type="button"
-                                    onClick={() => {
+                                    onClick={(e) => {
+
                                         if(consent){
                                         setLoading(true)
                                         setErrors([''])
@@ -328,8 +349,17 @@ const EmployersSignUp = ({ search }) => {
                                         const dataToSubmit = inputs
                                             handleSubmit(dataToSubmit)
                                             .then(validatedData => {
-                                                    window.scrollTo(0, 0);
-                                                    setPaymentConfirmation(true);
+                                                    registerEmployer(inputs).then(res =>{
+                                                        if(res.non_field_errors[0] == "Email is valid"){
+                                                            window.scrollTo(0, 0);
+                                                            setPaymentConfirmation(true);
+                                                        }else{
+                                                            setLoading(false)
+                                                            setPaymentConfirmation(false)
+                                                            setErrors(res.non_field_errors)
+                                                        }
+                                                    })
+                                         
                              
                                             })
                                             .catch(errors => setErrors(errors))
@@ -448,7 +478,7 @@ const EmployersSignUp = ({ search }) => {
             </div>
                 <div className="row">
                     <div className="col">
-                        <h5 className="mt-4 text-center">SUBSCRIPTION: <strong className="text-brightblue">{queryStringPlan == "basic" ? "BASIC" : queryStringPlan == "pro" ? "PRO" : queryStringPlan == "enterprise" ? "ENTERPRISE" : null}
+                        <h5 className="mt-4 text-center">SUBSCRIPTION: <strong className="text-brightblue">{plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null}
                         </strong></h5>
                         <h5 className="mt-4 text-center"><button className="btn radius btn-secondary py-2" onClick={()=> setModal(true)}>Change Subscription</button></h5>
                         <div style={{
@@ -469,13 +499,13 @@ const EmployersSignUp = ({ search }) => {
                     <div className="col">
                         <h5 className="mt-4"> <strong className>SUMMARY:</strong></h5>
                         <div style={{backgroundColor: "#F5F5F5", fontColor:"black"}}>
-                            <p style={{color:"black"}}>- FIRST 30 DAYS</p>
+                            <p style={{color:"black"}}>FIRST 30 DAYS</p>
                             <p className="text-brightblue"><strong>- FREE</strong></p>
                             <p style={{color:"black"}}>- {plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null} SUBSCRIPTION</p>
                         </div>
                         <hr/>
                         <div style={{backgroundColor: "#F5F5F5"}}>
-                            <p style={{color:"black"}}>- AFTER 30 DAYS</p>
+                            <p style={{color:"black"}}>AFTER 30 DAYS</p>
                             <p className="text-brightblue"><strong>- ${plan == "basic" ? "49.95" : plan == "pro" ? "99.95" : plan == "enterprise" ? "149.95" : null} / month</strong></p>
                             <p style={{color:"black"}}>- {plan == "basic" ? "BASIC" : plan == "pro" ? "PRO" : plan == "enterprise" ? "ENTERPRISE" : null} SUBSCRIPTION</p>
                         </div> 
@@ -487,22 +517,9 @@ const EmployersSignUp = ({ search }) => {
                             </div>
                             <div className="col">
                                 <button className="btn radius btn-purple mt-3 px-5 py-2" onClick={(e)=>{
-                                registerEmployer(inputs).then(res => {
-                                            if (res['id']) {
-                                                loginUser({email: res.email, password: inputs.password}).then((res) => {
-                                                    if(res['token']){
-                                                        if(queryStringPlan){
-                                                            redirectToCheckout(e,plan, res['token'], search, res['user']['profile']['employer']);
-                                                        }
-                                                    }
-                                                })
-                                        
-                                            } else {
-                                                setLoading(false)
-                                                setPaymentConfirmation(false)
-                                                setErrors(res.non_field_errors)
-                                            }
-                                        })
+                                if(plan){
+                                    redirectToCheckout2(e,inputs,plan);
+                                }                                
                             }}>Start Subscription</button>
                             </div>
                         </div>

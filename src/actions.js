@@ -16,15 +16,17 @@ export const registerJobSeeker = async jobseeker => {
 }
 
 export const registerEmployer = async data => {
+    console.log('la data', data)
     const url = process.env.HOST + '/user/register'
     let employer = Object.entries(data).reduce((a, [k, v]) => (v ? { ...a, [k]: v } : a), {})
+    console.log('employer', employer)
     const settings = {
         method: 'POST',
         mode: 'cors',
         headers: new Headers({ "Content-Type": "application/json" }),
         body: JSON.stringify({
-            "email": employer.business_email, "account_type": "employer", "username": employer.business_email, "first_name": employer.firstName, "last_name": employer.lastName, "password": employer.password, "phone": employer.phone,
-            "business_name": employer.business_name, "business_website": employer.business_website, "about_business": employer.about_business
+            "email": employer.email, "account_type": "employer", "username": employer.business_email, "first_name": employer.firstName, "last_name": employer.lastName, "password": employer.password, "phone": employer.phone,
+            "business_name": employer.business_name, "business_website": employer.business_website, "about_business": employer.about_business, "validate_email": employer.validate_email
         })
     }
     try {
@@ -57,6 +59,7 @@ export const loginUser = async user => {
 }
 export const subscription = async user => {
     const url = process.env.HOST + '/employers/me/subscription'
+    console.log(user);
     const settings = {
         method: 'POST',
         mode: 'cors',
