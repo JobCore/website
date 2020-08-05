@@ -116,8 +116,8 @@ const redirectToCheckout2 = async (event, data, plan) => {
 
     var cipherData = CryptoJS.AES.encrypt(JSON.stringify(data), 'jobcore_employer').toString();
 
-    const cancelURL = `http://localhost:8000/employers-signup/?source=${encodeURIComponent(cipherData)}`
-    const successUrl = `http://localhost:8000/payment-success?source=${encodeURIComponent(cipherData)}`
+    const cancelURL = `https://jobcore.co//employers-signup/?source=${encodeURIComponent(cipherData)}`
+    const successUrl = `https://jobcore.co//payment-success?source=${encodeURIComponent(cipherData)}`
     const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     
     let selectedPlan = plan == "free" ? process.env.FREE : plan == "basic" ? process.env.BASIC : plan == "pro" ? process.env.PRO : plan == "enterprise" ? process.env.ENTERPRISE : "";
