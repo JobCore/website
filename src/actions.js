@@ -17,7 +17,8 @@ export const registerJobSeeker = async jobseeker => {
 
 export const registerEmployer = async data => {
     console.log('la data', data)
-    const url = process.env.HOST + '/user/register'
+    // const url = process.env.HOST + '/user/register'
+    const url = "https://8000-c50c6f93-a9bc-4720-bd98-2493535a5067.ws-us02.gitpod.io/api/user/register";
     let employer = Object.entries(data).reduce((a, [k, v]) => (v ? { ...a, [k]: v } : a), {})
     console.log('employer', employer)
     const settings = {

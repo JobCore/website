@@ -13,7 +13,7 @@ const PaymentSuccess = ({ search }) => {
     const [inputs, setInputs] = useState(null)
     const [state, setState] = useState(null)
     const [token, setToken] = useState("")
-    const [seconds, setSeconds] = useState(5);
+    const [seconds, setSeconds] = useState(3);
     
     useEffect(
         () => {
