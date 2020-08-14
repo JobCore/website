@@ -16,10 +16,8 @@ export const registerJobSeeker = async jobseeker => {
 }
 
 export const registerEmployer = async data => {
-    console.log('la data', data)
     const url = process.env.HOST + '/user/register'
     let employer = Object.entries(data).reduce((a, [k, v]) => (v ? { ...a, [k]: v } : a), {})
-    console.log('employer', employer)
     const settings = {
         method: 'POST',
         mode: 'cors',

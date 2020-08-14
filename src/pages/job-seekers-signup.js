@@ -75,6 +75,7 @@ const JobSeekersSignUp = ({ search }) => {
         phone: '',
         account_type: 'employee',
     })
+    const [showPassword, setShowPassword] = useState('off')
 
     const [errors, setErrors] = useState([''])
     const [loading, setLoading] = useState(false)
@@ -88,7 +89,9 @@ const JobSeekersSignUp = ({ search }) => {
 
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }))
     }
-
+    const toggleShowPassword = () =>  {
+        setShowPassword(showPassword === "off" ? "on" : "off");
+      }
     const handleClickConsent = () => setConsent(!consent)
 
     return (
@@ -132,7 +135,7 @@ const JobSeekersSignUp = ({ search }) => {
                                             registerJobSeeker(validatedData).then(res => {
                                                 if (res['id']) {
                                                     setLoading(false)
-                                                    navigate(`/login`)
+                                                    navigate(`/job-seekers-thankyou`)
                                                 } else {
                                                     setLoading(false)
                                                     setErrors(res.non_field_errors)
@@ -150,7 +153,7 @@ const JobSeekersSignUp = ({ search }) => {
                         >
                             <div className="form-group py-1">
                                 <label className="">
-                                    <h6>First Name</h6>
+                                    <h6>First Name<span style={{color:"red"}}>*</span></h6>
                                 </label>
                                 {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
@@ -166,7 +169,7 @@ const JobSeekersSignUp = ({ search }) => {
                             </div>
                             <div className="form-group py-1">
                                 <label className="">
-                                    <h6>Last Name</h6>
+                                    <h6>Last Name<span style={{color:"red"}}>*</span></h6>
                                 </label>
                                 <div class="icon_form">
                                     <span class="fa fa-user"></span>
@@ -181,7 +184,7 @@ const JobSeekersSignUp = ({ search }) => {
                             </div>
                             <div className="form-group py-1">
                                 <label className="">
-                                    <h6>Your Email</h6>
+                                    <h6>Your Email<span style={{color:"red"}}>*</span></h6>
                                 </label>
                                 <div class="icon_form">
                                     <span class="fas fa-envelope"></span>
@@ -206,69 +209,40 @@ const JobSeekersSignUp = ({ search }) => {
                                     ) : null}
                                 </div>
                             </div>
-                            <div className="form-group py-1">
-                                <label className="">
-                                    <h6>Create Password</h6>
-                                </label>
+
+                            <div className="form-group  py-1">
+                                <label className=""><h6>Create Password<span style={{color:"red"}}>*</span></h6></label>
+                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                 <div class="icon_form">
-                                    <span class="fas fa-lock"></span>
-                                    <input
-                                        id={errors.includes('Password is required') || errors.includes('Password must be 8 character long') || errors.includes('Password do not match') ? 'error-form' : null}
-                                        type="password"
-                                        name="password"
-                                        onChange={handleInputChange}
-                                        value={inputs.password}
-                                    />
-                                    {errors.includes('Password is required') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password is required')]}</strong>
-                                        </div>
-                                    ) : null}
-                                    {errors.includes('Password must be 8 character long') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password must be 8 character long')]}</strong>
-                                        </div>
-                                    ) : null}
-                                    {errors.includes('Password do not match') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password do not match')]}</strong>
-                                        </div>
-                                    ) : null}
+                                    {showPassword === "off" ? <span style={{cursor:"pointer"}} class="fa fa-eye-slash" onClick={() => toggleShowPassword()}></span>: <span style={{cursor:"pointer"}} class="fa fa-eye" onClick={() => toggleShowPassword()}></span>}
+                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type={showPassword == "off" ? 'password' : "text"} name="password" onChange={handleInputChange} value={inputs.password} />
+                                    {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
+                                    {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
+                                    {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div> : null}
+
+                                </div>
+                            </div>
+                            <ul style={{listStyle: "none", paddingLeft:"0px"}}>
+                            <li>{inputs.password && inputs.password.length > 7 ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Minimum 8 digits</li>
+                            <li>{inputs.password && inputs.password == inputs.repeatPassword ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} Password match</li>
+                            <li>{inputs.password && /[A-Z]/g.test(inputs.password) ? <i className="fas fa-check" style={{color:"green"}}></i> : <i className="fas fa-times" style={{color:"red"}}></i>} At least 1 upper case letter</li>
+                                    </ul>
+              
+                            <div className="form-group py-1">
+                                <label className=""><h6>Repeat Password<span style={{color:"red"}}>*</span></h6></label>
+                                {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
+                                <div class="icon_form">
+                                    {showPassword === "off" ? <span style={{cursor:"pointer"}} class="fa fa-eye-slash" onClick={() => toggleShowPassword()}></span>: <span style={{cursor:"pointer"}} class="fa fa-eye" onClick={() => toggleShowPassword()}></span>}
+                                    <input id={errors.includes("Password is required") || errors.includes("Password must be 8 character long") || errors.includes("Password do not match") ? "error-form" : null} maxlength="254" type={showPassword == "off" ? 'password' : "text"} name="repeatPassword" onChange={handleInputChange} value={inputs.repeatPassword} />
+                                    {errors.includes("Password is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password is required")]}</strong></div> : null}
+                                    {errors.includes("Password must be 8 character long") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password must be 8 character long")]}</strong></div> : null}
+                                    {errors.includes("Password do not match") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf("Password do not match")]}</strong></div> : null}
+
                                 </div>
                             </div>
                             <div className="form-group py-1">
                                 <label className="">
-                                    <h6>Re-enter Password</h6>
-                                </label>
-                                <div class="icon_form">
-                                    <span class="fas fa-lock"></span>
-                                    <input
-                                        id={errors.includes('Password is required') || errors.includes('Password must be 8 character long') || errors.includes('Password do not match') ? 'error-form' : null}
-                                        type="password"
-                                        name="repeatPassword"
-                                        onChange={handleInputChange}
-                                        value={inputs.repeatPassword}
-                                    />
-                                    {errors.includes('Password is required') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password is required')]}</strong>
-                                        </div>
-                                    ) : null}
-                                    {errors.includes('Password must be 8 character long') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password must be 8 character long')]}</strong>
-                                        </div>
-                                    ) : null}
-                                    {errors.includes('Password do not match') ? (
-                                        <div className="text-center pt-1">
-                                            <strong className="text-danger">{errors[errors.indexOf('Password do not match')]}</strong>
-                                        </div>
-                                    ) : null}
-                                </div>
-                            </div>
-                            <div className="form-group py-1">
-                                <label className="">
-                                    <h6>Phone Number</h6>
+                                    <h6>Phone Number<span style={{color:"red"}}>*</span></h6>
                                 </label>
                                 <div class="icon_form">
                                     <span class="fas fa-phone"></span>

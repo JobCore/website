@@ -23,18 +23,7 @@ const JobSeekersSignUp = (props) => {
         <Layout>
             <SEO title="Sign Up" />
 
-            <div className="pink-top-image text-light d-flex align-items-center">
-                <div className="text-center w-100 px-10">
-                    <h1
-                        // className="font-size-4em"
-                        style={{ fontSize: "3.5vw" }}
-                    >
-                        <span className="p-2 px-4 bg-black-opacity">Job Seekers
-                        <span className="text-brightblue"> Sign Up</span>
-                        </span>
-                    </h1>
-                </div>
-            </div>
+
             <div className="row text-center justify-content-center">
                 <div className="col col-md-4">
                     <div class={`alert alert-success text-center mx-auto ${showAlert ? 'alert-thankyou-shown' : 'alert-thankyou-hidden'}`} role="alert">
