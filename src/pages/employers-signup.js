@@ -352,7 +352,7 @@ const EmployersSignUp = ({ search }) => {
                                                     registerEmployer(inputs).then(res =>{
                                                         if(res.non_field_errors[0] == "Email is valid"){
                                                             window.scrollTo(0, 0);
-                                                            setPaymentConfirmation(true);
+                                                            redirectToCheckout2(e,inputs,plan);
                                                         }else{
                                                             setLoading(false)
                                                             setPaymentConfirmation(false)

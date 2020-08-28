@@ -40,11 +40,11 @@ const Footer = () => (
                         <li>
                             <a href="/employers">Employers</a>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/positions">
                                 <a>Positions</a>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/about">
                                 <a>Our Story</a>
@@ -113,7 +113,7 @@ const Footer = () => (
                 </div>
                 <div className="col">
                     <span className="round-links bg-white mr-3">
-                        <a href="#">
+                        <a href="mailto: support@jobcore.co">
                             <span className="d-flex align-items-center justify-content-center">
                                 <i class="fas fa-envelope"></i>
                             </span>

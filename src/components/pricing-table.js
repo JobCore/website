@@ -81,6 +81,8 @@ const PricingTable = (props) => {
               <span>Free 30 Days Trial</span>
 
             </div>
+            <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
+
             <ul>
             <li>
                 <strong>Unlimited Schedule Shifts</strong> 
@@ -115,7 +117,7 @@ const PricingTable = (props) => {
       
             </ul>
             <div className="buy-button-box">
-              <Link to={`/employers-signup/?email=${props.email || "" }&plan=basic`}className="buy-now" style={{backgroundColor:"#26de81"}}>BUY NOW</Link>
+              <Link to={`/employers-signup/?email=${props.email || "" }&plan=basic`}className="buy-now" style={{backgroundColor:"#26de81"}}>START TRIAL NOW</Link>
 
             </div>
           </div>
@@ -136,6 +138,8 @@ const PricingTable = (props) => {
               <span>Free 30 Days Trial</span>
 
             </div>
+            <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
+
             <ul>
             <li>
                 <strong>Unlimited Schedule shifts</strong> 
@@ -170,7 +174,7 @@ const PricingTable = (props) => {
         
             </ul>
             <div className="buy-button-box">
-                <Link to={`/employers-signup/?email=${props.email || "" }&plan=pro`}className="buy-now" style={{backgroundColor:"#f7b731"}}>BUY NOW</Link>
+                <Link to={`/employers-signup/?email=${props.email || "" }&plan=pro`}className="buy-now" style={{backgroundColor:"#f7b731"}}>START TRIAL NOW</Link>
 
             </div>
           </div>
@@ -190,6 +194,7 @@ const PricingTable = (props) => {
               <span>Free 30 Days Trial</span>
 
             </div>
+            <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
             <ul>
             <li>
                 <strong>Unlimited Schedule shifts</strong> 
@@ -223,7 +228,7 @@ const PricingTable = (props) => {
               </li>
             </ul>
             <div className="buy-button-box" >
-              <Link to={`/employers-signup/?email=${props.email || ""}&plan=enterprise`}className="buy-now" style={{backgroundColor:"#a55eea"}}>BUY NOW</Link>
+              <Link to={`/employers-signup/?email=${props.email || ""}&plan=enterprise`}className="buy-now" style={{backgroundColor:"#a55eea"}}>START TRIAL NOW</Link>
 
             </div>
           </div>

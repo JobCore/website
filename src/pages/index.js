@@ -3,6 +3,7 @@ import validator from 'validator'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Player from '../components/player'
+import Testimonials from '../components/testimonials'
 import GetStarted from '../components/input-getstarted'
 import GetStartedModal from '../components/modal-getstarted'
 //banner video
@@ -285,74 +286,7 @@ export default () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-4 pt-2 pr-2">
-
-                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-3 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-4 pt-2 pr-2">
-
-
-                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
-
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-4 pt-2 pr-2">
-
-                        <Player video="https://www.youtube.com/watch?v=AWh9gESAOO0" height={'200px'} placeholder={Logo} />
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Testimonials/>
 
                 <div className="px-10 m-0 text-center">
 

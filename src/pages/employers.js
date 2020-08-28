@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Player from '../components/player'
 import Logo from '../images/jobcorelogo.png'
 import ReactPlayer from 'react-player'
+import Testimonials from '../components/testimonials'
 
 import GetStartedModal from '../components/modal-getstarted'
 //assets
@@ -24,6 +25,7 @@ import PlatformGlance4 from '../images/platform-glance-4.png'
 import GooglePlayStore from '../images/googleplay.svg'
 import AppleStore from '../images/applestore.svg'
 import GetStarted from '../components/input-getstarted'
+import Testimonial from '../components/testimonials'
 /* eslint-disable */
 
 const Employers = () => {
@@ -174,62 +176,8 @@ const Employers = () => {
 
             <GetStartedModal />
             <div className="py-10 text-left text-center">
-                <h3 className="mb-2">
-                    The <span className="text-brightblue">platform</span> at a glance
-                </h3>
-
-                <p>
-                    JobCore provides an easy to use end-to-end experience for employers and job seekers
-                    <br />
-                    in the hospitality industry on mobile and desktop.
-                </p>
-                <div className="row  justify-content-center ml-0 mr-0 mb-5 pb-2">
-                    <div className="col-12 col-sm-7 col-md-8 col-lg-7">
-
-
-
-
-                        <div class="row justify-content-center">
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top " src={PlatformGlance1} alt="Card 1" style={{ height: '120px' }} />
-                                    <div class="card-block">
-                                        <p class="card-title mt-4" style={{ color: "#787878" }}>Find Talent</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top " src={PlatformGlance2} alt="Card 2" style={{ height: '120px' }} />
-                                    <div class="card-block">
-                                        <p class="card-title mt-4" style={{ color: "#787878" }} >Job Preferences</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix visible-sm hidden-md-up"></div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top " src={PlatformGlance3} alt="Card 3" style={{ height: '120px' }} />
-                                    <div class="card-block">
-                                        <p class="card-title mt-4" >Clock In and Out</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top " src={PlatformGlance1} alt="Card 4" style={{ height: '120px' }} />
-                                    <div class="card-block">
-                                        <p class="card-title mt-4">Get Paid Some Day</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  
+            
 
 
 
@@ -237,85 +185,9 @@ const Employers = () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col-md-3 pt-2 pr-2">
+                <Testimonials/>
 
-                        <div className="reviews">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
-                            repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
-                        </div>
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-md-3 pt-2 pr-2">
-
-
-                        <div className="reviews">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
-                            repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
-                        </div>
-
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3 pt-2 pr-2">
-
-                        <div className="reviews">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa obcaecati adipisci cum nulla, ipsum odio fugit obcaecati sequi eius dicta officia vel quo numquam est, dolores magnam culpa ullam quas obcaecati perspiciatis,
-                            repellat nesciunt eum inventore. Aspernatur ipsum distinctio, sunt possimus ipsa iste placeat.
-                        </div>
-
-
-                        <div className="row justify-content-end ml-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="px-10  m-0 text-center">
+                {/* <div className="px-10  m-0 text-center">
 
                     <h3 className="pt-5 mt-3">
                         It's never been easier to <span className="text-brightblue">find job</span> in the hospitality industry.
@@ -330,7 +202,7 @@ const Employers = () => {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
                 <div class={showModal ? 'modal fade show d-block' : 'modal'} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

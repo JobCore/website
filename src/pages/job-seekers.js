@@ -8,6 +8,7 @@ import ModalJobseeker from '../components/jobseeker-modal'
 import GetStartedJobSeeker from '../components/input-getstarted-employee'
 import Logo from '../images/jobcorelogo.png'
 import ReactPlayer from 'react-player'
+import Testimonials from '../components/testimonials'
 
 //assets
 import AppStore from '../images/app-store.png'
@@ -148,7 +149,7 @@ const JobSeekers = () => {
                 </div>
             </div>
 
-            <div className="bg-lightgray px-10 py-10 m-0 text-center">
+            {/* <div className="bg-lightgray px-10 py-10 m-0 text-center">
                 <h3 className="mb-2">
                     Finally a job platform for the
                     <span className="text-brightblue"> hospitality industry!</span>
@@ -167,7 +168,7 @@ const JobSeekers = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
             {/* <div className="pt-10 text-left d-flex justify-content-center align-items-center"> */}
             {/* <div className="row ml-0 mr-0">
@@ -195,12 +196,12 @@ const JobSeekers = () => {
                         </div>
                     </div>
                 </div> */}
-            <div className="row justify-content-center py-10">
+            {/* <div className="row justify-content-center py-10">
                 <div className="col-md-4">
 
                     <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height="400px" placeholder={Logo} />
                 </div>
-            </div>
+            </div> */}
             {/* </div> */}
             <ModalJobseeker />
 
@@ -254,74 +255,8 @@ const JobSeekers = () => {
                     What our <span className="text-brightblue">customers</span> are saying about us
                 </h3>
 
-                <div className="row justify-content-center py-4 mx-auto">
-                    <div className="col pt-2">
+                <Testimonials/>
 
-                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col pt-2">
-
-
-                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
-
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col pt-2">
-
-                        <Player video="https://www.youtube.com/watch?v=LXb3EKWsInQ" height={'200px'} placeholder={Logo} />
-
-
-                        <div className="row justify-content-end m-0">
-                            <div className="col-6 col-md-2 text-right my-auto">
-                                <span>
-                                    <div>
-                                        <small>Tanya,</small>
-                                    </div>
-                                    <div>
-                                        <small className="text-gray">Victoria</small>
-                                    </div>
-                                </span>
-                            </div>
-                            <div className="col-6 col-md-3 my-auto">
-                                <img src={Review1} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="px-10  m-0 text-center">
 

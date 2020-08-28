@@ -12,7 +12,7 @@ const FAQ = ({
             <div className="col-md-1 ml-auto  my-auto">{showFAQ ? <i className="fas fa-chevron-up pr-4"></i> : <i className="fas fa-chevron-down pr-4"></i>}</div>
             <div class="w-100"></div>
             {showFAQ && (
-                <div className="p-4" style={{ fontSize: '14px' }}>
+                <div className='pl-3 pb-3' style={{ fontSize: '14px' }}>
                     {text}        </div>
             )}
         </div>

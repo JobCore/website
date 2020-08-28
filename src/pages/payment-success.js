@@ -69,7 +69,7 @@ const PaymentSuccess = ({ search }) => {
                     <div className="col-12">
                         <i style={{fontSize: "100px"}} className="far fa-thumbs-up" aria-hidden="true"></i>
 
-                        <h1>Payment succesful</h1>
+                        <h1>Success</h1>
                         <p style={{fontWeight:"bolder"}}>You will be redirected to JobCore in ...{seconds}</p>
 
                         <a href="https://employer.jobcore.co/login"><button className="btn radius btn-darkgreen px-4 py-2 mb-3">Redirect to login page</button></a>

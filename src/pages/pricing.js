@@ -340,12 +340,12 @@ const Pricing = ({ search }) => {
                 <h3 className="text-center mt-5" style={{ fontWeight: 'bolder', color: '#75c7d2' }}>
                     Frequently Asked Questions
                 </h3>
-                <FAQ question="How much does JobCore cost?" text="So, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
-                <FAQ question="Which plan is right for me?" text="So2, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
-                <FAQ question="How to manage my billing?" text="So3, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
-                <FAQ question="Can I use this for my whole organization, or just my team?" text="So4, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
-                <FAQ question="Can I change my plan?" text="So5, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
-                <FAQ question="Does Jobcore offer plans to non-profits, NGO's and educational institutions?" text="So6, we offer a free trial period so you can fall in love with JobCore s much as we love it. For more details regarding the plans we offer you can read more at 'How does pricing work?'" />
+                <FAQ question="How much does JobCore cost?" text="So, we offer a free trial period so you can fall in love with JobCore as much as we love it. For more details regarding the plans we offer you can read more at 'Pricing'" />
+                <FAQ question="What forms of payment do you accept?" text="You can purchase JobCore membership with any major credit card. Please contact us to arrange an invoice purchase. Monthly purchases must be paid for by credit card." />
+                <FAQ question="How do refunds work" text="You can issue either partial or full refunds. There are no fees to refund a charge, but the fees from the original charge are not returned." />
+                <FAQ question="Can I use this for my whole organization, or just my team?" text="Yes, you can use JobCore for your whole organization." />
+                <FAQ question="Can I change my plan?" text="Yes, you are able to request a subscription change inside the employer portal." />
+                <FAQ question="What is your refund policy?" text="We do not offer refunds apart from exceptions listed below. If you cancel your plan before the next renewal cycle, you will retain access to paid features until the end of your subscription period. When your subscription expires, you will lose access to paid features and all data associated with those features. Exceptions to our refund policy: canceling within 48 hours of initial charge will result in a full refund. If you cancel within this timeframe, you will lose access to paid features and associated data immediately upon canceling." />
 
                 </div>
       
