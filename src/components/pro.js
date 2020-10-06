@@ -8,7 +8,7 @@ const PricingPro = (props) => {
         
         <div className="column">
         <div className="pricing-card pro">
-          <div className="popular">POPULAR</div>
+          <div className="popular">MOST POPULAR</div>
           <div className="pricing-header">
             <span className="plan-title">PRO PLAN</span>
             <div className="price-circle">

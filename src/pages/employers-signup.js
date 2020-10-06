@@ -157,7 +157,7 @@ const EmployersSignUp = ({ search }) => {
     })
 
   
-    const [consent, setConsent] = useState(false)
+    const [consent, setConsent] = useState(true)
     const [paymentConfirmation, setPaymentConfirmation] = useState(false)
     const [consentErrorMsg, setConsentErrorMsg] = useState('')
     const [errors, setErrors] = useState([])
@@ -398,7 +398,7 @@ const EmployersSignUp = ({ search }) => {
                                 </Link>
                                 .
                             <div className="d-flex justify-content-start mt-3">
-                                    <input onChange={handleClickConsent} checked={consent}className="mt-1 mr-2" type="checkbox" />
+                                    {/* <input onChange={handleClickConsent} checked={consent}className="mt-1 mr-2" type="checkbox" /> */}
                                     <div>
                                         I consent to receive updates and agree to receive occasional
                                         automated text messages from JobCore. Messages and data rates may

@@ -77,10 +77,13 @@ const PricingTable = (props) => {
                 <span className="info">/ Month</span>
               </div>
             </div>
+            <Link to={`/employers-signup/?email=${props.email || "" }&plan=basic`}>
+
             <div className="badge-box">
               <span>Free 30 Days Trial</span>
 
             </div>
+            </Link>
             <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
 
             <ul>
@@ -124,7 +127,7 @@ const PricingTable = (props) => {
         </div>
         <div className="column">
           <div className="pricing-card pro">
-            <div className="popular">POPULAR</div>
+            <div className="popular">MOST POPULAR</div>
             <div className="pricing-header">
               <span className="plan-title">PRO PLAN</span>
               <div className="price-circle">
@@ -134,10 +137,13 @@ const PricingTable = (props) => {
                 <span className="info">/ Month</span>
               </div>
             </div>
+            <Link to={`/employers-signup/?email=${props.email || "" }&plan=pro`}>
+
             <div className="badge-box">
               <span>Free 30 Days Trial</span>
 
             </div>
+            </Link>
             <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
 
             <ul>
@@ -190,10 +196,14 @@ const PricingTable = (props) => {
                 <span className="info">/ Month</span>
               </div>
             </div>
+            <Link to={`/employers-signup/?email=${props.email || "" }&plan=enterprise`}>
+
             <div className="badge-box">
               <span>Free 30 Days Trial</span>
 
             </div>
+            </Link>
+                      
             <span style={{color: "red", fontSize: '12px'}}>Cancel Anytime</span>
             <ul>
             <li>
