@@ -80,7 +80,7 @@ const PricingTable = (props) => {
             <Link to={`/employers-signup/?email=${props.email || "" }&plan=basic`}>
 
             <div className="badge-box">
-              <span>Free 30 Days Trial</span>
+              <span>Free 30 Day Trial</span>
 
             </div>
             </Link>
@@ -140,7 +140,7 @@ const PricingTable = (props) => {
             <Link to={`/employers-signup/?email=${props.email || "" }&plan=pro`}>
 
             <div className="badge-box">
-              <span>Free 30 Days Trial</span>
+              <span>Free 30 Day Trial</span>
 
             </div>
             </Link>
@@ -199,7 +199,7 @@ const PricingTable = (props) => {
             <Link to={`/employers-signup/?email=${props.email || "" }&plan=enterprise`}>
 
             <div className="badge-box">
-              <span>Free 30 Days Trial</span>
+              <span>Free 30 Day Trial</span>
 
             </div>
             </Link>

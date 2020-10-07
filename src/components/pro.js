@@ -19,7 +19,7 @@ const PricingPro = (props) => {
             </div>
           </div>
           <div className="badge-box">
-            <span>Free 30 Days Trial</span>
+            <span>Free 30 Day Trial</span>
 
           </div>
           <ul>

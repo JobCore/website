@@ -318,12 +318,20 @@ const EmployersSignUp = ({ search }) => {
                                 </div>
                                 <div className="form-row s700-display-column">
                                     <div className="form-group col py-1">
-                                        <label className=""><h6>Tell us about your business<span style={{color:"red"}}>*</span></h6></label>
+                                        <label className=""><h6>Type of business<span style={{color:"red"}}>*</span></h6></label>
                                         {/* <input type='text' value='' class='form-control icon-input'/><a><i class='fa fa-user' aria-hidden='true'></i></a> <a></a> */}
                                         <div class="icon_form">
+                                                <select name="about_business" id={errors.includes("About your business is required") ? "error-form" : null} onChange={handleInputChange} value={inputs.about_business}>
+                                                <option value="Restaurant">Restaurant</option>
+                                                <option value="Janitorial">Janitorial</option>
+                                                <option value="Hospitality">Catering</option>
+                                                <option value="Warehouse">Warehouse</option>
+                                                <option value="Other">Other</option>
+                                                </select>
+                                                {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
 
-                                            <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
-                                            {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null}
+                                            {/* <input id={errors.includes("About your business is required") ? "error-form" : null} maxlength="254" type="text" name="about_business" onChange={handleInputChange} value={inputs.about_business} />
+                                            {errors.includes("About your business is required") ? <div className="text-center pt-1"><strong className="text-danger">{errors[errors.indexOf('About your business is required')]}</strong></div> : null} */}
 
                                         </div>
                                     </div>
